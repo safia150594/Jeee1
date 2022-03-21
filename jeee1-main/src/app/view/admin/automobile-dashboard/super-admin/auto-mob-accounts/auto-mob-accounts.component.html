@@ -1,0 +1,35 @@
+<div class="p-5">
+   <div>
+    <h3>Accounts</h3>
+   </div>
+    <div class="bg-white">
+        <table class="table ">
+            <thead>
+              <tr>
+                <th scope="col">#Account ID</th>
+                <th scope="col">Photo</th>
+                <th scope="col">Account Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Status</th>
+                <th scope="col">Documents</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let acc of accounts; let i=index">
+                <th scope="row">{{i+1}}</th>
+                <td >
+                    <img class= "obj-fit.img" [src]="acc.accProfile" height="50px" width="50px;">
+                </td>
+                <td>{{acc.accName}}</td>                
+                <td>{{acc.accEmail}}</td>
+                <td>{{acc.phone}}</td>
+                <td>{{acc.status}}</td>
+                <td><i class="far fa-eye"></i> {{acc.document}}</td>
+                <td>{{acc.action}}</td>
+              </tr>             
+            </tbody>
+          </table>
+    </div>
+</div>

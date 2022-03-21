@@ -1,0 +1,29 @@
+img.objestfit{ 
+    object-fit: cover;   
+}
+.red{
+    color:var(--primary);
+}
+.posAbsolute{
+position: absolute;
+  top: 5px;
+  left: 4px;
+}
+button.decoration,a.decoration {
+    margin: 2px;
+    padding: 1px 20px;
+    border-radius: 15px;
+}
+
+a.decoration:nth-child(2) {
+    background: var(--skyblue);
+    border: none;
+}
+.automobile-side-search {
+    background: #eeeeee;
+    padding: 43px;
+    border-radius: 10px;
+}
+i.flagColor:hover{
+ color:var(--primary);
+}

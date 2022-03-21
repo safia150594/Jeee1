@@ -1,0 +1,30 @@
+<div class="modal-header">
+    <div>
+        <small class="modal-title pull-left"><i class="far fa-file-pdf"></i> DOCUMENTS (PRIVATE FOLDER)
+        </small><br>
+        <small style="font-size: 10px;">Please Do Not Upload TruCheck™ Documents in this sectione</small>
+    </div>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+<div class="modal-body pb-0">
+    <form method="get" action="">
+        <!-- <div class="container-fluid ">
+<img *ngFor='let url of urls' [src]="url" height="100px">
+<input type="file" (change)="onselect($event)" multiple>
+       </div> -->
+        <div class="py-3">
+           
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary btn-sm"> <i class="fas fa-plus-circle"></i> Upload Document</button>
+            <p style="font-size: 10px;" class="mb-0">
+                Press CTRL key while selecting files to upload multiple at once
+            </p>
+        </div>
+    </form>
+</div>
+<div class="modal-footer d-flex">
+    <button type="button" class="btn btn-primary">DONE</button>
+</div>

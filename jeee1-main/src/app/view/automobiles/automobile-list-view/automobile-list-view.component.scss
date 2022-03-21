@@ -1,0 +1,39 @@
+.automobile-view-slider .borderRadius {
+    border-radius: 10px;
+}
+.mapBg{
+    background-image: url('../../../../assets/map/map_bg.png');
+}
+img.objfit{
+    object-fit: cover;
+}
+p.car-view-item {
+    font-size: 13px;
+}
+
+.car-details {
+    font-size: 18px;
+}
+
+.auto-view-item p i {
+    font-size: 28px;
+}
+
+.automobileScrollNav {
+    z-index: 999;
+}
+
+.showNavAutomobile {
+    position: fixed;
+    width: 100%;
+    transition: 0.2s linear;
+    top: 0px;
+    display: block;
+}
+
+.hideNavAutomobile {
+    position: static;
+    transition: 0.2s linear;
+    top: -50px;
+    display: none;
+}

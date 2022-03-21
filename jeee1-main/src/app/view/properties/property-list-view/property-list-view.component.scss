@@ -1,0 +1,76 @@
+// slider
+.featured-img img {
+    vertical-align: middle;
+    border-radius: 10px;
+    object-fit: cover;
+    height: 400px;
+}
+
+.property-view-btn {
+    position: absolute;
+    top: 20px;
+    right: 16px;
+}
+
+.property-view-btn button {
+    margin: 4px;
+    padding: 4px 15px;
+    border-radius: 10px;
+    border: 2px solid var(--primary);
+}
+
+.property-view-btn button:hover {
+    color: var(--primary);
+    background-color: var(--white);
+}
+
+.property-view-icon span {
+    font-size: 20px;
+    padding-right: 7px;
+    margin: 15px;
+}
+
+// slidercheck
+.aminity {
+    ul {
+        list-style: none!important;
+        padding: 0;
+    }
+    li {
+        padding-left: 1.3em;
+    }
+    li:before {
+        content: "\f00c";
+        /* FontAwesome Unicode */
+        font-family: FontAwesome;
+        display: inline-block;
+        margin-left: -1.3em;
+        /* same as padding-left set on li */
+        width: 1.3em;
+        /* same as padding-left set on li */
+    }
+}
+
+.reference-logo img {
+    height: 100px;
+    object-fit: cover;
+}
+
+.showNavProperty {
+    position: fixed;
+    width: 100%;
+    transition: 0.2s linear;
+    top: 0px;
+    display: block;
+}
+
+.hideNavProperty {
+    position: static;
+    transition: 0.2s linear;
+    top: -50px;
+    display: none;
+}
+
+.propertyScrollNav {
+    z-index: 999;
+}

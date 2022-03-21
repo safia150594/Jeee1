@@ -1,0 +1,90 @@
+<div class="p-5">
+    <div class="teams-management">
+       <div>
+        <div class=" text-end" (click)="toggleAddListManageTeam()">
+            <button type="button" class="btn btn-sm btn-primary px-4"><i class="fas fa-plus-circle"></i> Add Team</button>
+        </div>
+        <div *ngIf="isShowAddListManageTeam">
+            <div>
+                <h5 >ADD TEAM</h5>
+                <hr>
+            </div>
+            <div>
+               <form #addTeam="ngForm">
+                   {{addTeam.value |json}}
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-3">
+                                <p>Team Name: <span class="required">*</span></p>
+                            </div>
+                            <div class="col-9">
+                                <input type="text" class="form-control form-control-sm" id="colFormLabel"
+                                    placeholder="" name="teamName" #teamName="ngModel" required
+                                    [(ngModel)]="dummyAddTeam.teamName">
+                                    <small *ngIf="teamName.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 d-flex justify-content-end">
+                        <button type="button" class="btn btn-sm btn-outline-primary mx-2 px-4">Cancel</button>
+                        <button type="button" class="btn btn-sm btn-primary px-4"  (click)="manageTeam(addTeam.valid)"><i class="fas fa-check"></i> Create Team</button>
+                    </div>
+                </div>
+               </form>
+            </div>
+        </div>
+       </div>
+        <div>
+            <h5 >TEAM LIST</h5>
+            <hr>
+            <div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" >
+                                </div>
+                            </th>
+                            <th scope="col"><abbr class="initialism" title="Title">TEAM</abbr></th>
+                            <th scope="col">CREATED ON</th>
+                            <th scope="col">TEAM MEMBERS </th>
+                            <th scope="col">TEAM MANAGEMENT</th>
+                            <th scope="col">TEAM CONTROLS</th>                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let team of teamList">
+                            <th scope="row">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" >
+                                </div>
+                            </th>
+                            <td>
+                               {{team.team}}
+                            </td>
+                            <td>
+                                {{team.createdOn}}
+                            </td>
+                            <td>
+                                {{team.teamMembers}}
+                            </td>
+                            <td>
+                                {{team.teamManagement}}
+                            </td>                            
+                            <td class="icon-font">
+                               <p> <i class="fas fa-edit mx-1"  title="Edit User">
+
+                               </i> <i class="far fa-plus-square mx-1" title="add User">
+                                   
+                               </i> <i class="far fa-trash-alt mx-1"  title="Delete"></i> </p>
+                            </td>                           
+                         </tr>                                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>

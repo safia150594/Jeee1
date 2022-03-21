@@ -1,0 +1,29 @@
+.job-banner {
+    background-image: url('../../../../assets/job/j4.jpg');
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: cover;
+    background-position: bottom;
+    height: 70vh;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.job-banner-overlay {
+    background: #000000a6;
+    height: 70vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* align-self: center; */
+    align-items: center;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.job-home-dashboard {
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    margin: 2px;
+    background: var(--silver);
+    border-radius: 10px;
+}

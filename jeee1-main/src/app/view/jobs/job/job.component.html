@@ -1,0 +1,71 @@
+<div>
+    <div class="container">
+        <div class="job-banner">
+            <div class="job-banner-overlay">
+                <div>
+                    <h1 class="text-white">Start your job pursuit here and be seen by recruiters</h1>
+                    <form class="" #search="ngForm">
+                        <input class="form-control" type="search" placeholder="Enter Keywords" aria-label="Search" name="search" #search="ngModel" required [(ngModel)]="jobSearch.search" >
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="my-5" [routerLink]="['../job-list']" *ngFor='let joblist of jobDashboard'>
+            <div class="row">
+                <div class="col-2">
+                    <div class="job-home-dashboard">
+                        <a>ACCOUNTING<br><span>{{joblist.account}}</span></a>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="job-home-dashboard">
+                        <a>CUSTOMER SERVICE<br><span>{{joblist.custService}}</span></a>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="job-home-dashboard">
+                        <a>HOSPITALITY & RESTAURANTS<br><span>{{joblist.hospitality}}</span></a>
+                    </div>
+                </div>
+                <div class="col-1">
+                    <div class="job-home-dashboard">
+                        <a>SALES<br><span>{{joblist.sales}}</span></a>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="job-home-dashboard">
+                        <a>SECRETARIAL<br><span>{{joblist.secretarial}}</span></a>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="job-home-dashboard">
+                        <a>TRANSPORTATION<br><span>{{joblist.transportation}}</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="job-featured-listing">
+            <h3>Featured Listing</h3>
+            <div class="py-5">
+                <div class="row gy-5">
+                    <div class="col-md-3" *ngFor='let featurelist of jobFeatured'>
+                        <div [routerLink]="['../job-list']">
+                            <div class="card" style="width: 18rem;">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item ">Job</li>
+                                    <li class="list-group-item">{{featurelist.role}}</li>
+                                </ul>
+                                <div class="card-body">
+                                    <h5 class="card-title text-danger">{{featurelist.salary}}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">{{featurelist.jobCatogery}}</h6>
+                                    <p class="card-text">{{featurelist.jobDesc}}</p>
+                                    <P> {{featurelist.Exp}} Experience</P>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

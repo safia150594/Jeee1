@@ -1,0 +1,252 @@
+<div class="py-5 my-5">
+    <div class="container">
+        <div class="row">
+            <form #search="ngForm"  class="col-2">
+                {{search.value | json}}
+                <div class="job-side-search">
+                    <h5>Search</h5>
+                    <div class="py-2">
+                        <ng-select [items]="LocationList" name="loc" appendTo="body" #loc="ngModel" required
+              [(ngModel)]="quicksearch.loc" placeholder="All City">
+            </ng-select>
+                    </div>
+                    <div class="py-2">
+                        <ng-select [items]="typeList" name="type" appendTo="body" #type="ngModel" required
+              [(ngModel)]="quicksearch.type" placeholder="All of Jeee">
+            </ng-select>
+                    </div>
+                    <div class="py-2">
+                        <ng-select [items]="CategoriesList" appendTo="body" name="Categories" #Categories="ngModel" required
+                        [(ngModel)]="quicksearch.Categories" placeholder="All Categories">
+                      </ng-select>
+                    </div>
+                    <div class="w-100% py-2">
+                        <h5>Keywords</h5>
+                        <div class="input-group flex-nowrap">
+                            <input type="text" class="form-control" placeholder="Search" name="keyword" #keyword="ngModel" required
+                            [(ngModel)]="quicksearch.keyword" />
+                        </div>
+                    </div>
+                    <div class="w-100% py-2">
+                        <div>
+                            <h5>Content Language</h5>
+                            <input type="checkbox" id="show-english-ad" name="show-english-ad" name="showEnglishOnly" [(ngModel)]="quicksearch.showEnglishOnly" /> &nbsp;
+                            <label for="show-english-ad">Show English Add only</label>
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="button" class="btn btn-primary my-2">
+              Update Search
+            </button>
+                    </div>
+                    <div class="py-2">
+                        <h5 class="py-2">Job Role</h5>
+                        <ng-select [items]="JobRoleList" appendTo="body" name="jobRole" #jobRole="ngModel" required
+              [(ngModel)]="quicksearch.jobRole" placeholder="Job Role">
+            </ng-select>
+                    </div>
+                    <div class="py-2">
+                        <h5 class="py-2">Ads Post</h5>
+                        <ng-select [items]="adsPost" appendTo="body" name="ads" #ads="ngModel" required
+                        [(ngModel)]="quicksearch.ads" placeholder="Any Time">
+                      </ng-select>
+                    </div>
+                    <div class="py-2">
+                        <h5 class="py-2">Salary (AED)</h5>
+                        <ng-select [items]="salayList" appendTo="body" name="salary" #salary="ngModel" required
+              [(ngModel)]="quicksearch.salary" placeholder="Any Salary">
+            </ng-select>
+                    </div>
+                    <div class="py-2">
+                        <h5 class="py-2">Minimun Experience</h5>
+                        <ng-select [items]="minExpList" appendTo="body" name="minExp" #minExp="ngModel" required
+              [(ngModel)]="quicksearch.minExp" placeholder="All Level">
+            </ng-select>
+                    </div>
+                    <div class="py-2">
+                        <h5 class="py-2">Minimun Education</h5>
+                        <ng-select [items]="minEduList" appendTo="body" name="minEdu" #minEdu="ngModel" required
+              [(ngModel)]="quicksearch.minEdu" placeholder="Any Education">
+            </ng-select>
+                    </div>
+                    <div class="py-2">
+                        <h5 class="py-2">Employment Type</h5>
+                        <ng-select [items]="empTypeList" appendTo="body" name="emptype" #emptype="ngModel" required
+              [(ngModel)]="quicksearch.emptype" placeholder="Any Education">
+            </ng-select>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="button" class="btn btn-primary my-2">
+              Update Search
+            </button>
+                    </div>
+                </div>
+            </form>
+            <div class="col-7">
+                <div *ngFor="let desc of jobListViewTitle">
+                    <h3><i class="fas fa-star"></i> {{ desc.title }}</h3>
+                </div>
+                <div class="py-2">
+                    <div *ngFor="let jobListview of jobListView">
+                        <small class="fs-6">
+              <a>{{ jobListview.location }} ></a>
+              <a>{{ jobListview.title }} ></a>
+              <a>{{ jobListview.role }} > Details</a>
+            </small>
+                    </div>
+                </div>
+                <div class="jobdetails py-4">
+                    <div class="row">
+                        <div class="col-7">
+                            <h4 class="fw-bold">Details</h4>
+                        </div>
+                        <div class="col-5">
+                            <p class="text-lightgray" *ngFor="let jobview of jobListViewDetails">
+                                Posted on:&nbsp;{{ jobview.details }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col py-4">
+                            <div *ngFor="let jobview of jobListViewDetails">
+                                <div class="details">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p class="fs-5">
+                                                <span class="text-lightgray">Employment Type:</span>
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="fs-5">{{jobview.empType}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p class="fs-5">
+                                                <span class="text-lightgray">Monthly Salary:</span>
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="fs-5">{{jobview.monthlySalary}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p class="fs-5">
+                                                <span class="text-lightgray">Job Role:</span>
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="fs-5">{{jobview.jobRole}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p class="fs-5">
+                                                <span class="text-lightgray">Minimum Work Experience:</span>
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="fs-5">{{jobview.minWorkExp}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p class="fs-5">
+                                                <span class="text-lightgray">Minimum Education Level:</span>
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="fs-5">{{ jobview.minEduLevel }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p class="fs-5">
+                                                <span class="text-lightgray">Listed By:</span>
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="fs-5">{{jobview.lisyBy}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p class="fs-5">
+                                                <span class="text-lightgray">Company Size:</span>
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="fs-5">{{jobview.companySize}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p class="fs-5">
+                                                <span class="text-lightgray">Career Level:</span>
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="fs-5">{{jobview.careerLevel}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p class="fs-5">
+                                                <span class="text-lightgray">Expires on:</span>
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="fs-5">{{jobview.expiresOn}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p class="fs-5">
+                                                <span class="text-lightgray">Company Name:</span>
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p class="fs-5">{{jobview.cmpName}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="description py-5">
+                                    <h4 class="fw-bold py-3">Description:</h4>
+                                    <p class="fs-5 text-lightgray">{{jobview.jobDesc}}</p>
+                                </div>
+                                <div>
+                                    <h4 class="fw-bold py-3">Share with friends:</h4>
+                                    <div class="fs-3">
+                                        <i class="fab fa-twitter px-1"></i> <i class="fab fa-facebook px-1"></i>
+                                    </div>
+                                    <label for="basic-url" class="form-label">Short Link</label>
+                                    <div class="input-group mb-3 w-50">                     
+                                           <label>{{jobview.shortLink}}</label>         
+                                        
+                                    </div>
+                                    <button type="button" class="btn btn-outline-primary px-5 py-2"><i class="far fa-envelope"></i> Apply</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-outline-primary py-2 my-2 fs-5" type="button"><i class="far fa-envelope"></i> Apply</button>
+                </div>
+                <div class="py-2" *ngFor="let jobLocation of jobListViewLocation;">
+                    <p class="text-lightgray">Location</p>
+                    <p>{{jobLocation.jobarea}}, {{jobLocation.jobcity}}</p>
+                </div>
+                <div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28908.383593517894!2d55.122060489818345!3d25.083306391276366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6b5402c126e3%3A0xb9511e6655c46d7c!2sDubai%20Marina%20-%20Dubai!5e0!3m2!1sen!2sae!4v1634120458918!5m2!1sen!2sae"
+                        width="100%" height="300px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

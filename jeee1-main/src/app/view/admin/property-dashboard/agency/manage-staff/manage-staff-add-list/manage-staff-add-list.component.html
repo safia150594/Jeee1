@@ -1,0 +1,270 @@
+<div class="">
+    <div class="add-staff">
+        <form #AddManageStaff="ngForm">
+            {{AddManageStaff.value | json}}
+            <div class="row">
+                <div ngModelGroup="BASIC INFORMATION" class="col-6 pt-2">
+                    <h5>BASIC INFORMATION</h5>
+                    <div class="row">
+                        <div class="col-3 pt-2">
+                            <label class="d-flex">Name: <span class="required">*</span></label>
+                        </div>
+                        <div class="col-9 pt-2">
+                            <input type="text" class="form-control form-control-sm" placeholder="" name="name"
+                                #name="ngModel" required [(ngModel)]="dummyaddManageStaff.name">
+                            <small *ngIf="name.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 pt-2">
+                            <label class="d-flex">Name In Arabic:</label>
+                        </div>
+                        <div class="col-9 pt-2">
+                            <input type="text" class="form-control form-control-sm" placeholder="" name="nameInArabic"
+                                #nameInArabic="ngModel" required [(ngModel)]="dummyaddManageStaff.nameInArabic">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 pt-2">
+                            <label class="d-flex">Email: <span class="required">*</span></label>
+                        </div>
+                        <div class="col-9 pt-2">
+                            <input type="email" class="form-control form-control-sm" placeholder="User Name"
+                                name="staffEmail" #staffEmail="ngModel" required [(ngModel)]="dummyaddManageStaff.staffEmail" email>
+                            <small *ngIf="staffEmail.invalid && isFormSubmitted" class="text-danger">Field Required</small>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 pt-2">
+                            <label class="d-flex">BRN: </label>
+                        </div>
+                        <div class="col-9 pt-2">
+                            <input type="text" class="form-control form-control-sm" placeholder="BNR"
+                                placeholder="User Name" name="BNR" #BNR="ngModel" required
+                                [(ngModel)]="dummyaddManageStaff.BNR">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 pt-2">
+                            <label class="d-flex">Password: <span class="required">*</span></label>
+                        </div>
+                        <div class="col-9 pt-2">
+                            <input type="text" class="form-control form-control-sm" placeholder="" name="password" #password="ngModel" required [(ngModel)]="dummyaddManageStaff.password" minlength="6" maxlength="8">
+                            <small  *ngIf="password.invalid && isFormSubmitted" class="text-danger">Password Length Should 6-8 character</small>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 pt-2">
+                            <label class="d-flex">Re-type:<span class="required">*</span></label>
+                        </div>
+                        <div class="col-9 pt-2">
+                            <input type="text" class="form-control form-control-sm" placeholder=""
+                                name="ConfirmPassword" #ConfirmPassword="ngModel" required
+                                [(ngModel)]="dummyaddManageStaff.ConfirmPassword">
+                                <small  *ngIf=" ConfirmPassword.invalid && isFormSubmitted" class="text-danger">Password Length Should 6-8 character</small><br>
+                            <small  *ngIf="isFormSubmitted && dummyaddManageStaff.password !== dummyaddManageStaff.ConfirmPassword" class="text-danger ">Password Miss Match</small>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 pt-2">
+                            <label class="d-flex">Team:</label>
+                        </div>
+                        <div class="col-9 pt-2">
+                            <ng-select [items]="teamList" name="team" placeholder="Select Team" appendTo="body"
+                                #team="ngModel" required [(ngModel)]="dummyaddManageStaff.team">
+                            </ng-select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 pt-2">
+                            <label class="d-flex">Add Image: </label>
+                        </div>
+                        <div class="col-9 pt-2">
+                            <input type="file" name="addImg" #addImg="ngModel" required
+                                [(ngModel)]="dummyaddManageStaff.addImg" placeholder="choose image">
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-3 pt-2">
+                            <label class="d-flex">About you: </label>
+                        </div>
+                        <div class="col-9 pt-2">
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="aboutYou"
+                                #aboutYou="ngModel" required [(ngModel)]="dummyaddManageStaff.aboutYou"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div ngModelGroup="CONTACT INFORMATION" class="col-6 pt-2">
+                    <h5>CONTACT INFORMATION</h5>
+                    <div>
+                        <div class="row">
+                            <div class="col-3 pt-2">
+                                <label class="d-flex">Primary:<i class="fas fa-question-circle"></i> <span
+                                        class="required">*</span> </label>
+                            </div>
+                            <div class="col-9 pt-2">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <ng-select [items]="phoneCodeList" name="primaryPhoneCode" placeholder="Select Code"
+                                        appendTo="body" #primaryPhoneCode="ngModel" required
+                                        [(ngModel)]="dummyaddManageStaff.primaryPhoneCode">
+                                    </ng-select>
+                                    </div>
+                                    <div class="col-9">
+                                        <input type="number" class="form-control form-control-sm " placeholder=""
+                                            name="primaryPhonePrefix" #primaryPhonePrefix="ngModel" required
+                                            [(ngModel)]="dummyaddManageStaff.primaryPhonePrefix">
+                                    </div>
+                                                                       
+                                </div>
+                                <small  *ngIf="primaryPhoneCode.invalid && isFormSubmitted" class="text-danger">
+                                   Field Required Country Code                                  
+                                </small>
+                                <small  *ngIf="primaryPhonePrefix.invalid && isFormSubmitted" class="text-danger">
+                                   Field Required                                   
+                                </small>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 pt-2">
+                                <label class="d-flex">Secondary:<i class="fas fa-question-circle"></i> </label>
+                            </div>
+                            <div class="col-9 pt-2">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <input type="number" class="form-control form-control-sm" placeholder=""
+                                            name="secondaryPhoneCode" #secondaryPhoneCode="ngModel" required
+                                            [(ngModel)]="dummyaddManageStaff.secondaryPhoneCode">
+                                    </div>
+                                    <div class="col-9">
+                                        <input type="number" class="form-control form-control-sm" placeholder=""
+                                            name="secondaryPhonePrefix" #secondaryPhonePrefix="ngModel" required
+                                            [(ngModel)]="dummyaddManageStaff.secondaryPhonePrefix">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 pt-2">
+                                <label class="d-flex">Fax:<i class="fas fa-question-circle"></i> </label>
+                            </div>
+                            <div class="col-9 pt-2">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <input type="number" class="form-control form-control-sm" placeholder=""
+                                            name="fax" #fax="ngModel" required [(ngModel)]="dummyaddManageStaff.fax">
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="number" class="form-control form-control-sm" placeholder=""
+                                            name="faxPrefix" #faxPrefix="ngModel" required
+                                            [(ngModel)]="dummyaddManageStaff.faxPrefix">
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="number" class="form-control form-control-sm" placeholder=""
+                                            name="faxLast" #faxLast="ngModel" required
+                                            [(ngModel)]="dummyaddManageStaff.faxLast">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 pt-2">
+                                <label class="d-flex">Fax:</label>
+                            </div>
+                            <div class="col-9 pt-2">
+                                <input type="number" class="form-control form-control-sm" placeholder=""
+                                    name="faxSecondary" #faxSecondary="ngModel" required
+                                    [(ngModel)]="dummyaddManageStaff.faxSecondary">
+                            </div>
+                        </div>
+                        <div ngModelGroup="Address">
+                            <div class="row">
+                                <div class="col-3 pt-2">
+                                    <label class="d-flex">Address:</label>
+                                </div>
+                                <div class="col-9 pt-2">
+                                    <input type="text" class="form-control form-control-sm" placeholder="" name="address"
+                                        #address="ngModel" required [(ngModel)]="dummyaddManageStaff.address">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 pt-2">
+                                    <label class="d-flex">Zip:</label>
+                                </div>
+                                <div class="col-9 pt-2">
+                                    <input type="number" class="form-control form-control-sm" placeholder="" name="zip"
+                                        #zip="ngModel" required [(ngModel)]="dummyaddManageStaff.zip">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 pt-2">
+                                    <label class="d-flex">Nationality:</label>
+                                </div>
+                                <div class="col-9 pt-2">
+                                    <ng-select [items]="NationalityList" name="nationality" placeholder="Select Country"
+                                        appendTo="body" #nationality="ngModel" required
+                                        [(ngModel)]="dummyaddManageStaff.nationality">
+                                    </ng-select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 pt-2">
+                                <label class="d-flex">Is Active:</label>
+                            </div>
+                            <div class="col-9 pt-2">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="isActive" value="No"
+                                        #isActive="ngModel" required [(ngModel)]="dummyaddManageStaff.isActive">
+                                    <label class="form-check-label" for="inlineRadio1">No</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="isActive" value="Yes"
+                                        #isActive="ngModel" required [(ngModel)]="dummyaddManageStaff.isActive">
+                                    <label class="form-check-label" for="inlineRadio2">Yes</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 pt-2">
+                                <label class="d-flex">Skype :</label>
+                            </div>
+                            <div class="col-9 pt-2">
+                                <input type="text" class="form-control form-control-sm" placeholder="" name="skype"
+                                    #skype="ngModel" required [(ngModel)]="dummyaddManageStaff.skype">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 pt-2">
+                                <label class="d-flex">Whats app :</label>
+                            </div>
+                            <div class="col-9 pt-2">
+                                <input type="number" class="form-control form-control-sm" placeholder="" name="whatsApp"
+                                    #whatsApp="ngModel" required [(ngModel)]="dummyaddManageStaff.whatsApp">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 pt-2">
+                                <label class="d-flex">Passport No.:</label>
+                            </div>
+                            <div class="col-9 pt-2">
+                                <input type="text" class="form-control form-control-sm" placeholder="" name="passportNo"
+                                    #passportNo="ngModel" required [(ngModel)]="dummyaddManageStaff.passportNo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end py-2">
+                <button type="button" class="btn btn-sm btn-outline-primary mx-2 px-4">Cancel</button>
+                <button type="button" class="btn btn-sm btn-outline-primary mx-2 px-4"
+                    (click)="manageStaff(AddManageStaff.valid)"><i class="fas fa-check"></i> Add</button>
+
+            </div>
+        </form>
+        <div>
+            <br><br><br><br>
+            <br><br><br><br>
+        </div>
+    </div>
+</div>

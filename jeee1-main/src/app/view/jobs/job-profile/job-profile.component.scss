@@ -1,0 +1,50 @@
+.job-profile .nav-link {
+    color: #707070;
+}
+
+.my-search {
+    background-color: #b9b2b2;
+    border-radius: 10px;
+}
+
+.job-profile .nav-tabs .nav-link.active,
+.job-profile .nav-tabs .nav-item.show .nav-link {
+    color: #e33324;
+    background-color: #fff;
+    border-color: #dee2e6 #dee2e6 #fff;
+}
+
+.jobProfileLogo {
+    background: #e33324;
+    border-radius: 50%;
+    margin: 0px 66px;
+}
+
+.jobProfileLogo p {
+    height: 50px;
+    width: 50px;
+}
+
+.jobProfileLogo p {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.profile table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid rgb(218, 179, 179);
+  }
+  
+ .profile  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+//  ::ng-deep .jobProfileSelect .ng-select.ng-select-single .ng-select-container {
+//     width:293px;
+//     height: 39px;
+// }

@@ -1,0 +1,102 @@
+<div class="container py-3">
+    <div class="row ">
+        <div class="col-4">
+            <div class="card " style="width: 25rem;height: 26.8rem;">
+                <h5 class="card-title p-3">ACTIVE PROPERTIES</h5>
+                <div class="card-body d-flex align-items-center justify-content-center ">
+                    <h6 class="card-subtitle mb-2 text-muted fs-1 text-center">0</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card" style="width: 25rem;height: 26.8rem;">
+                <h5 class="card-title p-3">LISTINGS PURPOSE BREAKDOWN</h5>
+                <div class="py-5">
+                    <div class="mb-2 py-3">
+                        <div style="display: block">
+                            <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
+                                [options]="pieChartOptions" [colors]="pieChartColors" [legend]="pieChartLegend">
+                            </canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card m-1" style="width: 25rem;">
+                <div class="card-body">
+                    <h5 class="card-title">LISTINGS STATUS BREAKDOWN</h5>
+                    <label for="customRange2" class="form-label">Draft</label>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <progressbar [animate]="false" [value]="dynamic" type="success"><b>{{dynamic}}</b>
+                            </progressbar>                           
+                        </div>
+                       
+                    </div>
+                    <label for="customRange2" class="form-label">Active</label>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <progressbar [animate]="false" [value]="dynamic" type="success"><b>{{dynamic}}</b>
+                            </progressbar>
+                        </div>                       
+                    </div>
+                    <label for="customRange2" class="form-label">Inactive</label>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <progressbar [animate]="false" [value]="dynamic" type="success"><b>{{dynamic}}</b>
+                            </progressbar>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+            <div class="card m-1" style="width: 25rem;">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <h5 class="card-title">LISTINGS QUOTA</h5> 
+                    <button type="button" class="btn btn-sm btn-lightgray">More details +</button>
+                    </div>
+                    <label for="customRange2" class="form-label">Signature</label>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <progressbar [max]="max" [value]="dynamic">
+                                <span class="text-nowrap">{{dynamic}} / {{max}}</span>
+                              </progressbar>
+                        </div>                        
+                    </div>
+                    <label for="customRange2" class="form-label">Hot</label>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <progressbar [max]="max" [value]="dynamic">
+                                <span class="text-nowrap">{{dynamic}} / {{max}}</span>
+                              </progressbar>
+                        </div>
+                    </div>
+                    <label for="customRange2" class="form-label">Basic</label>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <progressbar [max]="max" [value]="dynamic">
+                                <span class="text-nowrap">{{dynamic}} / {{max}}</span>
+                              </progressbar>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div>
+        <h5>QUICK FILTERS</h5>
+        <div>
+            <div class="d-flex  py-3" *ngFor="let x of propertydashboardlist">
+                <button type="button" class="btn btn-lightgray fs-5 border">Active {{x.active}}</button>
+                <button type="button" class="btn btn-lightgray fs-5 border mx-3">Inactive {{x.Inactive}}</button>
+                <button type="button" class="btn btn-lightgray fs-5 border mx-3">Draft {{x.Draft}}</button>
+                <button type="button" class="btn btn-lightgray fs-5 border mx-3">All {{x.All}}</button>
+                <button type="button" class="btn btn-lightgray fs-5 border mx-3">Sale {{x.Sale}}</button>
+                <button type="button" class="btn btn-lightgray fs-5 border mx-3">Rent {{x.Rent}}</button>
+            </div>
+        </div>
+    </div>
+   <app-profolio-listing-table></app-profolio-listing-table>
+</div>

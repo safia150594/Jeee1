@@ -1,0 +1,114 @@
+<app-header></app-header>
+<app-sub-header></app-sub-header>
+<div class="bg-light">
+    <div class="container-fulid">
+        <div class="automobileScrollNav bg-light" (scroll)="onScrollAutomobile()"
+            [ngClass]="automobileScrollNav? 'showNavAutomobile' : 'hideNavAutomobile'">
+            <div class="row my-1 justify-content-center align-items-center" *ngFor="let list of automobileListView" >
+                <div class="col-7 ">
+                    <p class="fs-4 m-0">{{list.title}}</p>
+                    <p class=" m-0 fas fa-map-marker-alt"> &nbsp;{{list.place}} </p>
+                </div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-primary btn-lg mx-2 px-4 py-0"><i class="far fa-envelope"></i>
+                        Inquire</button>
+                    <button type="button" class="btn btn-primary btn-lg mx-2 px-4 py-0">Call</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    
+    <div *ngFor="let list of automobileListView">
+        <div class=" row d-flex justify-content-between py-4">
+            <small class="col-10">
+                <h2>{{list.title}}</h2>
+                <small>Posted about {{list.time}} ago</small>
+            </small>
+            <small class="col-2">
+                <h2 class="text-danger fw-b">AED {{list.AED}}</h2>
+            </small>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <div class="automobile-view-slider" >
+                <carousel>
+                    <slide *ngFor="let list of automobileListViewSlide">
+                        <div class="borderRadius">
+                            <img [src]="list.img" alt="first slide"
+                                style="display: block; width: 100%;" height="500px" class="objfit">
+                        </div>
+                    </slide>                    
+                </carousel>
+            </div>
+            <div class="automobile-view-item py-5">
+                <h5 class="fw-bold fs-4">Item overview</h5>
+                <div class="row">
+                    <div class="col" *ngFor="let list of itemView">
+                        <div class="text-center auto-view-item">
+                            <p class="car-view-item">{{list.title}}</p>
+                            <p><i class={{list.cls}}></i></p>
+                            <p>{{list.checks}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="py-4">
+                <div class="row" *ngFor="let list of topic" >
+                    <div class="col-6">
+                        <p class="fw-bold car-details">{{list.heading}}</p>
+                    </div>
+                    <div class="col-6">
+                        <p class="car-details">{{list.Details}}</p>
+                    </div>
+                </div>                
+            </div>
+            <hr>
+            <div *ngFor="let details of moreDetail">
+                <h4 class="fw-bold">Description</h4>
+                <p></p>
+            </div>
+            <hr>
+            <div>
+                <h4 class="fw-bold">Inspection & History</h4>
+                <p><i class="fas fa-car-alt"></i> Accident History Check</p>
+                <small>Get a detailed view of this vehicle’s accident history, import status, and mileage
+                    benchmarking.<a href="#">View sample report</a></small>
+                <p><a href="#" class="link-primary">Request car history report</a></p>
+            </div>
+            <hr>
+            <div class="row" *ngFor="let details of moreDetail">
+                <div class="col">
+                    <h4 class="fw-bold">Location</h4>
+                <p class="fas fa-map-marker-alt">&nbsp;{{details.place}}</p>
+                </div>
+                <div  *ngIf="isShowTogglt" (click)="toggltShowMap()" class="col mapBg d-flex justify-content-center align-items-center" >
+                   <a class="link-primary">Show Map</a>
+                </div>
+            </div>
+            <div *ngIf="isShowMap" class="py-3">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14442.5073180567!2d55.2590815!3d25.1820753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sae!4v1638190245328!5m2!1sen!2sae" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <hr>
+            <div>
+                <p>Is there an issue? <small class="text-danger">Report this ad</small></p>
+            </div>
+        </div>
+        <div class="col-4" *ngFor="let cmpny of companyUser">
+            <p class="fw-bold text-center">Posted by</p>
+            <p class="fw-bold text-center">{{cmpny.companyUser}}</p>
+            <div class="text-center">
+                <img [src]="cmpny.img" height="150px">
+            </div>
+            <div class="d-grid gap-2">
+                <button type="button" class="btn btn-outline-primary px-5 py-2" (click)="togglePhNumber()">Phome Number</button>
+                <p class="py-4 text-center" *ngIf="isShowPhNumber">
+                    {{cmpny.phno}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

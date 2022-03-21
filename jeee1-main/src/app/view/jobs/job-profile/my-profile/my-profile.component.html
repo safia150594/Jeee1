@@ -1,0 +1,438 @@
+<div class="container-fluid">
+    <div  class=" job-profile">
+        <p class="py-4">&nbsp; &nbsp;Ahlan wa Sahlan, safia! (not safia? Logout)</p>
+        <div>
+            <div class="row ">
+                <div class="col-2">
+                    <form class="jobProfileLogo">
+                        <p class="text-center fw-b fs-5">SM</p>
+                    </form>
+                </div>
+                <div class="col-6">
+                    <form #jobProfiles="ngForm">
+                        {{ jobProfiles.value | json}}
+                        <div class="row py-2">
+                            <div class="col-4">
+                                <label class="fw-bold">Name: </label>
+                            </div>
+                            <div class="col-8">
+                                <span>
+                                    <div class="row">
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="name" #name="ngModel"
+                                                [(ngModel)]="jobProfileList.name" required>
+                                            <small *ngIf="name.invalid && isFormSubmitted"
+                                                class="text-danger">Name is Required</small>
+                                        </div>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-4">
+                                <span> Gender:</span>
+                            </div>
+                            <div class="col-8">
+                                <span>
+                                    <ng-select [items]="genderLists" appendTo="body" name="gender"
+                                        #gender="ngModel" required [(ngModel)]="jobProfileList.gender"
+                                        placeholder="default">
+                                    </ng-select>
+                                    <small *ngIf="gender.invalid && isFormSubmitted" class="text-danger">gender
+                                        is Required</small>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-4">
+                                <span> Date of Birth::</span>
+                            </div>
+                            <div class="col-8">
+                                <span>
+                                    <div class="row">
+                                        <div class="col">
+                                            <input type="text" placeholder="Datepicker" class="form-control"
+                                                bsDatepicker name="dob" #dob="ngModel"
+                                                [(ngModel)]="jobProfileList.dob" required
+                                                (change)="selectFile($event)">
+                                            <small *ngIf="dob.invalid && isFormSubmitted"
+                                                class="text-danger">dob is Required</small>
+                                        </div>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-4">
+                                <span> Career Level:</span>
+                            </div>
+                            <div class="col-8">
+                                <span>
+                                    <ng-select [items]="careerLevelLists" appendTo="body" name="careerLevel"
+                                        #careerLevel="ngModel" required [(ngModel)]="jobProfileList.careerLevel"
+                                        placeholder="Default">
+                                    </ng-select>
+                                    <small *ngIf="careerLevel.invalid && isFormSubmitted"
+                                        class="text-danger">Field is Required</small>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-4">
+                                <span> Current Location:</span>
+                            </div>
+                            <div class="col-8">
+                                <span>
+                                    <ng-select [items]="CareerLocationLists" appendTo="body"
+                                        name="CareerLocation" #CareerLocation="ngModel" required
+                                        [(ngModel)]="jobProfileList.CareerLocation" placeholder="Default">
+                                    </ng-select>
+                                    <small *ngIf="CareerLocation.invalid && isFormSubmitted"
+                                        class="text-danger">Field is Required</small>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-4">
+                                <span> Current Position:</span>
+                            </div>
+                            <div class="col-8">
+                                <span>
+                                    <ng-select [items]="currentPositionLists" appendTo="body"
+                                        name="currentPosition" #currentPosition="ngModel" required
+                                        [(ngModel)]="jobProfileList.currentPosition" placeholder="Default">
+                                    </ng-select>
+                                    <small *ngIf="currentPosition.invalid && isFormSubmitted"
+                                        class="text-danger">Field is Required</small>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-4">
+                                <span> Current Company:</span>
+                            </div>
+                            <div class="col-8">
+                                <span>
+                                    <input type="text" class="form-control" id="text" name="currentCompany"
+                                        [(ngModel)]="jobProfileList.currentCompany" #currentCompany="ngModel"
+                                        required>
+                                </span>
+                                <small *ngIf="currentCompany.invalid && isFormSubmitted"
+                                    class="text-danger">Field is Required</small>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-4">
+                                <span> Salary Expectations:</span>
+                            </div>
+                            <div class="col-8">
+                                <span>
+                                    <ng-select [items]="salaryExpectationsLists" appendTo="body"
+                                        name="salaryExpectations" #salaryExpectations="ngModel" required
+                                        [(ngModel)]="jobProfileList.salaryExpectations" placeholder="Default">
+                                    </ng-select>
+                                </span>
+                                <small *ngIf="salaryExpectations.invalid && isFormSubmitted"
+                                    class="text-danger">Field is Required</small>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-4">
+                                <span> Commitment:</span>
+                            </div>
+                            <div class="col-8">
+                                <span>
+                                    <ng-select [items]="commitmentLists" appendTo="body" name="commitment"
+                                        #commitment="ngModel" required [(ngModel)]="jobProfileList.commitmen"
+                                        placeholder="Default">
+                                    </ng-select>
+                                </span>
+                                <small *ngIf="commitment.invalid && isFormSubmitted" class="text-danger">Field
+                                    is Required</small>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-4">
+                                <span> Notice Period:</span>
+                            </div>
+                            <div class="col-8">
+                                <span>
+                                    <ng-select [items]="noticePeriodLists" appendTo="body" name="noticePeriod"
+                                        #noticePeriod="ngModel" required
+                                        [(ngModel)]="jobProfileList.noticePeriod" placeholder="Default">
+                                    </ng-select>
+                                </span>
+                                <small *ngIf="noticePeriod.invalid && isFormSubmitted" class="text-danger">Field
+                                    is Required</small>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-4">
+                                <span> Visa Status:</span>
+                            </div>
+                            <div class="col-8">
+                                <span>
+                                    <ng-select [items]="visaStatusLists" appendTo="body" name="visaStatus"
+                                        #visaStatus="ngModel" required [(ngModel)]="jobProfileList.visaStatus"
+                                        placeholder="Default">
+                                    </ng-select>
+                                </span>
+                                <small *ngIf="visaStatus.invalid && isFormSubmitted" class="text-danger">Field
+                                    is Required</small>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-4">
+                                <span> Highest Education:</span>
+                            </div>
+                            <div class="col-8">
+                                <span >
+                                    <ng-select [items]="highestEducationLists" appendTo="body" name="highestEducation"
+                                        #highestEducation="ngModel" required [(ngModel)]="jobProfileList.highestEducation"
+                                        placeholder="Default">
+                                    </ng-select>                                            
+                                </span>
+                                <small *ngIf="highestEducation.invalid && isFormSubmitted"
+                                    class="text-danger">Field is Required</small>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-4">
+                                <span>Your CV:</span>
+                            </div>
+                            <div class="col-8">
+                                <span class="fs-5">
+                                    <input type="file" class="form-control" id="inputGroupFile02" name="cv"
+                                        [(ngModel)]="jobProfileList.cv" #cv="ngModel" required>
+                                </span>
+                                <small *ngIf="cv.invalid && isFormSubmitted" class="text-danger">Field is
+                                    Required</small>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-4">
+                                <span>Your CV Summary</span>
+                            </div>
+                            <div class="col-8">
+                                <span class="fs-5">
+                                    <textarea class="textarea" cols="39" rows="6" name="summary"
+                                        [(ngModel)]="jobProfileList.summary" #summary="ngModel"
+                                        required></textarea>
+                                </span>
+                                <small *ngIf="summary.invalid && isFormSubmitted" class="text-danger">Field is
+                                    Required</small>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-4">
+                                <div class="input-group mb-3">
+                                    <label class="input-group-text" for="inputGroupSelect01">I've got </label>
+                                    <select class="form-select" id="inputGroupSelect01" name="experience"
+                                        [(ngModel)]="jobProfileList.experience" #experience="ngModel" required>
+                                        <option selected>Choose...</option>
+                                        <option *ngFor="let exp of experienceLists" [value]="exp">{{exp}}
+                                        </option>
+                                    </select>
+                                    <small *ngIf="experience.invalid && isFormSubmitted"
+                                        class="text-danger">Field is Required</small>
+                                </div>
+                            </div>
+                            <div class="col-8">
+                                <span class="fs-5">
+                                    <div class="input-group mb-3">
+                                        <label class="input-group-text" for="inputGroupSelect01"> experience
+                                            in</label>
+                                        <select class="form-select" id="inputGroupSelect01"
+                                            name="experienceField" [(ngModel)]="jobProfileList.experienceField"
+                                            #experienceField="ngModel" required>
+                                            <option selected>----</option>
+                                            <option *ngFor="let expField of experienceFieldLists"
+                                                [value]="expField">{{expField}}</option>
+                                        </select>
+                                    </div>
+                                </span>
+                                <small *ngIf="experienceField.invalid && isFormSubmitted"
+                                    class="text-danger">Field is Required</small>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-4">
+                                <div class="input-group mb-3">
+                                    <label class="input-group-text" for="inputGroupSelect01">I've got </label>
+                                    <select class="form-select" id="inputGroupSelect01" name="expTwo"
+                                        [(ngModel)]="jobProfileList.expTwo" #expTwo="ngModel" required>
+                                        <option selected>----</option>
+                                        <option *ngFor="let exp of experienceLists" [value]="exp">{{exp}}
+                                        </option>
+                                    </select>
+                                    <small *ngIf="expTwo.invalid && isFormSubmitted" class="text-danger">Field
+                                        is Required</small>
+                                </div>
+                            </div>
+                            <div class="col-8">
+                                <span class="fs-5">
+                                    <div class="input-group mb-3">
+                                        <label class="input-group-text" for="inputGroupSelect01"> experience
+                                            in</label>
+                                        <select class="form-select" id="inputGroupSelect01" name="expFieldTwo"
+                                            [(ngModel)]="jobProfileList.expFieldTwo" #expFieldTwo="ngModel"
+                                            required>
+                                            <option selected>----</option>
+                                            <option *ngFor="let expField of experienceFieldLists"
+                                                [value]="expField">{{expField}}</option>
+                                        </select>
+                                    </div>
+                                </span>
+                                <small *ngIf="expFieldTwo.invalid && isFormSubmitted" class="text-danger">Field
+                                    is Required</small>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-4">
+                                <div class="input-group mb-3">
+                                    <label class="input-group-text" for="inputGroupSelect01">I've got </label>
+                                    <select class="form-select" id="inputGroupSelect01" name="expThree"
+                                        [(ngModel)]="jobProfileList.expThree" #expThree="ngModel" required>
+                                        <option selected>----</option>
+                                        <option *ngFor="let exp of experienceLists" [value]="exp">{{exp}}
+                                        <option>
+                                    </select>
+                                </div>
+                                <small *ngIf="expThree.invalid && isFormSubmitted" class="text-danger">Field is
+                                    Required</small>
+                            </div>
+                            <div class="col-lg-8">
+                                <span class="fs-5">
+                                    <div class="input-group mb-3">
+                                        <label class="input-group-text" for="inputGroupSelect01"> experience
+                                            in</label>
+                                        <select class="form-select" id="inputGroupSelect01" name="expFieldThree"
+                                            [(ngModel)]="jobProfileList.expFieldThree" #expFieldThree="ngModel"
+                                            required>
+                                            <option selected>----</option>
+                                            <option *ngFor="let expField of experienceFieldLists"
+                                                [value]="expField">{{expField}}</option>
+                                        </select>
+                                    </div>
+                                </span>
+                                <small *ngIf="expFieldThree.invalid && isFormSubmitted"
+                                    class="text-danger">Field is Required</small>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <h5>Please send me:
+                                </h5>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value=""
+                                    [(ngModel)]="jobProfileList.subscribe" name="subscribe" #subscribe="ngModel"
+                                    required>
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    The weekly Jeee1 newsletter of the most popular steals across the Jeee1
+                                    site.
+                                </label><br>
+                                <small *ngIf="subscribe.invalid && isFormSubmitted" class="text-danger">Field is
+                                    Required</small>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
+                                    name="subscribeone" [(ngModel)]="jobProfileList.subscribeone" checked
+                                    #subscribeone="ngModel" required>
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    Amazing offers and bargains from our advertising partners.
+                                </label>
+                            </div>
+                            <small *ngIf="subscribeone.invalid && isFormSubmitted" class="text-danger">Field is
+                                Required</small>
+                        </div>
+                        <div class="text-end">
+                            <button type="button" class="btn btn-primary my-3 py-2 px-5 "
+                                (click)="AddProfile(jobProfiles.valid)">Save</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-2" *ngFor="let dashboard of jodDashboard">
+                    <div class="text-center">
+                        <p class="fw-bold fs-5">My Ads</p>
+                        <p class="fw-bold fs-4">{{dashboard.ads}}</p>
+                        <p>ads viewed {{dashboard.time}} times</p>
+                        <hr>
+                    </div>
+                    <div class="text-center">
+                        <p class="fw-bold fs-5">My Searches</p>
+                        <p class="fw-bold fs-4">{{dashboard.search}}</p>
+                        <p>saved searches</p>
+                        <hr>
+                    </div>
+                    <div class="text-center">
+                        <p class="fw-bold fs-5">My Favorites</p>
+                        <p class="fw-bold fs-4">{{dashboard.fav}}</p>
+                        <p>ads saved</p>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="job-profile py-3">
+        <div class="profile " style="overflow-x:auto;">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">DOB</th>
+                        <th scope="col">Career Level</th>
+                        <th scope="col">Current Location</th>
+                        <th scope="col">Current Position</th>
+                        <th scope="col">Current Company</th>
+                        <th scope="col">Salary Expectations</th>
+                        <th scope="col">Commitment</th>
+                        <th scope="col">Notice Period</th>
+                        <th scope="col">Visa Status</th>
+                        <th scope="col">Highest Education</th>
+                        <th scope="col">Your CV</th>
+                        <th scope="col">Your CV Summary</th>
+                        <th scope="col">Experience</th>
+                        <th scope="col">field</th>
+                        <th scope="col">Experience</th>
+                        <th scope="col">field</th>
+                        <th scope="col">Experience</th>
+                        <th scope="col">field</th>
+                        <th scope="col">weekly</th>
+                        <th scope="col">advertising</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let jobProfile of profile; let i=index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{jobProfile.name}}</td>
+                        <td>{{jobProfile.gender}}</td>
+                        <td>{{jobProfile.dob}}</td>
+                        <td>{{jobProfile.careerLevel}}</td>
+                        <td>{{jobProfile.careerLocation}}</td>
+                        <td>{{jobProfile.currentPosition}}</td>
+                        <td>{{jobProfile.currentCompany}}</td>
+                        <td>{{jobProfile.salaryExpectations}}</td>
+                        <td>{{jobProfile.commitment}}</td>
+                        <td>{{jobProfile.noticePeriod}}</td>
+                        <td>{{jobProfile.visaStatus}}</td>
+                        <td>{{jobProfile.highestEducation}}</td>
+                        <td>{{jobProfile.cv}}</td>
+                        <td>{{jobProfile.summary}}</td>
+                        <td>{{jobProfile.experience}}</td>
+                        <td>{{jobProfile.experienceField}}</td>
+                        <td>{{jobProfile.expTwo}}</td>
+                        <td>{{jobProfile.expFieldTwo}}</td>
+                        <td>{{jobProfile.expThree}}</td>
+                        <td>{{jobProfile.expFieldThree}}</td>
+                        <td>{{jobProfile.subscribe}}</td>
+                        <td>{{jobProfile.subscribeone}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

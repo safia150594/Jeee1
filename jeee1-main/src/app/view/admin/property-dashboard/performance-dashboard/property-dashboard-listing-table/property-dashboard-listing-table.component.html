@@ -1,0 +1,78 @@
+<div class="lgsilver">
+    <div class="row justify-content between">
+        <div class="col-6">
+            <h5>Listings</h5>
+        </div>
+        <div class="col-6">
+            <div class="row justify-content-end">
+                <div class="col-4">
+                    <!-- <ng-select [items]="sortList" name="Sorts" class="" appendTo="body" #Sorts="ngModel" required
+                        [(ngModel)]="sorting.Sorts" placeholder="Sort By Impression" >
+                    </ng-select> -->
+                </div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-primary mx-2" (click)="fileDownload()">Export CSV</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="pageStyle d-flex justify-content-between ">
+        <div>
+            <p>Showing <b>1-10</b> of <b>44</b> Results</p>
+        </div>
+        <div>
+            <pagination [boundaryLinks]="true" [totalItems]="bigTotalItems" [(ngModel)]="bigCurrentPage" previousText="&lsaquo;" nextText="&rsaquo;"
+            [maxSize]="maxSize"  firstText="&laquo;" lastText="&raquo;">
+            </pagination>
+        </div>
+    </div>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col" >Details</th>
+                    <th scope="col" >Category</th>
+                    <th scope="col" (click)="onSortTableHeaderClick('impression' , currentsortCount)" title="Sort By Impressions">Impressions <i [ngClass]="{'active':currentColName=='impression'}"
+                        class="my-icon fas fa-sort-amount-{{ currentColName == 'impression' && currentsortCount=='asc' ? 'up':'down' }}"></i></th>
+                    <th scope="col" (click)="onSortTableHeaderClick('view' , currentsortCount)" title="Sort By Views">Views  <i [ngClass]="{'active':currentColName=='view'}"
+                        class="my-icon fas fa-sort-amount-{{ currentColName == 'view' && currentsortCount=='asc' ? 'up':'down' }}"></i></th>
+                    <th scope="col" (click)="onSortTableHeaderClick('leads' , currentsortCount)" title="Sort By Leads">Leads <i [ngClass]="{'active':currentColName=='impression'}"
+                        class="my-icon fas fa-sort-amount-{{ currentColName == 'leads' && currentsortCount=='asc' ? 'up':'down' }}"></i></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let table of listingTable">
+                    <th>
+                        <span>{{table.refId}}</span><br>
+                        <span>{{table.officeSpace}}</span><br>
+                        <span>{{table.area}}</span>
+                    </th>
+                    <td>
+                        <span>{{table.type}}</span><br>
+                        <span>{{table.propertytype}}</span><br>
+                    </td>
+                    <td>
+                        {{table.impression}}
+                    </td>
+                    <td>
+                        {{table.view}}
+                    </td>
+                    <td>
+                        {{table.leads}}
+                    </td>
+                </tr>            
+            </tbody>
+        </table>
+    </div>
+    <div class="pageStyle d-flex justify-content-between ">
+        <div>
+            <p>Showing <b>1-10</b> of <b>44</b> Results</p>
+        </div>
+        <div>
+            <pagination [boundaryLinks]="true" [totalItems]="bigTotalItems" [(ngModel)]="bigCurrentPage" previousText="&lsaquo;" nextText="&rsaquo;"
+            [maxSize]="maxSize"  firstText="&laquo;" lastText="&raquo;">
+            </pagination>
+        </div>
+    </div>
+</div>

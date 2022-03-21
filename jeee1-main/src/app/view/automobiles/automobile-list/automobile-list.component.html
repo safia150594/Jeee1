@@ -1,0 +1,144 @@
+<app-header></app-header>
+<app-sub-header></app-sub-header>
+<div class="py-5 my-5">
+    <div class="container">
+        <div class="row">
+            <form #search="ngForm" class="col-3">
+                {{search.value |json}}
+                <div class="automobile-side-search">
+                    <h5>Search</h5>
+                    <div class="py-2">
+                        <ng-select [items]="LocationList" name="loc" appendTo="body" #loc="ngModel" required
+                            [(ngModel)]="quicksearch.loc" placeholder="All City">
+                        </ng-select>
+                    </div>
+                    <div class="py-2">
+                        <ng-select [items]="typeList" name="type" appendTo="body" #type="ngModel" required
+                            [(ngModel)]="quicksearch.type" placeholder="All of Jeee">
+                        </ng-select>
+                    </div>
+                    <div class="py-2">
+                        <ng-select [items]="CategoriesList" appendTo="body" name="Categories" #Categories="ngModel"
+                            required [(ngModel)]="quicksearch.Categories" placeholder="All Categories">
+                        </ng-select>
+                    </div>
+                    <div class="w-100% py-2">
+                        <h5>Keyword</h5>
+                        <div class="input-group flex-nowrap">
+                            <input type="search" class="form-control" placeholder="Search" name="keyword"
+                                #keyword="ngModel" required [(ngModel)]="quicksearch.keyword">
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="button" class="btn btn-primary my-2">Search</button>
+                        <button type="button" class="btn btn-dark "><i class="far fa-bell"></i> Save Search</button>
+                    </div>
+                </div>
+            </form>
+            <div class="col-8">
+                <h3 *ngFor="let title of automobile"> Buy & sell {{title.heading}}</h3>
+                <p class="py-2" *ngFor="let description of automobile">{{description.desc}}</p>
+                <div class="py-2">
+                    <form #sort="ngForm" class="w-25">
+                        {{sort.value | json}}
+                        <label for="sort" class="fs-6 fw-bold">Sort: &nbsp;</label>
+                        <ng-select [items]="sortLists" name="sorting" #sorting="ngModel" required
+                            [(ngModel)]="automobile.sorting" placeholder="Default">
+                        </ng-select>
+                    </form>
+                </div>
+                <div class="automobule-list-result">
+                    <div class="container-fluid py-2" >
+                        <p>Browse results in: Dubai > Automobile > Used Cars for Sale</p>
+                        <div class="row gy-2">
+                            <div class="col-3"  *ngFor="let result of browserResult">                               
+                                 <a>{{result.car}} &nbsp;({{result.totalCar}})</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="automobile-list-promotion">
+                    <div class="row py-3">
+                        <div class="col-4" *ngFor="let list of automobilelisting">
+                            <div class="card h-100">
+                                <div class="relative" style="position: relative;">
+                                    <img [src]="list.img" class="card-img-top objestfit w-100%" height="250px"  alt="...">
+                                   <div class="posAbsolute">
+                                    <button type="button" class="btn btn-primary decoration">
+                                        {{list.advType}}
+                                    </button>
+                                   </div>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title fw-bold">{{list.heading}}</h5>
+                                    <small>{{list.carType}}</small>
+                                    <p class="card-text text-danger fw-bold fs-5">AED {{list.aed}}</p>
+                                    <small><i class="far fa-calendar-alt"></i> {{list.year}} &nbsp;&nbsp;&nbsp;&nbsp;<i
+                                            class="fas fa-tachometer-alt"></i> {{list.km}}</small>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <small class="text-muted ">
+                                        <img [src]="list.logo" height="30px;"class="objestfit" width="auto">
+                                    </small>
+                                </div>
+                            </div>
+                        </div>                                            
+                    </div>
+                    
+                </div>
+                <div class="my-5" *ngFor="let autolist of automobilelist">
+                    <hr>
+                    <div class=" row d-flex justify-content-between" >
+                        <div class="col-10">
+                            <a class="btn btn-primary decoration"  href="#" role="button">{{autolist.advType}}</a>
+                        <a class="btn btn-primary decoration" href="#" role="button">{{autolist.history}}</a>
+                        <h5 class="py-2 fw-bold"><a href="../automobile-list-view">{{autolist.heading}} </a></h5>
+                        </div>
+                        <div class="text-center col-2">
+                            <small>Selling price</small>
+                            <h5 class="red fw-bold">AED {{autolist.price}}</h5>
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-4">
+                                <img [src]="autolist.img" class="objestfit w-100" >
+                            </div>
+                            <div class="col-8">
+                                <a >
+                                    <h5>{{autolist.carDetails}}</h5>
+                                    <p>{{autolist.carBuyed}}</p>
+                                    <p><small>Selling price</small>&nbsp;AED {{autolist.aed}}</p>
+                                </a>
+                                <div class="row">
+                                    <div class="col">
+                                        <p>Year: {{autolist.year}}</p>
+                                        <p>Kilometers: {{autolist.km}}</p>
+                                    </div>
+                                    <div class="col">
+                                        <p>Doors: {{autolist.door}} door</p>
+                                        <p>Color: {{autolist.color}}</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="automobile-list">
+                                            <img [src]="autolist.imgOne" class="objestfit"  height="70px" width="100%">
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="fas fa-map-marker-alt">&nbsp;Located : {{autolist.locDetails}}</small>
+                                <small class="fs-5">
+                                    <i class="far fa-star mx-3"></i>
+                                    <i class="fas fa-flag flagColor"></i>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

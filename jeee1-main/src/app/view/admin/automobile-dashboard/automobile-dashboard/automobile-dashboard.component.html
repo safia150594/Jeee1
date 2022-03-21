@@ -1,0 +1,30 @@
+<app-auto-mob-header></app-auto-mob-header>
+<div class="container-fluid">
+  <div class="row m-0">
+    <div class="col-2 p-0">
+      <ng-sidebar-container >
+        <!-- A sidebar -->
+        <ng-sidebar [(opened)]="opened">     
+           <p class=" fw-bold p-0 m-0 text-center fs-5 bg-dark text-white">RCG Automobile</p>     
+          <ul class="menu text-left p-0">
+              <li class="py-3 px-4 "><a routerLink="./dashboard"> <i class="fas fa-tachometer-alt  px-3 "></i> Dashboard</a></li><hr>
+              <li class="py-3 px-4 "><a routerLink="./account"><i class="fas fa-warehouse  px-3"></i> Accounts</a></li><hr>
+              <li class="py-3 px-4 "><a routerLink="./list"> <i class="fas fa-th-list  px-3"></i> job List </a></li><hr>
+          </ul>      
+        </ng-sidebar>
+        <!-- Page content -->
+        <!-- <div ng-sidebar-content>
+          <button (click)="toggleSidebar()">
+              open sidebar
+            </button>
+        </div> -->
+      </ng-sidebar-container>
+    </div>
+    <div class="col-10 lgsilver">
+      <!-- <app-auto-mob-accounts></app-auto-mob-accounts> -->
+      <router-outlet>
+      </router-outlet>
+    </div>
+  </div>
+</div>
+ 

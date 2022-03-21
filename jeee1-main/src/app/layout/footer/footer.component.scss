@@ -1,0 +1,36 @@
+.headerbg {
+    background: url('../../../assets/img/gallexcy.jpg');
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: cover;
+    color: var(--white);
+    background-position: top;
+}
+
+.footer {
+    background: #00000061;
+    padding: 20px 0px;
+}
+
+.headerbg h4 {
+    font-family: sans-serif;
+    color: var(--silver) !important;
+    // -webkit-text-stroke: 1px var(--black);
+    font-weight: bold;
+    // font-style: italic;
+    // font-feature-settings: "pcap", "c2pc";
+    // font-variant-caps: all-petite-caps;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.footer-style p {
+    padding: 0px;
+    margin: 10px 0px;
+}
+
+.footer-style p:hover,
+.footer-style i:hover {
+    color: var(--blue);
+    text-decoration: underline;
+}

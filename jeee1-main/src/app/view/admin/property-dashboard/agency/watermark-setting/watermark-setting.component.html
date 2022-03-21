@@ -1,0 +1,156 @@
+<div class="p-5">
+    <div class="watermark">
+        <div>
+            <p>Watermark is active</p>  
+        </div>
+        <div>
+            <h5>WATERMARK</h5>
+            <hr>
+        </div>
+        <div class="px-5 py-3 watermark-toggle">
+            <div class="form-check" (click)="toggleAddWaterMark()">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                <label class="form-check-label water-setting" for="flexCheckChecked">&nbsp;
+                    Enable Watermark Settings
+                </label>
+            </div>
+            <div >
+                <form  #watermarkForm="ngForm" class="py-2 water-setting">
+                    {{ watermarkForm.value | json }}
+                    <div class="row">
+                        <div  class="col-9">
+                            <div *ngIf="isShowAddWaterMark" class="row">
+                                <div class="col-3">Watermark Position :<span class="required">*</span></div>
+                                <div class="col-9">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="waterMarkPosition" #waterMarkPosition="ngModel" required
+                                                    value="left top" [(ngModel)]="obj.watermarkPosition">
+                                                <label class="form-check-label" for="inlineRadio1">Left Top</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="waterMarkPosition" #waterMarkPosition="ngModel" required
+                                                     value="mid top" [(ngModel)]="obj.watermarkPosition">
+                                                <label class="form-check-label" for="inlineRadio2">Mid Top</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="waterMarkPosition" #waterMarkPosition="ngModel" required
+                                                     value="right top" [(ngModel)]="obj.watermarkPosition">
+                                                <label class="form-check-label" for="inlineRadio3">Right Top</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="waterMarkPosition" #waterMarkPosition="ngModel" required
+                                                     value="left center" [(ngModel)]="obj.watermarkPosition">
+                                                <label class="form-check-label" for="inlineRadio3">Left Center</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="waterMarkPosition" #waterMarkPosition="ngModel" required
+                                                     value="mid center" [(ngModel)]="obj.watermarkPosition">
+                                                <label class="form-check-label" for="inlineRadio3" checked>Mid Center</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="waterMarkPosition" #waterMarkPosition="ngModel" required
+                                                     value="right center" [(ngModel)]="obj.watermarkPosition">
+                                                <label class="form-check-label" for="inlineRadio3">Right Center</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="waterMarkPosition" #waterMarkPosition="ngModel" required
+                                                     value="left bottom" [(ngModel)]="obj.watermarkPosition">
+                                                <label class="form-check-label" for="inlineRadio3">Left Bottom</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="waterMarkPosition" #waterMarkPosition="ngModel" required
+                                                     value="mid bottom" [(ngModel)]="obj.watermarkPosition">
+                                                <label class="form-check-label" for="inlineRadio3">Mid Bottom</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="waterMarkPosition" #waterMarkPosition="ngModel" required
+                                                     value="right bottom" [(ngModel)]="obj.watermarkPosition">
+                                                <label class="form-check-label" for="inlineRadio3">Right Bottom</label>
+                                            </div>
+                                        </div>
+                                        <small  *ngIf="waterMarkPosition.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                     </div>
+                                </div>
+                            </div>
+                            <div *ngIf="isShowAddWaterMark" class="row">
+                                <div class="col-3">Image Transparency:<span class="required">*</span></div>
+                                <div class="col-9">
+                                    <input type="range" class="form-range form-range-sm" min="1" max="100" name="opacity" required #opacity="ngModel" [(ngModel)]="obj.opacity"
+                                        id="customRange2">
+                                        <small  *ngIf="opacity.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                    <div class="py-3">
+                                        <img [src]="imgURL" height="200" *ngIf="imgURL" width="150px;" height="150px;"   >
+                                        <img src="../../../../../assets/logo/logog2.png"  *ngIf="!imgURL" width="150px;" height="150px;">
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <div  *ngIf="isShowAddWaterMark"class="row">
+                                <div class="col-3">Watermark Image :<span class="required">*</span></div>
+                                <div class="col-9">
+                                    <div class="input-group mb-3">                                        
+                                        <input type="file" 
+                                        #file type="file" accept='image/*' (change)="preview(file.files)"
+                                        class="form-control form-control-sm" id="inputGroupFile01" name="img" #img="ngModel" required [(ngModel)]="obj.img">
+                                    </div>
+                                    <small  *ngIf="img.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3"></div>
+                                <div *ngIf="isShowAddWaterMark" class="col-9">
+                                    <div class="input-group mb-3">
+                                        <input class="form-check-input" type="checkbox"  name="Update" #Update="ngModel"  [(ngModel)]="dummywaterMarkSetting.Update" >                                       
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            &nbsp; Update watermark for all the listing
+                                        </label>
+                                    </div>
+                                    <small  *ngIf="Update.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3 ">
+                            <div class="text-center"> 
+                                <div class="watermark-container position-relative"> 
+                                    <img src="../../../../../assets/property/burj2.jpg" height="200px;" style="
+                                    width: 100%; 
+                                    object-fit: cover;
+                                ">
+                                    <div *ngIf="isShowAddWaterMark" class="water-mark-img {{ obj.watermarkPosition }}" >
+                                        <img [src]="imgURL" height="200" *ngIf="imgURL" width="100px;" height="50px;"
+                                        [ngStyle]="{'opacity': obj.opacity + '%'}">
+                                        <img src="../../../../../assets/logo/logog2.png"  *ngIf="!imgURL" width="100px;" height="50px;"
+                                        [ngStyle]="{'opacity': obj.opacity + '%'}">
+                                          
+                                    </div>
+                                </div>
+                                <div class="py-3 d-flex justify-content-end">
+                                    <button type="button" class="btn btn-sm btn-outline-primary mx-1 px-4 py-2" *ngIf="isShowAddWaterMark" (click)="reset()"> Cancel</button>
+                                    <button type="button" class="btn btn-sm btn-primary fas fa-check px-3 py-2"  (click)="waterMarkSetting(watermarkForm.valid)"> Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

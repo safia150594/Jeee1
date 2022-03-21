@@ -1,0 +1,112 @@
+<app-header></app-header>
+<app-layout></app-layout>
+<div class="container">
+    <div class="py-2">
+        <span>Home > &nbsp;</span>
+        <a routerLink="../job-profile">Profile >  &nbsp;</a>
+        <span>Account Settings  &nbsp;</span>
+    </div>
+    <div class="accountsetting my-5">
+        <form #accSeting="ngForm">
+            {{accSeting.value |json}}
+            <fieldset *ngFor="let acc of accSetting">
+                <legend> &nbsp;<i class="far fa-star"></i> Account Setting</legend>
+                <div class="ps-4 my-3">
+                    <div class="row bg-color w-100 py-1 my-1">
+                        <div class="col align-self-center">
+                            <label for="lname">Name: &nbsp;</label>
+                            <span name="name" #name="ngModel"
+                            [(ngModel)]="accSetting.name"> {{acc.name}}</span>
+                        </div>
+                        <div class="col text-end ">
+                            <span>
+                                <button type="button" class="btn btn-primary p-1 m-1 " (click)="toggleName()" > <i class="fas fa-pen pe-4"></i> Edit</button>
+                            </span>
+                        </div>                        
+                    </div>
+                    <div class="col-8 justify-content-center"  *ngIf="isShowName">
+                       <div ngFor="let acc of accSetting index; let i=index" class="d-flex">
+                        <label for="lname">Name: &nbsp;</label>
+                        <input type="text" class="form-control w-25" name="name" #name="ngModel"
+                        [(ngModel)]="updateAccSetting.name"> 
+                        <button type="button" class="btn btn-primary btn-sm" (click)="updateName()">Update</button>
+                       </div>
+                    </div>
+                    <div class="row bg-color w-100 py-1 my-1">
+                        <div class="col align-self-center">
+                            <label for="lname">Email: &nbsp;</label>
+                            <span type="email" name="email" #email="ngModel"
+                            [(ngModel)]="accSetting.email"> {{acc.email}}</span>
+                        </div>
+                        <div class="col text-end ">
+                            <span>
+                                <button type="button" class="btn btn-primary p-1 m-1 " (click)="toggleEmail()"><i class="fas fa-pen pe-4"></i> Edit</button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-8 justify-content-center"  *ngIf="isShowEmail">
+                        <div ngFor="let acc of accSetting index; let i=index" class="d-flex">
+                         <label for="lname">Email: &nbsp;</label>
+                         <input type="text" class="form-control w-25" name="name" #name="ngModel"
+                         [(ngModel)]="accSetting.name"> 
+                         <button type="button" class="btn btn-primary btn-sm" >change</button>
+                        </div>
+                     </div>
+                    <div class="row bg-color w-100 py-1 my-1">
+                        <div class="col align-self-center">
+                            <label for="lname">Phone Number: &nbsp;</label>
+                            <span type="number" name="phone" #phone="ngModel"
+                            [(ngModel)]="accSetting.phone"> {{acc.phone}}</span>
+                        </div>
+                        <div class="col text-end ">
+                            <span>
+                                <button type="button" class="btn btn-primary p-1 m-1" (click)="togglePhNo()"><i class="fas fa-pen pe-4"></i> Edit</button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-8 justify-content-center"  *ngIf="isShowPhNo">
+                        <div ngFor="let acc of accSetting index; let i=index" class="d-flex">
+                         <label for="lname">Phone Number: &nbsp;</label>
+                         <input class="form-control w-25"  type="number" name="phone" #phone="ngModel"
+                         [(ngModel)]="accSetting.phone"> 
+                         <button type="button" class="btn btn-primary btn-sm" >change</button>
+                        </div>
+                     </div>
+                    <div class="row bg-color w-100 py-1 my-1">
+                        <div class="col align-self-center">
+                            <label for="lname">Password: &nbsp;</label>
+                            <span type="passwoed" name="password" #password="ngModel"
+                            [(ngModel)]="accSetting.password"> {{acc.password}}</span>
+                        </div>
+                        <div class="col text-end ">
+                            <span>
+                                <button type="button" class="btn btn-primary p-1 m-1 " (click)="togglePswd()"><i class="fas fa-pen pe-4"></i> Edit</button>
+                            </span>
+                        </div>
+                    </div> 
+                    <div class="col-8 justify-content-center"  *ngIf="isShowPswd">
+                        <div ngFor="let acc of accSetting index; let i=index" class="d-flex">
+                         <label for="lname">Password: &nbsp;</label>
+                         <input class="form-control w-25"  type="passwoed" name="password" #password="ngModel"
+                         [(ngModel)]="accSetting.password"> 
+                         <button type="button" class="btn btn-primary btn-sm" >change</button>
+                        </div>
+                     </div>                  
+                    <div class="row bg-color w-100 py-1 my-1">
+                        <div class="col align-self-center">
+                            <label for="lname">Deactivation: &nbsp;</label>
+                            <span name="delete" #delete="ngModel"
+                            [(ngModel)]="accSetting.delete">{{acc.delete}}</span>
+                        </div>
+                        <div class="col text-end ">
+                            <span>
+                                <button type="button" class="btn btn-primary p-1  m-1 "><i class="fas fa-trash-alt pe-2"></i>Delete</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<app-footer></app-footer>

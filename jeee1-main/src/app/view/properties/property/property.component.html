@@ -1,0 +1,238 @@
+<div>
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="propertycontent">
+            <div class="propertybanner">
+              <div class="primary-tab">
+                <ul class="
+                    nav nav-pills
+                    mb-3
+                    justify-content-center
+                    bg-dark
+                    bannertab
+                  " id="pills-tab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="pills-sale-tab" data-bs-toggle="pill"
+                      data-bs-target="#pills-sale" type="button" role="tab" aria-controls="pills-sale"
+                      aria-selected="true">
+                      Sale
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-rent-tab" data-bs-toggle="pill" data-bs-target="#pills-rent"
+                      type="button" role="tab" aria-controls="pills-rent" aria-selected="false">
+                      Rent
+                    </button>
+                  </li>
+                </ul>
+                <br />
+                <div>
+                  <div class="tab-content primarytab" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-sale" role="tabpanel"
+                      aria-labelledby="pills-home-tab">
+                      <nav class="primary-sub-tab">
+                        <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+                          <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
+                            aria-selected="true">
+                            Residential for Sale
+                          </button>
+                          <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile"
+                            aria-selected="false">
+                            Commercial for Sale
+                          </button>
+                          <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact"
+                            aria-selected="false">
+                            Land for Sale
+                          </button>
+                          <button class="nav-link" id="nav-contact1-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-contact1" type="button" role="tab" aria-controls="nav-contact1"
+                            aria-selected="false">
+                            Multiple Units for Sale
+                          </button>
+                        </div>
+                      </nav>
+                      <div class="sub-tab">
+                        <div class="tab-content" id="nav-tabContent">
+                          <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                            aria-labelledby="nav-home-tab">
+                            <app-sale-residential-for-sale></app-sale-residential-for-sale>
+                          </div>
+                          <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                           <app-sale-commercial-for-sale></app-sale-commercial-for-sale>
+                          </div>
+                          <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                            <app-sale-land-for-sale></app-sale-land-for-sale>
+                          </div>
+                          <div class="tab-pane fade" id="nav-contact1" role="tabpanel"
+                            aria-labelledby="nav-contact1-tab">
+                            <app-sale-multiple-units-for-sale></app-sale-multiple-units-for-sale>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-rent" role="tabpanel" aria-labelledby="pills-rent-tab">
+                      <nav class="primary-sub-tab">
+                        <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+                          <button class="nav-link active" id="nav-home1-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-home1" type="button" role="tab" aria-controls="nav-home1"
+                            aria-selected="true">
+                            Residential Units for Rent
+                          </button>
+                          <button class="nav-link" id="nav-profile1-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-profile2" type="button" role="tab" aria-controls="nav-profile2"
+                            aria-selected="false">
+                            Commercial for Rent
+                          </button>
+                          <button class="nav-link" id="nav-contact2-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-contact2" type="button" role="tab" aria-controls="nav-contact2"
+                            aria-selected="false">
+                            Rooms for rent (flatmates)
+                          </button>
+                          <button class="nav-link" id="nav-contact3-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-contact3" type="button" role="tab" aria-controls="nav-contact3"
+                            aria-selected="false">
+                            Short Term (Monthly)
+                          </button>
+                          <button class="nav-link" id="nav-contact4-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-contact4" type="button" role="tab" aria-controls="nav-contact4"
+                            aria-selected="false">
+                            Short Term (Daily)
+                          </button>
+                        </div>
+                      </nav>
+                      <div class="sub-tab">
+                        <div class="tab-content" id="nav-tabContent">
+                          <div class="tab-pane fade show active" id="nav-home1" role="tabpanel"
+                            aria-labelledby="nav-home1-tab">
+                            <app-rent-residential-unit-for-sale></app-rent-residential-unit-for-sale>
+                          </div>
+                          <div class="tab-pane fade" id="nav-profile2" role="tabpanel"
+                            aria-labelledby="nav-profile2-tab">
+                           <app-rent-commercial-for-rent></app-rent-commercial-for-rent>
+                          </div>
+                          <div class="tab-pane fade" id="nav-contact2" role="tabpanel"
+                            aria-labelledby="nav-contact2-tab">
+                            <app-rent-rooms-for-rent></app-rent-rooms-for-rent>
+                          </div>
+                          <div class="tab-pane fade" id="nav-contact3" role="tabpanel"
+                            aria-labelledby="nav-contact3-tab">
+                            <app-rent-short-terms-monthly></app-rent-short-terms-monthly>
+                          </div>
+                          <div class="tab-pane fade" id="nav-contact4" role="tabpanel"
+                            aria-labelledby="nav-contact4-tab">
+                            <app-rent-short-term-daily></app-rent-short-term-daily>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <a>
+        <h2 class="pt-4 mt-4 text-black">Popular Categories</h2>
+      </a>
+      <div class="property-slider-carousel">
+        <carousel [itemsPerSlide]="itemsPerSlide" [singleSlideOffset]="singleSlideOffset" [startFromIndex]="6"
+          [interval]="0">
+          <slide *ngFor="let slide of slides; let index = index">
+            <div class="position-relative" [routerLink]="['../property-list']">
+              <div class="property-slider">
+                <img [src]="slide.image" alt="image slide" />
+              </div>
+              <div class="carousel-caption propertt-slider-text">
+                <h4 class="fw-bold fs-5">{{ slide.text }}</h4>
+              </div>
+            </div>
+          </slide>
+        </carousel>
+      </div>
+    </div>
+    <div class="container">
+      <div class="text-center">
+        <h2 class="p-4 m-5">Popular Areas in Dubai</h2>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <div class="area position-relative "  *ngFor="let area of popularArea" >
+            <img class="w-100" [src]="area.image" />
+            <div class="downtown">
+              <h4>{{area.heading}}</h4>
+              <p class="m-0">
+                {{area.Desc}}
+              </p>
+              <p>
+                <span>
+                  <hr />
+                </span> {{area.Details}}
+                <br />{{area.detail}}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-9">
+          <div class="row gy-3">
+            <div class={{p.cls}} *ngFor="let p of popularAreaList">
+              <div class="area-two position-relative">
+                <img class="w-100" [src]="p.image" />
+                <div class="downtown-sub">
+                  <h4>{{p.heading}}</h4>
+                  <p class="m-0">
+                    {{p.Desc}}
+                  </p>
+                  <p>
+                    <span>
+                      <hr />
+                    </span> {{p.Details}}
+                    <br />{{p.detail}}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>         
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="pt-4 mt-4">
+        <h2>Featured Properties</h2>
+      </div>
+      <div class="feature-property">
+        <div class="card-group py-5">
+          <div class="row">
+            <div class="col-3" *ngFor="let propertyFeatureList of propertyFeature">
+              <div class="card" [routerLink]="['../property-list']">
+                <img [src]="propertyFeatureList.image" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title m-0">
+                    {{ propertyFeatureList.price }} AED
+                  </h5>
+                  <p class="card-text m-0">
+                    {{ propertyFeatureList.propDesc }}
+                  </p>
+                  <p>
+                    {{ propertyFeatureList.bed }} Bed • {{ propertyFeatureList.bath }} Baths • {{
+                    propertyFeatureList.sqFt }} SqFt
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">{{ propertyFeatureList.place}}{{ propertyFeatureList.time }}</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

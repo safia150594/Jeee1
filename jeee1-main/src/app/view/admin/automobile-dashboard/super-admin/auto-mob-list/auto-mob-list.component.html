@@ -1,0 +1,9 @@
+<div class="container p-5">
+<div class="d-flex justify-content-end"> 
+    <a type="button" class="btn btn-outline-primary" (click)="toggleShowAutoList()">Add-List</a>
+</div><br>
+
+<div *ngIf="isShowList">
+<app-add-list-auto-mob></app-add-list-auto-mob>
+</div>
+</div>

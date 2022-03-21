@@ -1,0 +1,741 @@
+<div class="container py-5 px-0">
+    <div class="py-3 fs-5 ">
+        <div class="row d-flex justify-content-between">
+            <div class="col-3">
+                <h5 class="heading-add-listing">ADD LISTING</h5>
+            </div>
+            <div class="col-9 ">
+                <div class="row ">
+                    <div class="col-sm  p-0">
+
+                    </div>
+                    <div class="col-sm d-flex p-0">
+                        <select id="types" name="type" class=" form-control form-control-sm  ">
+                            <!-- <input type="text" placeholder="search"> -->
+                            <option value="">Select Reference No</option>
+                            <option *ngFor="let ref of refNumIdList" value="">{{ref}}</option>
+                        </select>
+                        <input type="hidden" name="type_log" value="0">
+                        <button type="button" class="btn btn-outline-primary btn-sm ">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+    {{ addList.value | json}}
+    <div class="show-add-listing">
+        <form class="row" #addList="ngForm">
+            <div class="col-md-4">
+                <div>
+                    <h5 class="sub-heading-add-listing fw-bold">Location & Price</h5>
+                </div>
+                <div class="sub-heading-content">
+                    <div class="form-group">
+ <div class="row">
+                            <div class="col-3">
+                                <label>Type: <span class="required">*</span></label>
+                            </div>
+                            <div class="col-9">
+                                <div class="font-small">
+                                    <select id="types" name="type" class="form-control"
+                                        #type="ngModel" required [(ngModel)]="dummyaddPropertyList.type">
+                                        <!-- <input type="text" placeholder="search"> -->
+                                        <option value="">Select</option>
+                                        <optgroup label="Residential">
+                                            <option *ngFor="let resisential of residentialList">{{resisential}}</option>
+                                        </optgroup>
+                                        <optgroup label="Commercial">
+                                            <option *ngFor="let commercial of commercialList">{{commercial}}</option>
+                                        </optgroup>
+                                    </select>
+                                    <input type="hidden" name="type_log" value="0">
+                                    <small  *ngIf="type.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group py-2">
+                        <div class="row">
+                            <div class="col-3">
+                                <label>Purpose: <span class="required">*</span></label>
+                            </div>
+                            <div class="col-9">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="purpose" 
+                                        value="sale" #purpose="ngModel" required [(ngModel)]="dummyaddPropertyList.purpose">
+                                    <label class="form-check-label" for="inlineRadio1">Sales</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="purpose" id="inlineRadio2"
+                                        value="rent" #purpose="ngModel" required [(ngModel)]="dummyaddPropertyList.purpose">
+                                    <label class="form-check-label" for="inlineRadio2">Rent</label>
+                                </div>
+                                <small  *ngIf="purpose.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group py-2">
+                        <div class="row">
+                            <div class="col-3">
+                                <label>Location: </label>
+                            </div>
+                            <div class="col-9">
+                                <div class="font-small d-flex  flex-align-center">
+                                    <input type="text" class="form-control" name="location" id="formGroupExampleInput"
+                                        placeholder="Search" #location="ngModel" required [(ngModel)]="dummyaddPropertyList.location">&nbsp;&nbsp;<i
+                                        class="fas fa-map-marker-alt fs-5"></i>
+                                </div>
+                                <small  *ngIf="location.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-3">
+                                <label>Emirate: <span class="required">*</span></label>
+                            </div>
+                            <div class="col-9">
+                                <div class="font-small">
+                                    <select id="city" name="emirate" class="form-control"
+                                        #emirate="ngModel" required [(ngModel)]="dummyaddPropertyList.emirate">
+                                        <option value="">Select</option>
+                                        <option *ngFor="let emiratez of emiratesList " >{{emiratez}}</option>
+                                    </select>
+                                    <small  *ngIf="emirate.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group py-2">
+                        <div class="row">
+                            <div class="col-3 pe-0 ">
+                                <label>Unit#: <span class="required">*</span></label>
+                            </div>
+                            <div class="col-9">
+                                <div class="font-small">
+                                    <div class="row ">
+                                        <div class="col-4">
+                                            <input _ngcontent-spi-c110="" type="text" 
+                                                placeholder="unit#" class="form-control form-control-sm" name="unit"
+                                                #unit="ngModel" required [(ngModel)]="dummyaddPropertyList.unit">
+                                                <small  *ngIf="unit.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                        </div>
+                                        <div class="col-4">
+                                            <input _ngcontent-spi-c110="" type="text" 
+                                                placeholder="Plot#" class="form-control form-control-sm" name="plot"
+                                                #plot="ngModel" required [(ngModel)]="dummyaddPropertyList.plot">
+                                                <small  *ngIf="plot.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                        </div>
+                                        <div class="col-4">
+                                            <input _ngcontent-spi-c110="" type="text" 
+                                                placeholder="Street#" class="form-control form-control-sm" name="street"
+                                                #street="ngModel" required [(ngModel)]="dummyaddPropertyList.street">
+                                                <small  *ngIf="street.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group py-2">
+                        <div class="row">
+                            <div class="col-3 pe-0 ">
+                                <label>Community: </label>
+                            </div>
+                            <div class="col-9">
+                                <div class="font-small">
+                                    <ng-select [items]="communityList" name="community" appendTo="body"
+                                        #community="ngModel" required [(ngModel)]="dummyaddPropertyList.community">
+                                    </ng-select>
+                                    <small  *ngIf="community.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group py-2">
+                        <div class="row">
+                            <div class="col-3 pe-0 ">
+                                <label>Views</label>
+                            </div>
+                            <div class="col-9">
+                                <div class="font-small">
+                                    <ng-select [items]="siteViewsList" name="view" appendTo="body" [multiple]="true"
+                                        #view="ngModel" required [(ngModel)]="dummyaddPropertyList.view">
+                                    </ng-select>
+                                    <small  *ngIf="view.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group py-2">
+                        <div class="row">
+                            <div class="col-3 pe-0">
+                                <label>External Reference:<span class="required">*</span> </label>
+                            </div>
+                            <div class="col-9">
+                                <div class="font-small d-flex">
+                                    <input type="text" class="form-control" id="formGroupExampleInput"
+                                        placeholder="External Reference" name="externalRef"
+                                        #externalRef="ngModel" required [(ngModel)]="dummyaddPropertyList.externalRef">&nbsp;&nbsp;
+                                    </div>
+                                    <small  *ngIf="externalRef.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group py-2">
+                        <div class="row  ">
+                            <div class="col-3">
+                                <label>Rent: <span class="required">*</span> </label>
+                            </div>
+                            <div class="col-9">
+                                <div class="font-small ">
+                                    <div class="input-group input-group-sm">
+                                        <input type="text" class="form-control" name="rentamt"
+                                            #rentamt="ngModel" required [(ngModel)]="dummyaddPropertyList.rentamt">
+                                        <!-- <span class="input-group-text">AED</span> -->
+                                    </div>
+                                    <small  *ngIf="rentamt.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group py-2">
+                        <div class="row  ">
+                            <div class="col-3">
+                                <label>Frequency:</label>
+                            </div>
+                            <div class="col-9">
+                                <div class="font-small form-group">
+                                    <ng-select [items]="frequencyList" name="Frequency" appendTo="body"
+                                        #Frequency="ngModel" required [(ngModel)]="dummyaddPropertyList.Frequency">
+                                    </ng-select>
+                                    <small  *ngIf="Frequency.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                    <!-- <select class="form-control ">
+                                        <option value="yearly">yearly</option>
+                                        <option value="monthly">monthly</option>
+                                        <option value="weekly">weekly</option>
+                                        <option value="daily">daily</option>
+                                    </select> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group py-2">
+                        <div class="row  ">
+                            <div class="col-3">
+                                <label>Annual Commission:</label>
+                            </div>
+                            <div class="col-9 d-flex">
+                                <div class="input-group input-group-sm me-1">
+                                    <input type="text" class="form-control" placeholder="" aria-label=" Percentang"
+                                        aria-describedby="basic-addon2" name="commesionPercent"
+                                        #commesionPercent="ngModel" required [(ngModel)]="dummyaddPropertyList.commesionPercent">
+                                    <span class="input-group-text" id="basic-addon2">%</span><br>
+                                </div>
+                                <small  *ngIf="commesionPercent.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                <div class="input-group input-group-sm ">
+                                    <input type="text" class="form-control" placeholder="" aria-label="AED"
+                                        aria-describedby="basic-addon2" name="commesionamt"
+                                        #commesionamt="ngModel" required [(ngModel)]="dummyaddPropertyList.commesionamt">
+                                    <span class="input-group-text" id="basic-addon2">AED</span><br>
+                                </div>
+                                <small  *ngIf="commesionamt.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group py-2">
+                        <div class="row  ">
+                            <div class="col-3">
+
+                            </div>
+                            <div class="col-9">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"
+                                        name="checkNever" #checkNever="ngModel" required [(ngModel)]="dummyaddPropertyList.checkNever">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Never Lived In
+                                    </label>
+                                </div>
+                                <small  *ngIf="checkNever.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2"
+                                        name="checkFeatured" #checkFeatured="ngModel" required [(ngModel)]="dummyaddPropertyList.checkFeatured">
+                                    <label class="form-check-label" for="defaultCheck2">
+                                        Featured on company website
+                                    </label>
+                                </div>
+                                <small  *ngIf="checkFeatured.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck3"
+                                        name="checkExclusive" #checkExclusive="ngModel" required [(ngModel)]="dummyaddPropertyList.checkExclusive">
+                                    <label class="form-check-label" for="defaultCheck3">
+                                        Exclusive Rights
+                                    </label>
+                                </div>
+                                <small  *ngIf="checkExclusive.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div>
+                    <h5 class="sub-heading-add-listing fw-bold">Listing Details</h5>
+                    <div class="sub-heading-content">
+                        <div class="row">
+                            <div class="col-3 ">
+                                <label>Beds:</label>
+                            </div>
+                            <div class="col-3 p-0">
+                                <select id="beds" name="beds" class="form-control form-contro-sm " name="bed"
+                                    #beds="ngModel" required [(ngModel)]="dummyaddPropertyList.bed">
+                                    <option value="">Select</option>
+                                    <option *ngFor="let bed of bedlist">{{bed}}</option>
+                                 </select>
+                                 <small  *ngIf="beds.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                            </div>
+                            <div class="col-3">
+                                <label>Baths:</label>
+                            </div>
+                            <div class="col-3 p-0">
+                                <select id="baths" name="bath" class="form-control" name="Bath"
+                                    #bath="ngModel" required [(ngModel)]="dummyaddPropertyList.Bath">
+                                    <optgroup>
+                                        <option value="">Select</option>
+                                        <option *ngFor="let Bath of BathList">{{Bath}}</option>
+                                    </optgroup>
+                                </select>
+                                <small  *ngIf="bath.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-3">
+                                <label>Parking:</label>
+                            </div>
+                            <div class="col-3 p-0">
+                                <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                                     maxlength="2" class="form-control" value="" autocomplete="off"
+                                    name="parking" #parking="ngModel" required [(ngModel)]="dummyaddPropertyList.parking" />
+                                    <small  *ngIf="parking.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                            </div>
+                            <div class="col-3 ">
+                                <label>Year Built:</label>
+                            </div>
+                            <div class="col-3 p-0">
+                                <input type="text" name="year_built" maxlength="4" class="form-control" value=""
+                                    autocomplete="off" name="year" #year="ngModel" required [(ngModel)]="dummyaddPropertyList.year" />
+                                    <small  *ngIf="year.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                            </div>
+                        </div>
+                        <div class="form-group py-2">
+                            <div class="row">
+                                <div class="col-3">
+                                    <label>Type: <span class="required">*</span></label>
+                                </div>
+                                <div class="col-9">
+                                    <div class="font-small">
+                                        <select class="form-control" name="listtype" #listtype="ngModel" required [(ngModel)]="dummyaddPropertyList.listtype"  >
+                                            <option></option>
+                                            <option *ngFor="let List of ListingType" >{{List}}</option>
+                                        </select>
+                                    </div>
+                                    <small  *ngIf="listtype.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group py-2">
+                            <div class="row  ">
+                                <div class="col-3 pe-0">
+                                    <label>Plot Area: <span class="required">*</span> </label>
+                                </div>
+                                <div class="col-9">
+                                    <div class="font-small d-flex flex-align-center">
+                                        <div class="input-group input-group-sm">
+                                            <input type="text" class="form-control" name="PlotSqft"
+                                                #PlotSqft="ngModel" required [(ngModel)]="dummyaddPropertyList.PlotSqft">
+                                            <span class="input-group-text">Sqft</span>
+                                        </div>
+                                    </div>
+                                    <small  *ngIf="PlotSqft.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group py-2">
+                            <div class="row  ">
+                                <div class="col-3">
+                                    <label> Area: <span class="required">*</span> </label>
+                                </div>
+                                <div class="col-9">
+                                    <div class="font-small d-flex flex-align-center">
+                                        <div class="input-group input-group-sm">
+                                            <input type="text" class="form-control" name="AreaSqft"
+                                                #AreaSqft="ngModel" required [(ngModel)]="dummyaddPropertyList.AreaSqft">
+                                            <span class="input-group-text">Sqft</span>
+                                        </div>
+                                    </div>
+                                    <small  *ngIf="AreaSqft.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group py-2">
+                            <div class="row  ">
+                                <div class="col-3">
+                                    <label>Deposit:</label>
+                                </div>
+                                <div class="col-9 d-flex">
+                                    <div class="input-group input-group-sm me-1">
+                                        <input type="text" class="form-control" placeholder="" aria-label=" Percentang"
+                                            aria-describedby="basic-addon2" name="DepositPercent"
+                                            #DepositPercent="ngModel" required [(ngModel)]="dummyaddPropertyList.DepositPercent">
+                                        <span class="input-group-text" id="basic-addon2">%</span><br>
+                                    </div>
+                                    <small  *ngIf="DepositPercent.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                    <div class="input-group input-group-sm ">
+                                        <input type="text" class="form-control" placeholder="" aria-label="AED"
+                                            aria-describedby="basic-addon2" name="DepositAed"
+                                            #DepositAed="ngModel" required [(ngModel)]="dummyaddPropertyList.DepositAed">
+                                        <span class="input-group-text" id="basic-addon2">AED</span><br>
+                                    </div>
+                                    <small  *ngIf="DepositAed.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-3 pe-0">
+                                    <label>Cheques: <span class="required">*</span></label>
+                                </div>
+                                <div class="col-9">
+                                    <div class="font-small">
+                                        <select id="rent_cheques" name="noOfCheques" class="form-control" #noOfCheques="ngModel" required [(ngModel)]="dummyaddPropertyList.noOfCheques">
+                                            <option value="">Select</option>
+                                            <option *ngFor="let Cheque of Cheques ">{{Cheque}}</option>
+                                        </select>
+                                    </div>
+                                    <small  *ngIf="noOfCheques.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-3">
+
+                                </div>
+                                <div class="col-9">
+                                    <div class="font-small my-1 d-flex justify-content-between">
+                                        <span class="text-start">
+                                            <button type="button"
+                                                class="btn btn-outline-dark btn-sm font-small fa fa-plus me-1 my-0 p-1" (click)="openFeatureModalWithComponent()">
+                                                Features<span>(0)</span></button>
+                                            <button type="button"
+                                                class="btn btn-outline-dark font-small btn-sm fa fa-plus  my-0 p-1" (click)="openExtraInfoModalWithComponent()">Extra
+                                                Info</button>
+                                        </span>
+                                        <!-- <span class="text-end">
+                                            <input type="radio" class="btn-check btn-sm font-small my-0 p-1 " id="En"
+                                                value="1" autocomplete="off">
+                                            <label class="btn btn-outline-dark btn-sm font-small ms-1  my-0 p-1"
+                                                for="En">En</label>
+                                            <input type="radio" class="btn-check btn-sm font-small  my-0 p-1" id="Ar"
+                                                value="0" autocomplete="off">
+                                            <label class="btn btn-outline-dark btn-sm font-small  my-0 p-1"
+                                                for="Ar">Ar</label>
+                                        </span> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group py-2">
+                            <div class="row">
+                                <div class="col-3">
+                                    <label>Title: <span class="required">*</span> </label>
+                                </div>
+                                <div class="col-9">
+                                    <div class="font-small">
+                                        <input type="text" class="form-control" id="formGroupExampleInput"
+                                            placeholder="" name="Title" #Title="ngModel" required [(ngModel)]="dummyaddPropertyList.Title">&nbsp;&nbsp;
+                                            <small  *ngIf="Title.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group py-2">
+                            <div class="row">
+                                <div class="col-3">
+                                    <label class="d-flex">Description: <span class="required">*</span> </label>
+                                </div>
+                                <div class="col-9">
+                                    <div class="font-small ">
+                                        <textarea id="w3review" name="w3review" rows="6" cols="45" name="Description"
+                                            #Description="ngModel" required [(ngModel)]="dummyaddPropertyList.Description">
+                                        </textarea>
+                                    </div>
+                                    <small  *ngIf="Description.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-3">
+
+                                </div>
+                                <div class="col-9">
+                                    <div class="font-small my-1">
+                                        <span class="text-start">
+                                            <!-- <button type="button" class="btn btn-outline-dark btn-sm font-small fa fa-plus me-2 mb-2 my-0 p-1" (click)="openPortalWithComponent()">
+                                                Portals<span>(4)</span></button> -->
+                                            <button type="button"
+                                                class="btn btn-outline-dark font-small btn-sm fa fa-plus me-2  mb-2 my-0 p-1"
+                                                (click)="openPhotoModalWithComponent()">Photos(0)</button>
+                                            <button type="button"
+                                                class="btn btn-outline-dark font-small btn-sm fa fa-plus  me-2  mb-2 my-0 p-1" (click)="openVideoWithComponent()">Videos(0)</button>
+                                            <button type="button"
+                                                class="btn btn-outline-dark font-small btn-sm fa fa-plus  me-2  mb-2 my-0 p-1" (click)="openFloorPlansWithComponent()">Floor
+                                                Plans(0)</button>
+                                            <button type="button"
+                                                class="btn btn-outline-dark font-small btn-sm fa fa-plus  me-2  mb-2 my-0 p-1" (click)="openDocumentWithComponent()">Documents(0)</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div>
+                    <h5 class="sub-heading-add-listing fw-bold">Associations</h5>
+                    <div class="sub-heading-content">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-3">
+                                    <label>LSM: :</label>
+                                </div>
+                                <div class="col-9">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio"  value="Furnished"
+                                            name="LSM" #LSM="ngModel" required [(ngModel)]="dummyaddPropertyList.LSM">
+                                        <label class="form-check-label" for="inlineRadio1">Shared</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="LSM"
+                                            #LSM="ngModel" required [(ngModel)]="dummyaddPropertyList.LSM" id="inlineRadio2" value="Private">
+                                        <label class="form-check-label" for="inlineRadio2">Private</label>
+                                    </div><BR>
+                                     <small  *ngIf="LSM.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group py-2">
+                            <div class="row">
+                                <div class="col-3">
+                                    <label class="d-flex">Transaction: </label>
+                                </div>
+                                <div class="col-9">
+                                    <div class="font-small">
+                                        <input type="text" class="form-control" id="formGroupExampleInput"
+                                            placeholder="Transaction#" name="Transaction"
+                                            #Transaction="ngModel" required [(ngModel)]="dummyaddPropertyList.Transaction">&nbsp;&nbsp;
+                                            <small  *ngIf="Transaction.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group py-2">
+                            <div class="row  ">
+                                <div class="col-3">
+                                    <label>Permit:</label>
+                                </div>
+                                <div class="col-9 d-flex">
+                                    <div class="input-group input-group-sm me-3">
+                                        <input type="text" class="form-control" placeholder="Permit#"
+                                            aria-label=" Percentang" aria-describedby="basic-addon2" name="Permit"
+                                            #Permit="ngModel" required [(ngModel)]="dummyaddPropertyList.Permit">
+                                        <span class="input-group-text" id="basic-addon2"><i
+                                                class="fas fa-sync-alt"></i></span>
+                                    </div>
+                                    <small  *ngIf="Permit.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                    <div class="input-group input-group-sm ">
+                                        <input type="text" class="form-control" placeholder="Permit Expiry"
+                                            aria-label="AED" aria-describedby="basic-addon2" name="PermitExpiry"
+                                            #PermitExpiry="ngModel" required [(ngModel)]="dummyaddPropertyList.PermitExpiry">
+                                    </div>
+                                    <small  *ngIf="PermitExpiry.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group py-2">
+                            <div class="row  ">
+                                <div class="col-3">
+                                    <label>Landlord: </label>
+                                </div>
+                                <div class="col-9">
+                                    <div class="font-small ">
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-text"><i class="fas fa-plus-circle" (click)="openLandlordContactModalWithComponent()"></i></span>
+                                            <input type="text" class="form-control" name="Landlord"
+                                                #Landlord="ngModel" required [(ngModel)]="dummyaddPropertyList.Landlord">
+                                        </div>
+                                        <small  *ngIf="Landlord.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group py-2">
+                            <div class="row  ">
+                                <div class="col-3">
+                                    <label>Rented: <span class="required">*</span> </label>
+                                </div>
+                                <div class="col-9">
+                                    <div class="font-small d-flex flex-align-center">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                             (click)="toggleRented()">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="isShowRented">
+                            <div class="form-group py-2">
+                                <div class="row  ">
+                                    <div class="col-3">
+                                        <label>Tenancyng:</label>
+                                    </div>
+                                    <div class="col-9 d-flex">
+                                        <div class="input-group input-group-sm me-2">
+                                            <input type="text" class="form-control" placeholder="To"
+                                                aria-label=" Percentang" aria-describedby="basic-addon2" bsDatepicker
+                                                name="tenancyngTo" #tenancyngTo="ngModel"  [(ngModel)]="dummyaddPropertyList.tenancyngTo">
+                                            <span class="input-group-text" id="basic-addon2"><i
+                                                    class="fas fa-calendar-alt"></i></span>
+                                                </div>
+                                                <small  *ngIf="tenancyngTo.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                        <div class="input-group input-group-sm ">
+                                            <input type="text" class="form-control" placeholder="From" aria-label="AED"
+                                                aria-describedby="basic-addon2" bsDatepicker name="tenancyngFrom"
+                                                #tenancyngFrom="ngModel"  [(ngModel)]="dummyaddPropertyList.tenancyngFrom">
+                                            <span class="input-group-text" id="basic-addon2"><i
+                                                    class="fas fa-calendar-alt"></i></span>
+                                                </div>
+                                                <small  *ngIf="tenancyngFrom.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group py-2">
+                                <div class="row  ">
+                                    <div class="col-3">
+                                        <label>Tenant: </label>
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="font-small d-flex flex-align-center">
+                                            <div class="input-group input-group-sm">
+                                                <span class="input-group-text"><i class="fas fa-plus-circle" (click)="openLandlordContactModalWithComponent()"></i></span>
+                                                <input type="text" class="form-control"
+                                                    placeholder="Search Contacts(min 3 characters requested"
+                                                    name="tenant" #tenant="ngModel"  [(ngModel)]="dummyaddPropertyList.tenant">
+                                            </div>
+                                            <small  *ngIf="tenant.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group py-2">
+                                <div class="row  ">
+                                    <div class="col-3">
+                                        <label>Cheques: </label>
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="font-small d-flex flex-align-center">
+                                            <div class="font-small my-1">
+                                                <span class="text-start">
+                                                    <button type="button"
+                                                        class="btn btn-outline-dark btn-sm font-small fa fa-plus me-2 mb-2 my-0 p-1" (click)="openAddChequModalWithComponent()">
+                                                        Add Cheques</button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group py-2">
+                            <div class="row  ">
+                                <div class="col-3">
+                                    <label>Source:</label>
+                                </div>
+                                <div class="col-9 ">
+                                    <div class="font-small ">
+                                        <ng-select [items]="sourceList" name="source" class="" appendTo="body"
+                                            #source="ngModel" required [(ngModel)]="dummyaddPropertyList.source">
+                                        </ng-select>
+                                        <small  *ngIf="source.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group py-2">
+                            <div class="row  ">
+                                <div class="col-3 pe-0">
+                                    <label>Assign to: <span class="required">*</span></label>
+                                </div>
+                                <div class="col-9">
+                                    <div class="font-small">
+                                        <ng-select [items]="assignList" name="assign" appendTo="body"
+                                            #assign="ngModel" required [(ngModel)]="dummyaddPropertyList.assign">
+                                        </ng-select>
+                                        <small  *ngIf="assign.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group py-2">
+                            <div class="row  ">
+                                <div class="col-3">
+                                    <label>Status: </label>
+                                </div>
+                                <div class="col-9">
+                                    <div class="font-small ">
+                                        <ng-select [items]="statusList" name="status" appendTo="body"
+                                            #status="ngModel" required [(ngModel)]="dummyaddPropertyList.status">
+                                        </ng-select>
+                                        <small  *ngIf="status.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group py-2">
+                            <div class="row  ">
+                                <div class="col-3">
+                                    <label>Note: </label>
+                                </div>
+                                <div class="col-9">
+                                    <div class="font-small d-flex flex-align-center">
+                                        <textarea  id="note" rows="3" class="form-control "
+                                            data-disable=1 name="note" #note="ngModel" required [(ngModel)]="dummyaddPropertyList.note"></textarea>
+                                        </div>
+                                        <small  *ngIf="note.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group py-2">
+                            <div class="row  ">
+                                <div class="col-3">
+
+                                </div>
+                                <div class="col-9">
+                                    <div class="font-small d-flex flex-align-center justify-content-end">
+                                        <button type="button" class="btn btn-primary mx-3" >cancel</button>
+                                        <button type="button" class="btn btn-primary"  (click)="addPropertyList(addList.valid)">Next</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

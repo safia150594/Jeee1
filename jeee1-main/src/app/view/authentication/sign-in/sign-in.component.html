@@ -1,0 +1,30 @@
+<app-jeee-header></app-jeee-header>
+<div class="container-fluid">
+    <div class="signin">
+        <div class="row">
+            <div class="col-4 signup">
+                <div class="sign-in text-center">SIGN IN</div>
+                {{sign.value | json}}
+                <form #sign="ngForm">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="userEmail" #userEmail="ngModel" required [(ngModel)]="dummysignIn.userEmail">
+                        <small  *ngIf="userEmail.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputPassword5" class="form-label">Password</label>
+                        <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" name="userPassword" #userPassword="ngModel" required [(ngModel)]="dummysignIn.userPassword">
+                        <div class="py-3">
+                            <small  *ngIf="userPassword.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                        </div>
+                        <a><small>Forget Password?</small></a>
+                    </div>
+                    <a type="submit" class="btn btn-primary" (click)="signinUser(sign.valid)">Submit</a>
+                </form>
+                <div class="text-center">
+                    <a [routerLink]="['../signup']"><small>Create an account?</small></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

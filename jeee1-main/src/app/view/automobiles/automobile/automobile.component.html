@@ -1,0 +1,68 @@
+<div>
+    <div class="container">
+        <div class="automobile-banner">
+            <div class="automobile-banner-overlay">
+                <div>
+                    <h1 class="text-white">Now buy and sell cars in our marketplace</h1>
+                    <form #search="ngForm">                        
+                        <input class="form-control" type="search" placeholder="Enter Keywords" aria-label="Search" name="search" #search="ngModel" required [(ngModel)]="automobileSearch.search" >
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="my-5">
+            <div class="row" *ngFor="let listing of automobileListingDashbooard ">
+                <div class="col-2">
+                    <div class="automobile-home-dashboard">
+                        <a>{{listing.UsedCar}}<br><span>{{listing.UsedCarValue}}</span></a>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="automobile-home-dashboard">
+                        <a>{{listing.Motorcycle}}<br><span>{{listing.MotorcycleValue}}</span></a>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="automobile-home-dashboard">
+                        <a>{{listing.AccessoriesPart}}<br><span>{{listing.AccessoriesPartValue}}</span></a>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="automobile-home-dashboard">
+                        <a>{{listing.HeaveyVehicles}}<br><span>{{listing.HeaveyVehiclesValue}}</span></a>
+                    </div>
+                </div>
+                <div class="col-1">
+                    <div class="automobile-home-dashboard">
+                        <a>{{listing.Boats}}<br><span>{{listing.BoatsValue}}</span></a>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="automobile-home-dashboard">
+                        <a>{{listing.NumberPlates}}<br><span>{{listing.NumberPlatesValue}}</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="my-3">
+            <h1>Featured Listings</h1>
+            <div class="row">
+                <div *ngFor="let feature of featureListing " class="col-3">
+                    <div  class="card mb-3">
+                        <div class="automobile-featured">
+                            <img [src]="feature.img" class="card-img-top" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <a href="../../automobile-list">
+                                <h5 class="card-title text-danger">AED {{feature.price}} </h5>
+                                <p class="card-text">{{feature.model}}</p>
+                                <p class="card-text">Year {{feature.year}}. KM {{feature.km}}</p>
+                                <p class="card-text"><small class="text-muted">{{feature.time}}</small></p>
+                            </a>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+</div>

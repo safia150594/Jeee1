@@ -1,0 +1,218 @@
+<div>
+  <app-jeee-header></app-jeee-header>
+   <div class="registrationagency bg-silverlight py-5">      
+        <div class="container-fluid">          
+           <div class="row p-0 m-0 justify-content-center">
+               <div class="col-8  px-5 bg-light  agency-reg">    
+                <div class="d-flex justify-content-center pt-5">
+                    <h3 class="text-danger fw-bold"> Agency Registration</h3>
+                </div>
+                {{compReg.value | json}}    <br>                    
+                <form   #compReg="ngForm" class="row gy-2">  
+                  <div class="col-md-6">
+                      <label for="Agency-name" class="form-label">Agency Name</label>
+                      <input type="text" class="form-control form-control-sm " id="Agency-name" name="agencyName" #agencyName="ngModel" [(ngModel)]="companyReg.agencyName" required >
+                      <small  *ngIf="agencyName.invalid && isFormSubmitted" class="text-danger">Name is Required</small>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="agency-email" class="form-label">Agency Email</label>
+                      <input type="email" class="form-control form-control-sm" id="agency-email" name="agencyEmail" #agencyEmail="ngModel" [(ngModel)]="companyReg.agencyEmail" required email>
+                      <small *ngIf="agencyEmail.invalid && isFormSubmitted" class="text-danger">Email is Required</small>
+                    </div>                    
+                    <div class="col-6">                         
+                      <label for="phone" class="form-label">Phone Number</label>
+                      <input type="tel" id="phone" class="form-control form-control-sm" name="phone" #phoneNumber="ngModel"  name="phoneNumber" [(ngModel)]="companyReg.phoneNumber"  required>
+                       <small  *ngIf="phoneNumber.invalid && isFormSubmitted" class="text-danger">Format: 123-456-7890</small>
+                    </div>
+                    <div class="col-6">                        
+                      <label for="tel" class="form-label">Landline</label>
+                      <input type="tel" id="tel" class="form-control form-control-sm" name="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"  #landline="ngModel" name="landline" [(ngModel)]="companyReg.landline" required>
+                       <small   *ngIf="landline.invalid && isFormSubmitted" class="text-danger">Format: 123-456-7890</small>
+                    </div>
+                    <div class="col-12">
+                        <div class="mb-3">
+                            <label for="desc" class="form-label">Description</label>
+                            <textarea class="form-control form-control-sm" id="desc" rows="3" name="description" #description="ngModel" [(ngModel)]="companyReg.description" required></textarea>
+                            <small *ngIf="description.invalid && isFormSubmitted" class="text-danger">Description is Required</small>
+                          </div>
+                    </div>
+                    <div class="col-12">
+                        <div>
+                            <label for="logo" class="form-label">Upload Logo</label>
+                            <input type="file" class="form-control form-control-sm" id="logo" name="uploadLogo" #uploadLogo="ngModel" [(ngModel)]="companyReg.uploadLogo" required (change)="selectFile($event)">                            
+                            <small  *ngIf="uploadLogo.invalid && isFormSubmitted" class="text-danger">Logo is Required</small>
+                          </div>
+                    </div>
+                    <div class="col-12">
+                        <label for="address" class="form-label">Address</label>
+                        <input type="text" class="form-control form-control-sm" id="address" placeholder="1234 Main St" name="address"  #address="ngModel" [(ngModel)]="companyReg.address" required>
+                        <small   *ngIf="address.invalid && isFormSubmitted" class="text-danger">Address is Required</small>
+                      </div>
+                    <div class="col-12">                      
+                      <div class="row">
+                        <div class="col-sm-7">
+                            <label for="City" class="form-label">City</label>
+                          <input type="text" class="form-control form-control-sm" id="City" aria-label="City" name="city" #city="ngModel" [(ngModel)]="companyReg.city" required
+                          >
+                          <small  *ngIf="city.invalid && isFormSubmitted" class="text-danger">City is Required</small>
+                        </div>
+                        <div class="col-sm">
+                            <label for="State" class="form-label">State</label>
+                          <input type="text" class="form-control form-control-sm" id="State" aria-label="State" name="state" #state="ngModel" [(ngModel)]="companyReg.state" required>
+                          <small  *ngIf="state.invalid && isFormSubmitted" class="text-danger">State is Required</small>
+                        </div>
+                        <div class="col-sm">
+                            <label for="Zip" class="form-label">PostalCode </label>
+                          <input type="text" class="form-control form-control-sm" id="Zipcode" aria-label="Zip"
+                          name="zipcode" #zipcode="ngModel" pattern="[0-9]{6}" [(ngModel)]="companyReg.zipcode" required>
+                          <small *ngIf="zipcode.invalid && isFormSubmitted" class="text-danger">Zip is Required</small>
+                        </div>
+                      </div> 
+                    </div>               
+                    <!-- <div class="col-12">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                        <label class="form-check-label" for="gridCheck">
+                          Check me out
+                        </label>
+                      </div>
+                    </div> -->
+                    <div class="col-12 d-flex  justify-content-between pb-5">
+                        <!-- <span>Already Registered ?<a href="#" class="link-danger"> &nbsp;Login</a></span> -->
+                      <button type="submit" class="btn btn-primary" (click)="addAgencyReg(compReg.valid)">Save</button>                     
+                    </div>
+                  </form>               
+               </div>
+           </div>
+        </div>
+   </div>
+  
+   <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Agency Name</th>
+          <th scope="col">Agency Email</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">Landline</th>
+          <th scope="col">Description</th>
+          <th scope="col">Upload Logo</th>
+          <th scope="col">Address</th>
+          <th scope="col">City</th>
+          <th scope="col">State</th>
+          <th scope="col">Zip</th>
+          <th scope="col" colspan="2">Control</th>
+         </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let companyReg of agencyRegristration; let i=index">
+          <th scope="row">{{i+1}}</th>
+          <td>{{companyReg.agencyName}}</td>
+          <td>{{companyReg.agencyEmail}}</td>
+          <td>{{companyReg.phoneNumber}}</td>
+          <td>{{companyReg.landline}}</td>
+          <td>{{companyReg.description}}</td>
+          <td>
+            <img src="../../../assets/slider/b3.jpg" heignt="50px;" width="50px;" *ngIf="!companyReg.url">
+            <img [src]="companyReg.url" heignt="50px;" width="50px;" *ngIf="!!companyReg.url">
+          </td>
+          <td>{{companyReg.address}}</td>
+          <td>{{companyReg.city}}</td>
+          <td>{{companyReg.state}}</td>
+          <td>{{companyReg.zip}}</td>
+          <td><button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop" (click)="editAgencyReg(i)">Edit</button></td>
+          <td><button type="button" class="btn btn-sm btn-primary" (click)="deleteAgencyReg(i)">Delete</button> </td>  
+        </tr>             
+      </tbody>
+    </table>
+   </div>
+   <div>
+     <!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-danger fw-bold" id="staticBackdropLabel"> Agency Registration</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="registrationagency bg-silverlight ">      
+          <div class="container-fluid">          
+             <div class="row p-0 m-0 justify-content-center">
+                 <div class="col-11">                          
+                  <form class="row gy-2 py-2">                   
+                      <div class="col-md-6">
+                        <label for="Agency-name" class="form-label">Agency Name</label>
+                        <input type="text" class="form-control form-control-sm " id="Agency-name" name="agencyName" #agencyName="ngModel"  [(ngModel)]="companyUpdateReg.agencyName" required>
+                        <small  *ngIf="agencyName.invalid && isFormSubmitted" class="text-danger">Name is Required</small>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="agency-email" class="form-label">Agency Email</label>
+                        <input type="email" class="form-control form-control-sm" id="agency-email" name="agencyEmail" [(ngModel)]="companyUpdateReg.agencyEmail" #agencyEmail="ngModel"  required email>
+                        <small *ngIf="agencyEmail.invalid && isFormSubmitted" class="text-danger">Email is Required</small>
+                      </div>                    
+                      <div class="col-6">                        
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control form-control-sm"   name="phoneNumber" [(ngModel)]="companyUpdateReg.phoneNumber"#phoneNumber="ngModel" required>
+                        <small  *ngIf="phoneNumber.invalid && isFormSubmitted" class="text-danger">Format: 123-456-7890</small>
+                      </div>
+                      <div class="col-6">                        
+                        <label for="tel" class="form-label">Landline</label>
+                        <input type="tel" id="tel" class="form-control form-control-sm" name="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}}"  name="landline"   #landline="ngModel" [(ngModel)]="companyUpdateReg.landline" required>
+                        <small   *ngIf="landline.invalid && isFormSubmitted" class="text-danger">Format: 123-456-7890</small>
+                      </div>
+                      <div class="col-12">
+                          <div class="mb-3">
+                              <label for="desc" class="form-label">Description</label>
+                              <textarea class="form-control form-control-sm" id="desc" rows="3" name="description" #description="ngModel" [(ngModel)]="companyUpdateReg.description" required></textarea>
+                              <small *ngIf="description.invalid && isFormSubmitted" class="text-danger">Description is Required</small>
+                            </div>
+                      </div>
+                      <div class="col-12">
+                          <div>
+                              <label for="logo" class="form-label">Upload Logo</label>
+                              <input type="file" class="form-control form-control-sm" id="logo" name="uploadLogo" [(ngModel)]="companyUpdateReg.uploadLogo" #uploadLogo="ngModel" required>                            
+                            </div>
+                      </div>
+                      <div class="col-12">
+                          <label for="address" class="form-label">Address</label>
+                          <input type="text" class="form-control form-control-sm" id="address" placeholder="1234 Main St" name="address" #address="ngModel" [(ngModel)]="companyUpdateReg.address" required>
+                          <small   *ngIf="address.invalid && isFormSubmitted" class="text-danger">Address is Required</small>
+                        </div>
+                      <div class="col-12">                      
+                        <div class="row">
+                          <div class="col-sm-7">
+                              <label for="City" class="form-label">City</label>
+                            <input type="text" class="form-control form-control-sm" id="City" aria-label="City" name="city" #city="ngModel" [(ngModel)]="companyUpdateReg.city"
+                            required>
+                            <small  *ngIf="city.invalid && isFormSubmitted" class="text-danger">City is Required</small>
+                          </div>
+                          <div class="col-sm">
+                              <label for="State" class="form-label">State</label>
+                            <input type="text" class="form-control form-control-sm" id="State" aria-label="State" name="state" [(ngModel)]="companyUpdateReg.state" #state="ngModel" required>                            
+                          <small  *ngIf="state.invalid && isFormSubmitted" class="text-danger">State is Required</small>
+                          </div>
+                          <div class="col-sm">
+                              <label for="Zip" class="form-label">Zip </label>
+                            <input type="text" class="form-control form-control-sm" id="Zipcode" aria-label="Zip"
+                            name="zipcode" [(ngModel)]="companyUpdateReg.zipcode" required>
+                            <small *ngIf="zipcode.invalid && isFormSubmitted" class="text-danger">Zip is Required</small>
+                          </div>
+                        </div> 
+                      </div>  
+                       <div class="col-12 d-flex  justify-content-between pb-5">
+                          <!-- <span>Already Registered ?<a href="#" class="link-danger"> &nbsp;Login</a></span> -->
+                        <button type="submit" class="btn btn-primary" (click)="updateAgencyReg()"  data-bs-dismiss="modal" aria-label="Close">Update</button>                     
+                      </div>
+                    </form>                
+                 </div>
+             </div>
+          </div>
+     </div>
+      </div>   
+    </div>
+  </div>
+</div>
+   </div>
+</div>

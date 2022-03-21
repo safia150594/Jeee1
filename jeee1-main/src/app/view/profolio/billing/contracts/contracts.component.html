@@ -1,0 +1,110 @@
+
+<div class="row">   
+    <div class="col-12">
+        <div class="container p-3">
+            <div>
+                <h3 class="py-2">Contracts</h3>
+            </div>
+            <div class="contract">
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item card me-3" role="presentation">
+                      <button class="nav-link p-3 active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">ACTIVE <br>CONTRACTS</button>
+                    </li>
+                    <li class="nav-item card" role="presentation">
+                      <button class="nav-link p-3" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">PREVIOUS<br> CONTRACTS</button>
+                    </li>           
+                  </ul>
+                  <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <div class="container card">
+                            <table class="table ">
+                                <thead>
+                                  <tr>
+                                    <th scope="col" class="py-3">ID</th>
+                                    <th scope="col" class="py-3">STARTING - ENDING DATES</th>
+                                    <th scope="col" class="py-3">TOTAL AMOUNT <i class="fas fa-info-circle"></i></th>
+                                    <th scope="col" class="py-3">OUTSTANDING AMOUNT<i class="fas fa-info-circle"></i></th>
+                                    <th scope="col" class="py-3"> RECURRING PAYMENT METHOD</th>
+                                    <th scope="col" class="py-3"> ACTION</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let contactive of contractActive">
+                                    <th class="pt-4" scope="row">{{contactive.id}}</th>
+                                    <td class="pt-4">{{contactive.startingEndingDate}}</td>
+                                    <td class="pt-4">AED {{contactive.totalAmount}}</td>
+                                    <td class="pt-4">AED {{contactive.outstandingAmount}}</td>
+                                    <td ><img class="object-container" [src]="contactive.recrumentPaymentMethod" width="50px;" height="50px;"> ending with {{contactive.card}}</td>
+                                    <td class="pt-3"><button type="button" class="btn btn-primary" (click)="toggleview()">View</button></td>
+                                  </tr>                         
+                                </tbody>
+                              </table>
+                        </div>
+                        <div *ngIf='isShowContractView'>
+                            <div class="card py-3 my-3 px-3">
+                                <div class=" d-flex">
+                                    <div>
+                                      <i class="fas fa-chevron-circle-down fs-3 me-3"></i>
+                                    </div>
+                                    <div class="px-3">
+                                        <h5>CONTRACT ID<br><br>
+                                          <b>14162</b></h5>
+                                    </div>
+                                    <div>
+                                        <h5>RECURRING PAYMENT METHOD</h5>
+                                      <span class="fs-4">  <img class="object-container" src="../../../../../assets/bank/visa.png" width="50px" height="50px"> ending with 8882</span> 
+                                    </div>
+                                </div>
+                                <div>
+                                  <table class="table">
+                                      <thead>
+                                        <tr>
+                                          <th class="pt-4" scope="col">PAYMENT DATE</th>
+                                          <th class="pt-4" scope="col">REFERENCE</th>
+                                          <th class="pt-4" scope="col">Amount <i class="fas fa-info-circle"></i></th>
+                                          <th class="pt-4" scope="col">STATUS</th>
+                                          <th class="pt-4" scope="col">PAYMENT METHOD</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr *ngFor="let contracts of contractView">
+                                          <th class="pt-4" scope="row">{{contracts.paymentDate}}</th>
+                                          <td class="pt-4" >{{contracts.Reference}}</td>
+                                          <td class="pt-4" >AED {{contracts.Amount}}</td>
+                                          <td class="pt-4">{{contracts.Status}}</td>
+                                          <td ><img class="object-container" [src]="contracts.paymentMethod" width="50px;" height="50px;"> ending with {{contracts.card}}</td>
+                                        </tr>
+                                       
+                                      </tbody>
+                                    </table>
+                                </div>
+                               </div>
+                        </div> 
+                    </div>
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <div class="container card">
+                            <table class="table ">
+                                <thead>
+                                  <tr>
+                                    <th scope="col" class="py-3">ID</th>
+                                    <th scope="col" class="py-3">STARTING - ENDING DATES</th>
+                                    <th scope="col" class="py-3">TOTAL AMOUNT <i class="fas fa-info-circle"></i></th>
+                                    <th scope="col" class="py-3">OUTSTANDING AMOUNT<i class="fas fa-info-circle"></i></th>
+                                    <th scope="col" class="py-3"> RECURRING PAYMENT METHOD</th>
+                                    <th scope="col" class="py-3"> ACTION</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                     <td colspan="12" class="text-center fs-5 py-5"> No Data Found</td>
+                                  </tr>                         
+                                </tbody>
+                              </table>
+                        </div>
+                    </div>  
+                            
+                  </div>    
+            </div>
+        </div>
+    </div>
+</div>

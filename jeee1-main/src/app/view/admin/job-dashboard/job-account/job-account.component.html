@@ -1,0 +1,26 @@
+<div class="py-5 my-5">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Logo</th>
+            <th scope="col">Name</th>
+            <th scope="col">Company</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Address</th>
+            <th scope="col">City</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let x of jobAccount;; let i=index">
+            <th scope="row">{{i+1}}</th>
+            <td><img [src]="x.image" height="50px" width="50px" alt=""></td>
+            <td>{{x.name}}</td>
+            <td>{{x.company}}</td>
+            <td>{{x.phone}}</td>
+            <td>{{x.Address}}</td>
+            <td>{{x.city}}</td>
+          </tr>          
+        </tbody>
+      </table>
+</div>

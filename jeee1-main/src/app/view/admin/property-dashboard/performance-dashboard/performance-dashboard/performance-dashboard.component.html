@@ -1,0 +1,182 @@
+<app-brokerpad-layout-sidebar></app-brokerpad-layout-sidebar>
+<div class=" py-5">
+    <div class="px-5 container-fliud ">
+        <div class="border-shadow">
+            <form #preformanceForm="ngForm">
+                {{preformanceForm.value | json}}
+                <div class="d-flex  px-5 pt-3 justify-content-between">
+                    <h5>Filters</h5>
+                    <small (click)="reset()">Reset filters</small>
+                </div>
+                <div>
+                    <div class="row  px-5 pb-3">
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="col-4 p-0">
+                                    <div>
+                                        <ng-select [items]="cityList" name="city" appendTo="body" #city="ngModel"
+                                            required [(ngModel)]="viewDashboard.city" placeholder="city">
+                                        </ng-select>
+                                    </div>
+                                </div>
+                                <div class="col-8 p-0">
+                                    <ng-select [items]="LocationList" name="location" appendTo="body"
+                                        #location="ngModel" required [(ngModel)]="viewDashboard.location"
+                                        placeholder="Location & neighbourhood">
+                                    </ng-select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-8 p-0 ">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text " id="basic-addon1"><i class="fas fa-search"></i>
+                                </span>
+                                <input type="text" class="form-control" placeholder="Search By Title & Ref IDs"
+                                    aria-label="Username" aria-describedby="basic-addon1" name="searchTitle"
+                                    #searchTitle="ngModel" required [(ngModel)]="viewDashboard.searchTitle">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-silverlight pt-3">
+                    <div class="row  px-5 pb-3">
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="col-4 ps-0">
+                                    <div>
+                                        <label for="formGroupExampleInput" class="form-label">Category</label>
+                                        <ng-select [items]="cityList" name="city" appendTo="body"
+                                            #citycatogory="ngModel" required [(ngModel)]="viewDashboard.citycatogory"
+                                            placeholder="citycatogory">
+                                        </ng-select>
+                                    </div>
+                                </div>
+                                <div class="col-8 ps-0">
+                                    <label for="formGroupExampleInput" class="form-label">Sub Category</label>
+                                    <ng-select [items]="LocationList" name="locationsubcatogery" appendTo="body"
+                                        #locationsubcatogery="ngModel" required
+                                        [(ngModel)]="viewDashboard.locationsubcatogery"
+                                        placeholder="Location & neighbourhood">
+                                    </ng-select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <label for="formGroupExampleInput" class="form-label">Dates </label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text bg-light" id="basic-addon1"><i
+                                        class="far fa-calendar-alt"></i></span>
+                                <input type="text" class="form-control" placeholder="Select To Date and From Date"
+                                    aria-label="Username" aria-describedby="basic-addon1" bsDaterangepicker
+                                    name="searchdate" #searchdate="ngModel" required
+                                    [(ngModel)]="viewDashboard.searchdate" placeholder="search Date">
+                            </div>
+                        </div>
+                        <div class="col-2 text-end">
+                            <label for="formGroupExampleInput" class="form-label">&nbsp; </label>
+                            <div>
+                                <button type="button" class="btn btn-primary px-4 ">Update Report</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="container-fliud px-5 py-5">
+        <div class="d-flex justify-content-between">
+            <h5>Statistics</h5>
+            <small>Showing results from25th Oct 2021to31st Oct 2021</small>
+        </div>
+        <hr class="my-1">
+        <div class="Statistics">
+            <nav>
+                <div class="nav nav-tabs justify-content-between" id="nav-tab" role="tablist">
+                    <button class="nav-link active px-4" id="nav-home-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
+                        aria-selected="true">
+                        <div class="row ">
+                            <div class="col-3 d-flex align-items-center ">
+                                <div>
+                                    <i class="far fa-sticky-note icon-size"></i>
+                                </div>
+                            </div>
+                            <div class="col-9 text-start ">
+                                <div>Listing <i class="fas fa-info-circle"></i></div>
+                                <h5>1</h5>
+                                <div>0.14 Average Per Day</div>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="nav-link px-4" id="nav-profile-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile"
+                        aria-selected="false">
+                        <div class="row ">
+                            <div class="col-3 d-flex align-items-center ">
+                                <div>
+                                    <i class="fas fa-home icon-size"></i>
+                                </div>
+                            </div>
+                            <div class="col-9 text-start ">
+                                <div>Impressions & Clicks <i class="fas fa-info-circle"></i></div>
+                                <h5>222</h5>
+                                <div>0.14 Average Per Day</div>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="nav-link px-4" id="nav-contact-tab" data-bs-toggle="tab"
+                        data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact"
+                        aria-selected="false">
+                        <div class="row ">
+                            <div class="col-3 d-flex align-items-center ">
+                                <div>
+                                    <i class="fas fa-chart-line icon-size"></i>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-9 text-start ">
+                                <div>CTR & LCR <i class="fas fa-info-circle"></i></div>
+                                <h5>15.72% & 1.1%</h5>
+                                <div>26% Average Per Day</div>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="nav-link px-4" id="nav-Leads-tab" data-bs-toggle="tab" data-bs-target="#nav-Leads"
+                        type="button" role="tab" aria-controls="nav-Leads" aria-selected="false">
+                        <div class="row ">
+                            <div class="col-3 d-flex align-items-center ">
+                                <div>                                    
+                                    <i class="fas fa-phone-alt icon-size"></i>
+                                </div>
+                            </div>
+                            <div class="col-9 text-start ">
+                                <div>Leads <i class="fas fa-info-circle"></i></div>
+                                <h5>15.72% & 1.1%</h5>
+                                <div>26% Average Per Day</div>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <app-statistics-listing></app-statistics-listing>
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <app-ctrand-lcr></app-ctrand-lcr>
+                </div>
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                    <app-impresion-click></app-impresion-click>
+                </div>
+                <div class="tab-pane fade" id="nav-Leads" role="tabpanel" aria-labelledby="nav-Leads-tab">
+                    <app-leads></app-leads>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="Listing-Table lgsilver">
+        <div class="p-5">
+            <app-property-dashboard-listing-table></app-property-dashboard-listing-table>
+        </div>
+    </div>
+</div>

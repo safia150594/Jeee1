@@ -1,0 +1,413 @@
+<div class="m-5 px-1">
+    <div>
+        <h5>PRIVILEGES FOR ROYAL CLASS PROPERTIES</h5>
+        <hr>
+    </div>
+    <form #privilageForm="ngForm">
+        {{ privilageForm.value | json }}
+        <div class="privilage d-flex">
+            <div class="col-4"> 
+                <div class="row">
+                    <div class="col-3">
+                        <p>Listings:</p>
+                    </div>
+                    <div ngModelGroup="Listings" class="col-9">
+                        <div class="form-check ">
+                            <input class="form-check-input" type="checkbox" value=""  name="viewAllListing" #viewAllListing="ngModel"  [(ngModel)]="privilage.viewAllListing">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                View All Listings
+                            </label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input class="form-check-input" type="checkbox" value=""  name="viewTeamListing" #viewTeamListing="ngModel"  [(ngModel)]="privilage.viewTeamListing">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                View Team Listings
+                            </label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input class="form-check-input" type="checkbox" value=""  name="viewOwnListing" #viewOwnListing="ngModel"  [(ngModel)]="privilage.viewOwnListing">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                View Own Listings
+                            </label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input class="form-check-input" type="checkbox" value=""  name="viewAllLandlordListing" #viewAllLandlordListing="ngModel"  [(ngModel)]="privilage.viewAllLandlordListing">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                View All Landlord & Unit no.
+                            </label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input class="form-check-input" type="checkbox" value=""  name="viewOwnLandlordListing" #viewOwnLandlordListing="ngModel"  [(ngModel)]="privilage.viewOwnLandlordListing">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                View Own Landlord & Unit no.
+                            </label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input class="form-check-input" type="checkbox" value=""  name="canDeletemListing" #canDeletemListing="ngModel"  [(ngModel)]="privilage.canDeletemListing" >
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Can Delete Listings
+                            </label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input class="form-check-input" type="checkbox" value=""  name="canPublishListing" #canPublishListing="ngModel"  [(ngModel)]="privilage.canPublishListing">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Can Publish Listings
+                            </label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input class="form-check-input" type="checkbox" value=""  name="canShareLSM" #canShareLSM="ngModel"  [(ngModel)]="privilage.canShareLSM">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Can Share on LSM
+                            </label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input class="form-check-input" type="checkbox" value=""  name="canMarkPortals" #canMarkPortals="ngModel"  [(ngModel)]="privilage.canMarkPortals">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Can Mark Portals
+                            </label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input class="form-check-input" type="checkbox" value=""  name="manageOwnListing" #manageOwnListing="ngModel"  [(ngModel)]="privilage.manageOwnListing">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Manage Own Listings
+                            </label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input class="form-check-input" type="checkbox" value=""  name="manageTeamUsersListing" #manageTeamUsersListing="ngModel"  [(ngModel)]="privilage.manageTeamUsersListing">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Manage Team Users Listings
+                            </label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input class="form-check-input" type="checkbox" value=""  name=" manageAllListing" #manageAllListing="ngModel"  [(ngModel)]="privilage. manageAllListing">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Manage All Listings
+                            </label>
+                        </div>
+                    </div>
+                    <div class="py-4"></div>
+                    <div class="col-3">
+                        <p>Deal:</p>
+                    </div>
+                    <div class="col-9">
+                        <div class="form-check ">
+                            <input class="form-check-input" type="checkbox" value=""  name="canDeleteDeals" #canDeleteDeals="ngModel"  [(ngModel)]="privilage.canDeleteDeals">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Can Delete Deals
+                            </label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input class="form-check-input" type="checkbox" value=""  name="manageOwnDeals" #manageOwnDeals="ngModel"  [(ngModel)]="privilage.manageOwnDeals">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Manage own Deals
+                            </label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input class="form-check-input" type="checkbox" value=""  name="manageTeamUsersDeals" #manageTeamUsersDeals="ngModel"  [(ngModel)]="privilage.manageTeamUsersDeals">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Manage Team Users Deals
+                            </label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input class="form-check-input" type="checkbox" value=""  name="manageAllUsersDeals" #manageAllUsersDeals="ngModel"  [(ngModel)]="privilage.manageAllUsersDeals">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Manage All Users Deals
+                            </label>
+                        </div>
+                        
+                    </div>
+                    <div class="py-4"></div>
+                    <div class="col-3">
+                        <p>Settings:</p>
+                    </div>
+                    <div class="col-9">
+                        <div class="form-check ">
+                            <input class="form-check-input" type="checkbox" value=""  name="manageOwnSettings" #manageOwnSettings="ngModel"  [(ngModel)]="privilage.manageOwnSettings">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Manage Own Settings
+                            </label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input class="form-check-input" type="checkbox" value=""  name="manageAllUserSettings" #manageAllUserSettings="ngModel"  [(ngModel)]="privilage.manageAllUserSettings">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Manage All User Settings
+                            </label>
+                        </div>
+                    </div>
+                    <div class="py-4"></div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div  class="row">
+                    <div class="col-3">
+                        <p>Teams</p>
+                    </div>
+                    <div  ngModelGroup="Teams" class="col-9">
+                        <div class="form-check ">
+                            <input class="form-check-input" type="checkbox" value=""  name="createTeam" #createTeam="ngModel"  [(ngModel)]="privilage.createTeam">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Create Team
+                            </label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input class="form-check-input" type="checkbox" value=""  name="manageOwnTeam" #manageOwnTeam="ngModel"  [(ngModel)]="privilage.manageOwnTeam">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Manage Own Team
+                            </label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input class="form-check-input" type="checkbox" value=""  name="manageAllTeam" #manageAllTeam="ngModel"  [(ngModel)]="privilage.manageAllTeam">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Manage All Team
+                            </label>
+                        </div>
+    
+                    </div>   
+                    <div class="py-4"></div> 
+                    <div class="col-3">
+                        <p>Staff:</p>
+                    </div>
+                    <div ngModelGroup="Staff" class="col-9">
+                        <div class="form-check ">
+                            <input class="form-check-input" type="checkbox" value=""  name="addNewStaff" #addNewStaff="ngModel"  [(ngModel)]="privilage.addNewStaff">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Add New Staff
+                            </label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input class="form-check-input" type="checkbox" value=""  name="manageTeamStaff" #manageTeamStaff="ngModel"  [(ngModel)]="privilage.manageTeamStaff">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Manage Team Staff
+                            </label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input class="form-check-input" type="checkbox" value=""  name="manageAllStaff" #manageAllStaff="ngModel"  [(ngModel)]="privilage.manageAllStaff">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Manage All Staff
+                            </label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input class="form-check-input" type="checkbox" value=""  name="ManageTeamStaffPrivileges" #ManageTeamStaffPrivileges="ngModel"  [(ngModel)]="privilage.ManageTeamStaffPrivileges">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Manage Team Staff Privileges
+                            </label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input class="form-check-input" type="checkbox" value=""  name="manageAllStaffPrivileges" #manageAllStaffPrivileges="ngModel"  [(ngModel)]="privilage.manageAllStaffPrivileges">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Manage All Staff Privileges
+                            </label>
+                        </div>
+                    </div>   
+                    <div class="py-4"></div>             
+                    <div class="col-3">
+                        <p>Notes:</p>
+                    </div>
+                    <div ngModelGroup="Notes" class="col-9">
+                        <div class="form-check ">
+                            <input class="form-check-input" type="checkbox" value=""  name="canDeleteNotes" #canDeleteNotes="ngModel"  [(ngModel)]="privilage.canDeleteNotes">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Can Delete Notes
+                            </label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input class="form-check-input" type="checkbox" value=""  name="manageOwnNotes" #manageOwnNotes="ngModel"  [(ngModel)]="privilage.manageOwnNotes">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Manage Own Notes
+                            </label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input class="form-check-input" type="checkbox" value=""  name="manageAllNotes" #manageAllNotes="ngModel"  [(ngModel)]="privilage.manageAllNotes">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Manage All Notes
+                            </label>
+                        </div>
+                    </div> 
+                    <div class="py-4"></div>               
+                    <div class="col-3">
+                        <p>Email Management:</p>
+                    </div>
+                    <div ngModelGroup="Email Management" class="col-9">
+                        <div class="form-check ">
+                            <input class="form-check-input" type="checkbox" value=""  name="manageOwnEmail" #manageOwnEmail="ngModel"  [(ngModel)]="privilage.manageOwnEmail">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Manage Own Email
+                            </label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input class="form-check-input" type="checkbox" value=""  name="manageTeamEmail" #manageTeamEmail="ngModel"  [(ngModel)]="privilage.manageTeamEmail">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Manage Team Email
+                            </label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input class="form-check-input" type="checkbox" value=""  name="manageAllUserEmail" #manageAllUserEmail="ngModel"  [(ngModel)]="privilage.manageAllUserEmail">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Manage All User Email
+                            </label>
+                        </div>
+                    </div>
+                    <div class="py-4"></div>
+                    <div class="col-3">
+                        <p>Contacts:</p>
+                    </div>
+                    <div ngModelGroup="Contacts" class="col-9">
+                        <div class="form-check ">
+                            <input class="form-check-input" type="checkbox" value=""  name="contactManageOwnEmail" #contactManageOwnEmail="ngModel"  [(ngModel)]="privilage.contactManageOwnEmail">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Manage Own Email
+                            </label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input class="form-check-input" type="checkbox" value=""  name="manageTeamUsersContacts" #manageTeamUsersContacts="ngModel"  [(ngModel)]="privilage.manageTeamUsersContacts">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Manage Team Users Contacts
+                            </label>
+                        </div>
+                        <div class="form-check pt-3">
+                            <input class="form-check-input" type="checkbox" value=""  name="manageAllUsersContacts" #manageAllUsersContacts="ngModel"  [(ngModel)]="privilage.manageAllUsersContacts">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Manage All Users Contacts
+                            </label>
+                        </div>
+                    </div>
+                    <div class="py-4"></div>
+                </div>
+            </div>
+            <div class="col-4">
+               <div class="row">
+                <div class="col-3">
+                    <p>Leads:</p>
+                </div>
+                <div ngModelGroup="Leads" class="col-9">
+                    <div class="form-check ">
+                        <input class="form-check-input" type="checkbox" value=""  name="canViewBayutLeads" #canViewBayutLeads="ngModel"  [(ngModel)]="privilage.canViewBayutLeads">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Can View Bayut Leads
+                        </label>
+                    </div>
+                    <div class="form-check pt-3">
+                        <input class="form-check-input" type="checkbox" value=""  name="canViewDubizzleLeads" #canViewDubizzleLeads="ngModel"  [(ngModel)]="privilage.canViewDubizzleLeads">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Can View Dubizzle Leads
+                        </label>
+                    </div>
+                    <div class="form-check pt-3">
+                        <input class="form-check-input" type="checkbox" value=""  name="canDeleteLeads" #canDeleteLeads="ngModel"  [(ngModel)]="privilage.canDeleteLeads">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Can Delete Leads
+                        </label>
+                    </div>
+                    <div class="form-check pt-3">
+                        <input class="form-check-input" type="checkbox" value=""  name="manageOwnLeads" #manageOwnLeads="ngModel"  [(ngModel)]="privilage.manageOwnLeads">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Manage Own Leads
+                        </label>
+                    </div>
+                    <div class="form-check pt-3">
+                        <input class="form-check-input" type="checkbox" value=""  name="manageTeamUsersLeads" #manageTeamUsersLeads="ngModel"  [(ngModel)]="privilage.manageTeamUsersLeads">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Manage Team Users Leads
+                        </label>
+                    </div>
+                    <div class="form-check pt-3">
+                        <input class="form-check-input" type="checkbox" value=""  name="manageAllUsersLeads" #manageAllUsersLeads="ngModel"  [(ngModel)]="privilage.manageAllUsersLeads">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Manage All Users Leads
+                        </label>
+                    </div>
+                </div>
+                <div class="py-4"></div>
+                <div class="col-3">
+                    <p>Profile:</p>
+                </div>
+                <div ngModelGroup="Profile" class="col-9">
+                    <div class="form-check ">
+                        <input class="form-check-input" type="checkbox" value=""  name="manageOwnRoles" #manageOwnRoles="ngModel"  [(ngModel)]="privilage.manageOwnRoles">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Manage Own Roles
+                        </label>
+                    </div>
+                    <div class="form-check pt-3">
+                        <input class="form-check-input" type="checkbox" value=""  name="manageCompanyProfile" #manageCompanyProfile="ngModel"  [(ngModel)]="privilage.manageCompanyProfile">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Manage Company Profile
+                        </label>
+                    </div>
+                    <div class="form-check pt-3">
+                        <input class="form-check-input" type="checkbox" value=""  name="manageOwnProfile" #manageOwnProfile="ngModel"  [(ngModel)]="privilage.manageOwnProfile">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Manage Own Profile
+                        </label>
+                    </div>
+                    <div class="form-check pt-3">
+                        <input class="form-check-input" type="checkbox" value=""  name="manageCRMSettings" #manageCRMSettings="ngModel"  [(ngModel)]="privilage.manageCRMSettings">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Manage CRM Settings
+                        </label>
+                    </div>
+                </div>
+                <div class="py-4"></div>
+                <div class="col-3">
+                    <p>Task:</p>
+                </div>
+                <div ngModelGroup="Task" class="col-9">
+                    <div class="form-check ">
+                        <input class="form-check-input" type="checkbox" value=""  name="canDeleteTasks" #canDeleteTasks="ngModel"  [(ngModel)]="privilage.canDeleteTasks">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Can Delete Tasks
+                        </label>
+                    </div>
+                    <div class="form-check pt-3">
+                        <input class="form-check-input" type="checkbox" value=""  name="manageOwnTasks" #manageOwnTasks="ngModel"  [(ngModel)]="privilage.manageOwnTasks">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Manage Own Tasks
+                        </label>
+                    </div>
+                    <div class="form-check pt-3">
+                        <input class="form-check-input" type="checkbox" value=""  name="manageTeamUsersTasks" #manageTeamUsersTasks="ngModel"  [(ngModel)]="privilage.manageTeamUsersTasks">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Manage Team Users Tasks
+                        </label>
+                    </div>
+                    <div class="form-check pt-3">
+                        <input class="form-check-input" type="checkbox" value=""  name="manageAllUsersTasks" #manageAllUsersTasks="ngModel"  [(ngModel)]="privilage.manageAllUsersTasks">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Manage All Users Tasks
+                        </label>
+                    </div>
+                </div>
+                <div class="py-4"></div>
+                <div class="col-3">
+                    <p>Reports:</p>
+                </div>
+                <div ngModelGroup="Reports" class="col-9">
+                    <div class="form-check ">
+                        <input class="form-check-input" type="checkbox" value=""  name="canGenerateReports" #canGenerateReports="ngModel"  [(ngModel)]="privilage.canGenerateReports">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Can Generate Reports
+                        </label>
+                    </div>               
+                </div>          
+                <div class="col-3">
+                    <p>Image Bank:</p>
+                </div>
+                <div ngModelGroup="Image Bank:" class="col-9">
+                    <div class="form-check ">
+                        <input class="form-check-input" type="checkbox" value=""  name="makeAsPublic" #makeAsPublic="ngModel"  [(ngModel)]="privilage.makeAsPublic">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Make As Public
+                        </label>
+                    </div>               
+                </div>
+                <div class="py-4"></div>
+               </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-end mb-5"> 
+            <button type="button" class="btn btn-primary mx-4">Cancel</button>
+            <button type="button" class="btn btn-primary mx-4" (click)="privilagemanageStaff(privilageForm.value)"><i class="fas fa-check">&nbsp;&nbsp;</i>Submit</button>
+        </div>
+    </form>
+    <div class="py-4"></div>
+</div>

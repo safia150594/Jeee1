@@ -1,0 +1,29 @@
+<app-profolio-header></app-profolio-header>
+<div class="container-fluid">
+  <div class="row m-0">
+    <div class="col-2 p-0">
+      <ng-sidebar-container  class="lgsilver h-100%">
+        <!-- A sidebar -->
+        <ng-sidebar [(opened)]="opened" >                
+          <ul class="menu text-left p-0">
+              <li class="py-3 px-4 "><a routerLink="./dashboard"> <i class="fas fa-tachometer-alt  px-3 "></i> Overview</a></li><hr>
+              <li class="py-3 px-4 "><a routerLink="./managelist"><i class="fas fa-warehouse  px-3"></i> ManageList</a></li><hr>
+              <li class="py-3 px-4 "><a routerLink="./contract"> <i class="fas fa-th-list  px-3"></i>Contract</a></li><hr>
+              <li class="py-3 px-4 "><a routerLink="./payment"> <i class="fas fa-th-list  px-3"></i>payment</a></li><hr>
+          </ul>      
+        </ng-sidebar>
+        <!-- Page content -->
+        <!-- <div ng-sidebar-content>
+          <button (click)="toggleSidebar()">
+              open sidebar
+            </button>
+        </div> -->
+      </ng-sidebar-container>
+    </div>
+    <div class="col-10 bg-whhite">      
+      <router-outlet>
+      </router-outlet>
+    </div>
+  </div>
+</div>
+ 

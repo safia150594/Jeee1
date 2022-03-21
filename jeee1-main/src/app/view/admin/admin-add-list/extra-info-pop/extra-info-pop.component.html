@@ -1,0 +1,78 @@
+<div class="modal-header">
+    <div>
+        <small class="modal-title pull-left"><i class="fas fa-link"></i> Extra Info
+        </small><br>
+        <!-- <small>Amenities marked with are synced to Dubizzle</small> -->
+    </div>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+<div class="modal-body ">
+    <form method="get" action="">
+        <!-- <div class="container-fluid ">
+<img *ngFor='let url of urls' [src]="url" height="100px">
+<input type="file" (change)="onselect($event)" multiple>
+       </div> -->
+        <div>
+            <div class="row mb-1">
+                <div class="col-4">
+                    <small>Key Location:</small>
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control " aria-label="Username" aria-describedby="basic-addon1">
+                </div>  
+            </div>
+            <div class="row mb-1">
+                <div class="col-4">
+                    <small>STR#:</small>
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control " aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+            </div>
+               <div class="row mb-1">
+                <div class="col-4">
+                    <small>DEWA #:</small>
+                </div>
+                <div class="col-8">
+                    <input type="text" class="form-control " aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+               </div>
+               <div class="row">
+                <div class="col-4">
+                    <small>Yearly Service Charges :</small>
+                </div>
+                <div class="col-8">
+                    <div class="input-group">
+                        <input type="text" class="form-control" aria-label="AED amount (with dot and two decimal places)">
+                        <span class="input-group-text">AED</span>                      
+                      </div>    
+                </div>
+               </div>
+                <div class="row">
+                    <div class="col-4">
+                        <small>Monthly Cooling Charges :</small>
+                    </div>
+                    <div class="col-8">
+                        <div class="input-group">
+                            <input type="text" class="form-control" aria-label="AED amount (with dot and two decimal places)">
+                            <span class="input-group-text">AED</span>                      
+                          </div>    
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <small>Monthly Cooling Provider :</small>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" class="form-control " aria-label="Username" aria-describedby="basic-addon1"> 
+                    </div>
+                </div>
+        </div>
+    </form>
+
+</div>
+<div class="modal-footer d-flex">
+    <button type="button" class="btn btn-primary">DONE</button>
+</div>

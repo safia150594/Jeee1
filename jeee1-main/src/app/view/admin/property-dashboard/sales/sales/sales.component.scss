@@ -1,0 +1,24 @@
+.dashboard .col-2 {
+    width: 20.666667%;
+}
+
+.dashboard .nav-pills .nav-link,
+.nav-pills .show>.nav-link {
+    color: black;
+    text-align: left;
+    background-color: var(--silverlight);
+    font-size: 16px
+}
+
+.dashboard .nav-pills .nav-link.active {
+    background-color: #fff;
+    color: red;
+}
+
+.dashboard .accordion-button:not(.collapsed) {
+    color: red;
+}
+
+.dashboard .list-pagination input {
+    width: 40px;
+}

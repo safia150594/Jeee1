@@ -1,0 +1,28 @@
+.signin .row {
+    justify-content: center;
+    align-items: center;
+    // background: linear-gradient( 45deg, #cd0404, transparent);
+    background-image: url('../../../../assets/img/bgblack.jpg');
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: cover;
+    height: 100vh;
+}
+
+.sign-in {
+    font-size: 30px;
+    color: var(--primary);
+    font-weight: 800;
+    -webkit-text-stroke: 1px var(--black)
+}
+
+.signup {
+    background: var(--white);
+    padding: 35px 50px;
+    border-radius: 20px;
+}
+
+.signup a:hover {
+    color: var(--blue)!important;
+    text-decoration: underline !important;
+}

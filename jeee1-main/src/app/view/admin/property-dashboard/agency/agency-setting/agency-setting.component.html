@@ -1,0 +1,159 @@
+<div class="agencysetting py-5">
+  <form #accountSetting="ngForm">
+    {{ accountSetting.value | json }}
+    <div class="row">
+      <div class="col-4">
+        <div ngModelGroup="QuickOverview">
+          <h5>Quick Overview:</h5>
+          <div>
+            <div class="form-check py-2">
+              <input class="form-check-input" type="checkbox" value=""  name="noOfBedrooms"
+                #noOfBedrooms="ngModel" required [(ngModel)]="agencySetting.noOfBedrooms">
+              <label class="form-check-label" for="flexCheckDefault">
+                Show number of bedrooms
+              </label>
+            </div>
+          </div>
+          <div class="form-check py-2">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" name="noOfParkings"
+              #noOfParkings="ngModel" required [(ngModel)]="agencySetting.noOfParkings">
+            <label class="form-check-label" for="flexCheckChecked">
+              Show number of parkings
+            </label>
+          </div>
+          <div class="form-check py-2">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedphotos" name="noOfPhotos"
+              #noOfPhotos="ngModel" required [(ngModel)]="agencySetting.noOfPhotos">
+            <label class="form-check-label" for="flexCheckCheckedphotos">
+              Show number of photos
+            </label>
+          </div>
+          <div class="form-check py-2">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedvideos" name="noOfVideos"
+              #noOfVideos="ngModel" required [(ngModel)]="agencySetting.noOfVideos">
+            <label class="form-check-label" for="flexCheckCheckedvideos">
+              Show number of videos
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div ngModelGroup="Listings">
+          <h5>Listings:</h5>
+          <div>
+            <div class="form-check py-2">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckmandatory" name="landlordMandatory"
+                #landlordMandatory="ngModel" required [(ngModel)]="agencySetting.landlordMandatory">
+              <label class="form-check-label" for="flexCheckmandatory">
+                Landlord should be mandatory
+              </label>
+            </div>
+          </div>
+          <div class="form-check py-2">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckmandatory1" name="sourceMandatory"
+              #sourceMandatory="ngModel" required [(ngModel)]="agencySetting.sourceMandatory">
+            <label class="form-check-label" for="flexCheckmandatory1">
+              Source should be mandatory
+            </label>
+          </div>
+          <div class="form-check py-2">
+            <input class="form-check-input" type="checkbox" value=""  name="referenceMandatory"
+              #referenceMandatory="ngModel" required [(ngModel)]="agencySetting.referenceMandatory">
+            <label class="form-check-label" for="flexCheckmandatory3">
+              Listing reference should contain staff initial
+            </label>
+          </div>
+          <div class="form-check py-2">
+            <input class="form-check-input" type="checkbox" value=""  name="buildingMandatory"
+              #buildingMandatory="ngModel" required [(ngModel)]="agencySetting.buildingMandatory">
+            <label class="form-check-label">
+              Show building name (private)
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div ngModelGroup="Leads">
+          <h5>Leads:</h5>
+          <div>
+            <div class="form-check py-2">
+              <input class="form-check-input" type="checkbox" value=""  name="assignMultiple"
+                #assignMultiple="ngModel" required [(ngModel)]="agencySetting.assignMultiple">
+              <label class="form-check-label" >
+                Can Assign Multiple Agents
+              </label>
+            </div>
+          </div>
+          <div class="form-check py-2">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckmandatory6" name="srcmandatory"
+              #srcmandatory="ngModel" required [(ngModel)]="agencySetting.srcmandatory">
+            <label class="form-check-label" for="flexCheckmandatory6">
+              Source should be mandatory
+            </label>
+          </div>
+          <div class="form-check py-2">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckmandatory7" name="contactsmandatory"
+              #contactsmandatory="ngModel" required [(ngModel)]="agencySetting.contactsmandatory">
+            <label class="form-check-label" for="flexCheckmandatory7">
+              Contacts should be mandatory
+            </label>
+          </div>
+          <div class="form-check py-2">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckmandatory8" name="Areamandatory"
+              #Areamandatory="ngModel" required [(ngModel)]="agencySetting.Areamandatory">
+            <label class="form-check-label"  for="flexCheckmandatory8">
+              Area (min) should be mandatory
+            </label>
+          </div>
+          <div class="form-check py-2">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckmandatory9" name="Budgetmandatory"
+              #Budgetmandatory="ngModel" required [(ngModel)]="agencySetting.Budgetmandatory">
+            <label class="form-check-label" for="flexCheckmandatory9">
+              Budget (max) should be mandatory
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row py-3 ">
+      <div class="col-4">
+        <div class="form-group">
+          <h5 class="py-2">Contacts:</h5>
+          <ng-select [items]="contactLists"  placeholder="Select" name="contacts" appendTo="body" #contacts="ngModel" required
+            [(ngModel)]="agencySetting.contacts">
+          </ng-select>
+        </div>
+      </div>
+      <div class="col-4">
+        <div>
+          <h5 class="py-2">Company Profile:</h5>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value=""  name="Primarymandatory" #Primarymandatory="ngModel" required [(ngModel)]="agencySetting.Primarymandatory">
+            <label class="form-check-label agencysetting w-50" for="flexCheckDefault">
+              Primary number should be mandatory
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="col-4 form-group">
+        <h5 class="py-2">Listing Sharing Manager:</h5>
+         <ng-select [items]="listingShareManager"  placeholder="Select" appendTo="body"
+        name="activeOrDeactive" #activeOrDeactive="ngModel" required [(ngModel)]="agencySetting.activeOrDeactive">
+    </ng-select>
+         <ng-select [items]="listingShareManagerOne"  placeholder="Select" appendTo="body"
+         name="listPerPage" #listPerPage="ngModel" required [(ngModel)]="agencySetting.listPerPage">
+    </ng-select>
+         <ng-select [items]="pagesLists" class="" appendTo="body"
+         name="pagesList" #pagesList="ngModel"  placeholder="Select" required [(ngModel)]="agencySetting.pagesList" >
+    </ng-select>
+      </div>
+    </div>
+    <div>
+      Agent Info:
+    </div>
+    <div class="d-flex justify-content-end">
+      <button type="button" class="btn btn-sm btn-outline-primary px-4 mx-2" >cancel</button>
+      <button type="button" class="btn btn-sm  btn-primary px-4"><i class="fas fa-check" (click)="accountSettings(accountSetting.value)"></i>Submit</button>
+    </div>
+  </form>
+</div>

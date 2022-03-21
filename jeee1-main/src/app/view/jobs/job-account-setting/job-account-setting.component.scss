@@ -1,0 +1,20 @@
+.accountsetting fieldset {
+    min-width: auto;
+    padding: unset;
+    margin: unset;
+    border: 1px solid;
+}
+
+.accountsetting legend {
+    float: revert;
+    width: auto;
+    margin-bottom: 0.5rem;
+    font-size: calc(1.275rem + 0.3vw);
+    line-height: inherit;
+    text-align: center;
+}
+
+.bg-color {
+    background-color: #C0C0C0;
+    border-radius: 10px;
+}

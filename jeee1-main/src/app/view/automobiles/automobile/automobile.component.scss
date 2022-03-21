@@ -1,0 +1,36 @@
+.automobile-banner {
+    background-image: url('../../../../assets/automobile/car6.jpg');
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: cover;
+    background-position: bottom;
+    height: 70vh;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.automobile-banner-overlay {
+    background: #000000a6;
+    height: 70vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* align-self: center; */
+    align-items: center;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.automobile-home-dashboard {
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    margin: 2px;
+    background: var(--silver);
+    border-radius: 10px;
+}
+
+.automobile-featured img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 10px;
+}

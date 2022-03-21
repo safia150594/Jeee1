@@ -1,0 +1,156 @@
+<div class="container-fluid">
+  <div class="container">
+    <div class="propertyScrollNav bg-light" (scroll)="onScrollProperty()"
+      [ngClass]="propertyScrollNav? 'showNavProperty' : 'hideNavProperty'">
+      <div class="row my-1" *ngFor="let scroll of propertyListView">
+        <div class="col-8">
+          <p class="fs-4 mb-1"><small>AED</small> &nbsp;<b>{{scroll.aed}}</b> </p>
+          <p class="fs-5 mb-1"> <i class="fas fa-map-marker-alt"></i> {{scroll.area}} {{scroll.city}}</p>
+        </div>
+        <div class="col-4 my-2">
+          <button type="button" class="btn btn-primary btn-lg mx-2"><i class="far fa-envelope"></i> Inquire</button>
+          <button type="button" class="btn btn-primary btn-lg" (click)="togglePhNo()">{{isShowPhoneNumber? scroll.phNo :
+            'call '}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class=" container ">    
+    <div class="py-3 " >
+      <span class="fs-5" *ngFor="let list of propertyListView">
+        {{list.country}} &nbsp;> &nbsp;{{list.city}}
+      </span>
+    </div>
+    <div class="row ">
+      <div class="col-8 " *ngFor="let list of propertyListView">
+        <div class="property-view ">
+          <a>
+            <div class="featured-img position-relative ">
+              <carousel [isAnimated]="true">
+                <slide *ngFor="let slide of propertyListViewSlide">
+                  <img [src]="slide.img" alt="first slide " style="display: block; width: 100% " />
+                </slide>
+              </carousel>
+              <div class="property-view-btn ">
+                <button type="button " class="btn btn-primary ">
+                  <i class="far fa-heart "></i> &nbsp;Favorite
+                </button>
+                <button type="button " class="btn btn-primary ">
+                  <i class="fas fa-share-alt "></i> &nbsp;Share
+                </button>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="pt-5 ">
+          <h1><span class="h3 ">AED</span> {{list.aed}} Yearly</h1>
+        </div>
+        <div class="property-view-icon py-2 ">
+          <span><i class="fas fa-bed "></i> {{list.Stdio}} Stdio</span>
+          <span><i class="fas fa-bath "></i> {{list.Bath}} Bath</span>
+          <span><i class="fas fa-table "></i>{{list.SqFt}} SqFt</span>
+        </div>
+        <div class="property-view-icon py-2 ">
+          <span><i class="fas fa-map-marker-alt ">
+              {{list.area}}, {{list.city}}</i></span>
+        </div>
+        <div>
+          <h5 class="pt-5 mt-5 ">
+            {{list.shotDesc}}
+          </h5>
+          <p>
+            {{list.Desc}}
+          </p>
+          <div>
+            <p *ngIf="isShowDesc ">
+              {{list.LongDesc}}
+            </p>
+            <a class="text-danget text-dark " (click)="toggleDesc() ">
+              <button type="button " class="btn btn-primary mb-5 ">{{isShowDesc? 'Hide' : 'Show'}} More
+                Description</button>
+            </a>
+          </div>
+        </div>
+        <div>
+          <hr>
+          <h5>Amenities</h5>
+          <div class="row gy-2">
+            <div class="col-4" *ngFor="let a of aminity">
+              <span><i class="fas fa-check"></i> &nbsp;
+                {{a.x}}</span>
+            </div>
+            <hr>
+          </div>
+        </div>
+        <div>
+          <h5>Property Info</h5>
+          <div class="border">
+            <div class="row py-2 px-3" *ngFor="let z of propertyInfo">
+              <div class="col-6">
+                <span> <i class={{z.cls}}></i>&nbsp;&nbsp;{{z.item}}</span>                
+              </div>
+              <div class="col-6">
+                <span>{{z.Detail}}</span>
+              </div>                          
+            </div>
+          </div>
+        </div>
+        <div class="py-3">
+          <p class="fs-5 fw-bold ">Location</p>
+          <small><i class="fas fa-map-marker-alt "></i> {{list.area}}, {{list.city}}</small>
+          <div class="text-center ">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28899.02340334354!2d55.37109758987341!3d25.12291082750745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f640f1dcd4111%3A0xcb38e7be624792c3!2sDubai%20Silicon%20Oasis%20-%20Dubai!5e0!3m2!1sen!2sae!4v1634025568708!5m2!1sen!2sae "
+              width="600 " height="450 " style="border:0; " allowfullscreen=" " loading="lazy "></iframe>
+          </div>
+          <div class="d-flex justify-content-center">            
+            <div >
+              <h2 class="text-center " id="inqRef">Inquire About the Ad</h2>
+              <form #inquire="ngForm">
+                {{ inquire.value | json}}
+                <div class="mb-3">
+                    <label for="message" class="form-label fs-5">Your Message</label>
+                    <textarea class="form-control" id="message" rows="3" name="message" #message="ngModel" [(ngModel)]="dummyinquire.message" ></textarea>
+                </div>                
+                <div class="mb-3">
+                    <label for="phone" class="form-label fs-5">Phone Number</label>
+                    <input type="tel" class="form-control" id="phone" placeholder="Enter yout number" required name="phNo" #phNo="ngModel" [(ngModel)]="dummyinquire.phNo" pattern="[0-9]{10}">
+                    <small  *ngIf="phNo.invalid && isFormSubmitted" class="text-danger">Field required</small>
+                </div>
+                <button type="submit" class="btn btn-primary" (click)="sendInquire(inquire.valid)"><i class="far fa-envelope"></i> Inquire Now</button>
+            </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-4 " *ngFor="let x of propertyListView">
+        <p class="text-end fw-bold text-center">{{x.ref}}</p>
+        <div class="reference-logo text-center mb-5 ">
+          <img [src]="x.logo">
+          <p class="fs-5 ">{{x.profession}}</p>
+          <p class="fs-5 ">{{LLC}}</p>
+        </div>
+        <div>
+          <div class="row ">
+            <div class="col-8 fs-5 py-2 ">RERA Registration Number:</div>
+            <div class="col-2 fs-5 py-2 ">{{11917}}</div>
+          </div>
+          <div class="row ">
+            <div class="col-8 fs-5 py-2 ">DED License Number:</div>
+            <div class="col-4 fs-5 py-2 ">11917</div>
+          </div>
+          <div>
+            <div class="d-grid gap-2 " >
+              <button class="btn btn-primary btn-lg my-2 " type="button " (click)="togglePhNo() "><i
+                  class="fas fa-phone-alt "></i> {{isShowPhoneNumber? x.phNo : 'Show Phone Number '}}</button>
+              <button class="btn btn-outline-primary btn-lg my-2 " type="button "> <i class="far fa-envelope"></i>
+                Inquire Now</button>
+                <a class="btn btn-outline-primary btn-lg my-2" href="inqRef" role="button">Link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

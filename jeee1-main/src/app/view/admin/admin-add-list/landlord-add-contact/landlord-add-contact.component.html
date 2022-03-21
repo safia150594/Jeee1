@@ -1,0 +1,102 @@
+<div class="modal-header">
+    <div>
+        <small class="modal-title pull-left"><i class="fas fa-link"></i> Add Contact
+        </small><br>
+        <small>Fields marked with * are mandatory</small>
+    </div>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+<div class="modal-body ">
+    <form method="get" action="">
+        <div class="row">
+            <div class="col-md-4">
+                <label>Salutation</label>
+                <select class="form-select form-select-sm" aria-label="Default select example">
+                    <option selected>select </option>
+                    <option value="1">Dr</option>
+                    <option value="2">Miss</option>
+                    <option value="3">Mr</option>
+                    <option value="3">Mrs</option>
+                </select>
+            </div>
+            <div class="col-4">
+                <label>First Name:*</label>
+                <input type="text" class="form-control form-control-sm" placeholder="First Name">
+            </div>
+            <div class="col-4">
+                <label>Last Name:*</label>
+                <input type="text" class="form-control form-control-sm" placeholder="Ahmed">
+            </div>
+        </div>
+        <div class="my-3">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        </div>
+        <div class="row">            
+            <div class="col-6">
+                <label>Mobile:*</label>
+                <input type="phone" class="form-control form-control-sm" placeholder="First Name">
+            </div>
+            <div class="col-6">
+                <label>Alternate Mobile</label>
+                <input type="text" class="form-control form-control-sm" placeholder="Ahmed">
+            </div>
+        </div>
+        <div class="row">            
+            <div class="col-6">
+                <label class="mt-2">Type of contact:*</label><br>                
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">1</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                    <label class="form-check-label" for="inlineRadio2">2</label>
+                  </div>
+            </div>
+            <div class="col-6">
+                <label class="mt-2">Role*</label><br>
+                <textarea cols="25" rows="3">
+
+                </textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <select class="form-select form-select-sm" aria-label="Default select example">
+                    <option selected>Nationality</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+            </div>
+            <div class="col-6">
+                <select class="form-select form-select-sm" aria-label="Default select example">
+                    <option selected>Select
+                        Source</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>Assign to*</label>
+                <select class="form-select form-select-sm" aria-label="Default select example">
+                    <option selected>Select
+                        Source</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+            </div>
+        </div>       
+    </form>
+</div>
+<div class="modal-footer d-flex">
+    <button type="button" class="btn btn-primary" (click)="bsModalRef.hide()">Cancel</button>
+    <button type="button" class="btn btn-primary">Submit</button>
+</div>

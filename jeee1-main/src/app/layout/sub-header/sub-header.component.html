@@ -1,0 +1,186 @@
+<div class="propertynav">
+    <div class="row p-0">
+        <div class="col p-0">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container">
+                    <!-- <a class="navbar-brand" href="#">
+                        Home
+                    </a> -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" [routerLink]="['../home']" id="navbarDarkDropdownMenuLink"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Home
+                                </a>
+                                <!-- <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="#">Townhouse</a></li>
+                                    <li><a class="dropdown-item" href="#">Residential Floor </a></li>
+                                    <li><a class="dropdown-item" href="#">Residential Flat</a></li>
+                                </ul> -->
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Property For Sale
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark"
+                                    aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <li>
+                                        <a class="dropdown-item" [routerLink]="['./properties/rent']">Apartment/Flat for
+                                            Rent</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" [routerLink]="['./properties']">Residential Units for
+                                            Rent
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" [routerLink]="['./properties']">Villa/House for
+                                            Rent</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" [routerLink]="['./properties']">Rooms for rent
+                                            (flatmates)</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" [routerLink]="['./properties']">Short Term
+                                            (Monthly)</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" [routerLink]="['./properties']">Short Term (Daily)</a>
+                                    </li>
+                                    <li><a class="dropdown-item" [routerLink]="['./properties']">Townhouse</a></li>
+                                    <li><a class="dropdown-item" [routerLink]="['./properties']">Penthouse</a></li>
+                                    <li>
+                                        <a class="dropdown-item" [routerLink]="['./properties']">Residential
+                                            Building</a>
+                                    </li>
+                                    <li><a class="dropdown-item" [routerLink]="['./properties']">Villa Compound</a></li>
+                                    <li>
+                                        <a class="dropdown-item" [routerLink]="['./properties']">Residential Floor</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" [routerLink]="['./properties']">Residential Plot</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Property For Rent
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark"
+                                    aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <li>
+                                        <a class="dropdown-item" [routerLink]="['./properties']">Apartment for Sale</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" [routerLink]="['./properties']">Residential for
+                                            Sale</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" [routerLink]="['./properties']">Villa/House for
+                                            Sale</a>
+                                    </li>
+                                    <li><a class="dropdown-item" [routerLink]="['./properties']">Land for Sale</a></li>
+                                    <li>
+                                        <a class="dropdown-item" [routerLink]="['./properties']">Multiple Units for
+                                            Sale</a>
+                                    </li>
+                                    <li><a class="dropdown-item" [routerLink]="['./properties']">Townhouse</a></li>
+                                    <li><a class="dropdown-item" [routerLink]="['./properties']">Penthouse </a></li>
+                                    <li>
+                                        <a class="dropdown-item" [routerLink]="['./properties']">Residential
+                                            Building</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" [routerLink]="['./properties']">Residential Floor</a>
+                                    </li>
+                                    <li><a class="dropdown-item" [routerLink]="['./properties']">Villa Compound</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">Job</a>
+                                <ul class="dropdown-menu dropdown-menu-dark"
+                                    aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <li><a class="dropdown-item" [routerLink]="['./jobs/job']">Sales</a></li>
+                                    <li><a class="dropdown-item" [routerLink]="['./jobs/job']">Admin </a></li>
+                                    <li><a class="dropdown-item" [routerLink]="['./jobs/job']">Develpoer</a></li>
+                                    <li><a class="dropdown-item" [routerLink]="['./jobs/job']">HR</a></li>
+                                    <li><a class="dropdown-item" [routerLink]="['./jobs/job']">Real Estate</a></li>
+                                    <li><a class="dropdown-item" [routerLink]="['./jobs/job']">Internet</a></li>
+                                    <li><a class="dropdown-item" [routerLink]="['./jobs/job']">Security</a></li>
+                                    <li><a class="dropdown-item" [routerLink]="['./jobs/job']">Accountant</a></li>
+                                    <li>
+                                        <a class="dropdown-item" [routerLink]="['./jobs/job']">Business Developer</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Automobile
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark"
+                                    aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <li>
+                                        <a class="dropdown-item" [routerLink]="['./automobiles/automobile']">Used Car
+                                            For Sale</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" [routerLink]="['./automobiles/automobile']">Auto
+                                            Accessories and Parts
+                                        </a>
+                                    </li>
+                                    <li><a class="dropdown-item" [routerLink]="['./automobiles/automobile']">Number
+                                            Plates</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Page
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark"
+                                    aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <li>
+                                        <a class="dropdown-item" [routerLink]="['../../signin']">SignIn</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" [routerLink]="['../../signup']">
+                                           SignUp
+                                        </a>
+                                    </li>
+                                    <li><a class="dropdown-item" [routerLink]="['../../job-profile']">Job-Profile</a></li>
+                                    <li><a class="dropdown-item" [routerLink]="['../../job-account-setting']">Job Account Setting</a></li>
+                                    <li><a class="dropdown-item" [routerLink]="['../../admin/property']">Admin Property</a></li>
+                                    <li><a class="dropdown-item" [routerLink]="['../../agency-registration']">Agency Registration</a></li>
+                                    <li><a class="dropdown-item" [routerLink]="['../../automobile']">Admin Automobile</a></li>
+                                    <li><a class="dropdown-item" [routerLink]="['../../job/dashboard']">Admin Job</a></li>
+                                    <li><a class="dropdown-item" [routerLink]="['../../profolio/dashboard']">Admin Profolio</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>

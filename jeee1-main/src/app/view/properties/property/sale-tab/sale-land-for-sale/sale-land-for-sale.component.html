@@ -1,0 +1,276 @@
+<form #landForSale="ngForm" class="sub-tab">
+  {{landForSale.value | json}}
+  <div class="px-4 py-3 paddingsubtab">
+      <div class="row w-100">
+        <div class="col-5">
+          <div class="row">
+            <div class="col-6 p-0 m-0">
+              <div class="tab-label">
+                <label>City</label>
+                <div class="dubai">
+                  <ng-select [items]="cityList" name="city" appendTo="body" #city="ngModel" required
+                  [(ngModel)]="salesLandForSales.city" placeholder="All City">
+                </ng-select>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="tab-label">
+                <label class="text-white text-start">Location</label>
+                <div class="input-group">
+                  <input type="text"  class="form-control"  name="Location" 
+                  #Location="ngModel" required [(ngModel)]="salesLandForSales.Location" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="tab-label">
+            <label class="text-white text-start">Property Type</label>
+            <ng-select [items]="saleslandpropertyType" name="propertyType" appendTo="body" #propertyType="ngModel" required
+            [(ngModel)]="salesLandForSales.propertyType" placeholder="All Type">
+          </ng-select>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="tab-label">
+            <label class="text-white text-start">Zoned for</label>
+          </div>
+          <div class="price-range">
+            <nav class="
+                navbar navbar-expand-lg navbar-dark
+                p-0
+              ">
+              <div class="container-fluid p-0">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown"
+                  aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+                  </span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                  <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                      <a class="
+                          nav-link
+                          text-darkdropdown-toggle
+                        " id="navbarDarkDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Any
+                        <i class="fas fa-caret-down"></i>
+                      </a>
+                      <ul class="
+                          dropdown-menu
+                          dropdown-menu-light
+                        " aria-labelledby="navbarDarkDropdownMenuLink">
+                        <li>
+                          <a class="dropdown-item">
+                            <span class="zoned-for">
+                              <div >
+                                <input type="checkbox" id="residential" value="residential" name="residential"
+                                   #residential="ngModel" [(ngModel)]="salesLandForSales.residential" />&nbsp;
+                                <label for="residential">
+                                  Residential</label><br />
+                                <input type="checkbox" id="commersial" name="commersial"
+                                  value="commersial" #commersial="ngModel" [(ngModel)]="salesLandForSales.commersial"/>
+                                <label for="commersial">Commersial</label><br />
+                                <input type="checkbox" id="industrial" name="industrial" #industrial="ngModel" [(ngModel)]="salesLandForSales.industrial"
+                                  value="industrial" />
+                                <label for="industrial">Industrial </label><br />
+                                <input type="checkbox" id="retail" name="retail"
+                                  value="retail"  #retail="ngModel" [(ngModel)]="salesLandForSales.retail"/>
+                                <label for="retail">
+                                  Retail</label><br />
+                                <input type="checkbox" id="mixed-use" name="mixeduse"
+                                  value="mixed-use" #mixeduse="ngModel" [(ngModel)]="salesLandForSales.mixeduse"/>
+                                <label for="mixed-use">
+                                  Mixed use</label><br />
+                                </div>
+                            </span>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="tab-label">
+            <label class="text-white text-start"></label>
+          </div>
+          <div class="more">
+            <nav class="
+                navbar navbar-expand-lg navbar-dark
+                p-0
+              ">
+              <div class="container-fluid p-0">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown"
+                  aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                  <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                      <a class="
+                          nav-link
+                          text-darkdropdown-toggle
+                        " href="#" id="navbarDarkDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        More
+                        <i class="fas fa-caret-down"></i>
+                      </a>
+                      <ul id="more-scroll" class="
+                          dropdown-menu
+                          dropdown-menu-light
+                          p-4
+                        " aria-labelledby="navbarDarkDropdownMenuLink">
+                        <li>
+                          <div>Keyword Search</div>
+                          <div class="search-bar">
+                            <input class="form-control me-2" type="search"
+                              placeholder="Eg:Pool,Security,Ref ID Number"
+                              aria-label="Search"  name="keywordsearch" #keywordsearch="ngModel"  [(ngModel)]="salesLandForSales.keywordsearch"/>
+                          </div>
+                          <br />
+                        </li>
+                        <li>
+                          <div>Listed By</div>
+                          <a class="dropdown-item" href="#">
+                            <div class="row">
+                              <div class="col-6">
+                                <div action="/action_page.php">
+                                  <input type="checkbox" id="agent" name="agent"
+                                    value="agent" #agent="ngModel" [(ngModel)]="salesLandForSales.agent"/>&nbsp;
+                                  <label for="agent">Agent</label><br />
+                                  <input type="checkbox" id="landlord"  value="landlord" name="landlord"
+                                     #landlord="ngModel" [(ngModel)]="salesLandForSales.landlord" />
+                                  <label for="landlord">Landlord</label><br />
+                                </div>
+                              </div>
+                              <div class="col-6">
+                                <div action="/action_page.php">
+                                  <input type="checkbox" id="developer" name="developer"
+                                    value="developer" name="developer"
+                                    #developer="ngModel" [(ngModel)]="salesLandForSales.developer" />&nbsp;
+                                  <label for="developer">Developer</label><br />
+                                </div>
+                              </div>
+                            </div>
+                          </a><br />
+                        </li>
+                        <li>
+                          <div>Bathrooms</div>
+                          <a class="dropdown-item">
+                            <ng-select [items]="bedList" name="bathrooms" appendTo="body" #bathrooms="ngModel" required
+                            [(ngModel)]="salesLandForSales.bathrooms" placeholder=" Any Bathrooms">
+                          </ng-select><br />
+                          </a>
+                        </li>
+                        <li>
+                          <div>Size (Sqft)</div>
+                          <a class="dropdown-item">
+                            <span class="size">
+                              <div class="row">
+                                <div class="col">
+                                  <label>min Bedrooms</label>
+                                  <div action="/action_page.php">
+                                    <input type="number"name="minbathrooms" min="1" max="5" #minbathrooms="ngModel"
+                                    required [(ngModel)]="salesLandForSales.minbathrooms"  min="1"
+                                      max="5" />
+                                    &nbsp; &nbsp; &nbsp;
+                                    &nbsp;<label>-</label>
+                                  </div>
+                                </div>
+  
+                                <div class="col">
+                                  <label>max Bedrooms</label>
+                                  <div action="/action_page.php">
+                                    <input type="number" name="maxbathrooms" #minbathrooms="ngModel"
+                                    [(ngModel)]="salesLandForSales.maxbathrooms" name="quantity" min="1"
+                                      max="5" />
+                                  </div>
+                                </div>
+                              </div>
+                            </span>
+                          </a>
+                        </li>
+                        <li>
+                          <div>Real Estate Agent</div>
+                          <a class="dropdown-item">
+                            <div class="search-bar">
+                              <input class="
+                                  form-control
+                                  me-2
+                                " type="search" placeholder="Eg Property"
+                                aria-label="Search" name="realestateAgent" #realestateAgent="ngModel" [(ngModel)]="salesLandForSales.realestateAgent"/>
+                            </div>
+                            <br />
+                          </a>
+                        </li>
+                        <li>
+                          <div>Verified ads only</div>
+                          <a class="dropdown-item">
+                            <div >
+                              <input type="checkbox" id="verified-ads-only"
+                              name="verifiedadsonly" #verifiedadsonly="ngModel" [(ngModel)]="salesLandForSales.verifiedadsonly"
+                              value="verified-ads-only"  />&nbsp;
+                              <label for="verified-ads-only">Verified ads
+                                only</label><br />
+                            </div>
+                          </a><br />
+                        </li>
+                        <li>
+                          <div>Ads with video only</div>
+                          <a class="dropdown-item">
+                            <div >
+                              <input type="checkbox" id="ads-with-video-only"
+                              name="adswithvideoonly" #adswithvideoonly="ngModel" [(ngModel)]="salesLandForSales.adswithvideoonly" />&nbsp;
+                              <label for="ads-with-video-only">Ads with video
+                                only</label><br />
+                            </div>
+                          </a><br />
+                        </li>
+                        <li>
+                          <div>
+                            Ads with 360 tour only
+                          </div>
+                          <a class="dropdown-item">
+                            <div >
+                              <input type="checkbox" id="ads-with-tour-only"
+                              name="adswithtouronly" #adswithtouronly="ngModel" [(ngModel)]="salesLandForSales.adswithtouronly"
+                              value="ads-with-tour-only" />&nbsp;
+                              <label for="ads-with-tour-only">Ads with 360 tour
+                                only</label><br />
+                            </div>
+                          </a><br />
+                        </li>
+                        <li>
+                          <a class="dropdown-item">
+                            <button type="button" class="btn btn-primary">
+                              Search
+                            </button> </a><br />
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+        <div class="col-1">
+          <div class="tab-label">
+            <label class="text-white text-start"></label>
+            <button type="submit" class="btn btn-primary">
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>

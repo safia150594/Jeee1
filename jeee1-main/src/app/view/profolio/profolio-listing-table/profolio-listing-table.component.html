@@ -1,0 +1,278 @@
+<div>
+<form #profolioForm="ngForm">
+    {{profolioForm.value | json}}
+    <div class="py-5">
+        <h5 class="py-3">SEARCH YOUR LISTINGS</h5>
+        <div>
+            <div class="input-group mb-3 w-25">
+                <input type="text" class="form-control" placeholder="Property" aria-label="Username"
+                    aria-describedby="basic-addon1" name="searchProperty" #searchProperty="ngModel" [(ngModel)]="manageSearch.searchProperty">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">Location</label>
+                <ng-select [items]="propertyLocationList" name="location" appendTo="body"
+                #location="ngModel" required [(ngModel)]="manageSearch.location" placeholder="Location">
+            </ng-select>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">Purpose</label>
+                <ng-select [items]="purposeList" name="purpose" appendTo="body"
+                #purpose="ngModel" required [(ngModel)]="manageSearch.purpose" placeholder="Any">
+            </ng-select>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">Category</label>
+                <ng-select [items]="categoryList" name="category" appendTo="body"
+                #category="ngModel" required [(ngModel)]="manageSearch.category" placeholder="category">
+            </ng-select>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">Beds</label>
+                <ng-select [items]="brdsList" name="beds" appendTo="body"
+                #beds="ngModel" required [(ngModel)]="manageSearch.beds" placeholder="Any">
+            </ng-select>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="isShowMoreFilter">
+        <div class="row">
+            <div class="col-3">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Price</label>
+                    <ng-select [items]="pricingList" name="price" appendTo="body"
+                #price="ngModel" required [(ngModel)]="manageSearch.price" placeholder="Any">
+            </ng-select>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Area</label>
+                    <ng-select [items]="listingTypeList" name="list" appendTo="body"
+                #list="ngModel" required [(ngModel)]="manageSearch.list" placeholder="Any">
+            </ng-select>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Status</label>
+                    <ng-select [items]="validationStatusListing" name="status" appendTo="body"
+                #status="ngModel" required [(ngModel)]="manageSearch.status" placeholder="Any">
+            </ng-select>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">User</label>
+                    <ng-select [items]="userList" name="user" appendTo="body"
+                #user="ngModel" required [(ngModel)]="manageSearch.user" placeholder="Any">
+            </ng-select>
+                </div>
+            </div>
+        </div>
+        <div class="row py-2">
+            <div class="col-3">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Permit </label>
+                    <ng-select [items]="primitStatusList" name="permit" appendTo="body"
+                #permit="ngModel" required [(ngModel)]="manageSearch.permit" placeholder="Any">
+            </ng-select>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Listing Type</label>
+                    <ng-select [items]="listingTypeList" name="type" appendTo="body"
+                    #type="ngModel" required [(ngModel)]="manageSearch.type" placeholder="All">
+                </ng-select>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Validatiion Status</label>
+                    <ng-select [items]="validationStatusListing" name="validation" appendTo="body"
+                    #validation="ngModel" required [(ngModel)]="manageSearch.validation" placeholder="Any">
+                </ng-select>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Completion Status</label>
+                    <ng-select [items]="completionList" name="completion" appendTo="body"
+                    #completion="ngModel" required [(ngModel)]="manageSearch.completion" placeholder="Any">
+                </ng-select>
+                </div>
+            </div>           
+            <div class="col-3">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Advance Filter</label>  
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light w-75 border p-0" style="border-radius: 5px;">
+                        <div class="container-fluid">
+                          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+                          <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                            <ul class="navbar-nav">
+                              <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Advance Filter
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarDarkDropdownMenuLink">
+                                  <li><a class="dropdown-item" href="#">
+                                      <h5>Video</h5>
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="Attached" #Attached="ngModel" required [(ngModel)]="manageSearch.Attached">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Attached
+                                        </label>
+                                      </div>
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" name="NotAttached" #NotAttached="ngModel" required [(ngModel)]="manageSearch.NotAttached">
+                                        <label class="form-check-label" for="flexCheckChecked">
+                                            Not Attached
+                                        </label>
+                                      </div>
+                                  </a></li>
+                                  <li><a class="dropdown-item" href="#">
+                                    <h5>360 Tour</h5>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="tourAttached" #tourAttached="ngModel" required [(ngModel)]="manageSearch.tourAttached">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Attached
+                                        </label>
+                                      </div>
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" name="tourNOtAttached" #tourNOtAttached="ngModel" required [(ngModel)]="manageSearch.tourNOtAttached">
+                                        <label class="form-check-label" for="flexCheckChecked">
+                                            Not Attached
+                                        </label>
+                                      </div>
+                                  </a></li>
+                                  <li><a class="dropdown-item" href="#">
+                                    <h5>Floor Plan</h5>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"  name="floorAttached" #floorAttached="ngModel" required [(ngModel)]="manageSearch.floorAttached">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Assigned
+                                        </label>
+                                      </div>
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" name="floorNotAttached" #floorNotAttached="ngModel" required [(ngModel)]="manageSearch.floorNotAttached">
+                                        <label class="form-check-label" for="flexCheckChecked">
+                                            Not Assigned
+                                        </label>
+                                      </div>
+                                  </a></li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </nav>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-end align-items-center">
+        <div (click)="toggleMoreFilter()"> {{isShowMoreFilter ? 'Less' : 'More' }} Filter <i class="fas fa-angle-down"></i></div>
+        <div><button type="button" class="btn   btn-primary mx-2">Search</button></div>
+    </div>
+</form>
+    <div>        
+        <hr>
+        <div>
+            <div class="d-flex justify-content-between align-items-center">
+                <h5>SEARCH RESULTS</h5>
+            <button type="button" class="btn btn-lightgray border" (click)="fileDownload()"> <i class="fas fa-file-csv"></i> Export To Excel</button>
+            </div>
+            <div style="overflow-x: auto;">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col"><input class="form-check-input fs-5" type="checkbox" value="" checked></th>
+                            <th scope="col" (click)="onSortTableHeaderClick('i' , currentsortCount)" title="Sort By idRef">JEEE ID/REFERENCE# <i [ngClass]="{'active':currentColName=='idRef'}"
+                                class="my-icon fas fa-sort-amount-{{ currentColName == 'idRef' && currentsortCount=='asc' ? 'up':'down' }}"></i></th>
+                            <th scope="col">TYPE</th>
+                            <th scope="col">PURPOSE</th>
+                            <th scope="col">LOCATION</th>
+                            <th scope="col" (click)="onSortTableHeaderClick('price' , currentsortCount)" title="Sort By Price">PRICE <i [ngClass]="{'active':currentColName=='price'}"
+                                class="my-icon fas fa-sort-amount-{{ currentColName == 'price' && currentsortCount=='asc' ? 'up':'down' }}"></i></th>
+                            <th scope="col" (click)="onSortTableHeaderClick('bed' , currentsortCount)" title="Sort By Bed">BED(s) <i [ngClass]="{'active':currentColName=='bed'}"
+                                class="my-icon fas fa-sort-amount-{{ currentColName == 'bed' && currentsortCount=='asc' ? 'up':'down' }}"></i></th>
+                            <th scope="col">QUALITY</th>
+                            <th scope="col">LISTED BY</th>
+                            <th scope="col">STATUS</th>
+                            <th scope="col" (click)="onSortTableHeaderClick('date' , currentsortCount)" title="Sort By date">UPDATED DATE <i [ngClass]="{'active':currentColName=='date'}"
+                                class="my-icon fas fa-sort-amount-{{ currentColName == 'date' && currentsortCount=='asc' ? 'up':'down' }}"></i></th>
+                            <th scope="col">CONTROL</th>
+                            <th scope="col">VIEW</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr>
+                            <td class="text-center py-3" colspan="12">NO RECORD FOUND</td>
+                        </tr>     -->
+                        <tr *ngFor="let x of profolioListingTable; let i=index">
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        <i class="fas fa-wifi" [tooltip]="x.tootltipCMR"></i>
+                                    </label>
+                                  </div>
+                            </td>
+                            <td>
+                               {{x.idRef}}
+                            </td>
+                            <td>
+                                {{x.type}}
+                            </td>
+                            <td>
+                               {{x.purpose}}
+                            </td>
+                            <td>
+                                {{x.location}}
+                            </td>
+                            <td>
+                                {{x.price}}
+                            </td>
+                            <td>
+                                {{x.bed}}&nbsp;&nbsp;&nbsp;
+                            </td>
+                            <td>
+                                <progressbar [(ngValue)]="x.quality" type="success" [striped]="true">55%</progressbar>
+                            </td>
+                            <td>
+                                {{x.listedBy}}
+                            </td>
+                            <td>
+                                {{x.Status}}
+                            </td>
+                            <td>
+                                {{x.date}}
+                            </td>
+                            <td>
+                                <i class="fas fa-pepper-hot" tooltip="Click to make it Hot Listing"></i>&nbsp;
+                                <i class="fas fa-signature" tooltip="Click to make it Signature Listing"></i>&nbsp;
+                                <small tooltip="Click to Add Listing in Deal Of The Week">DOW</small>
+                            </td>
+                            <td>
+                                <i class="fas fa-eye" tooltip="List View" ></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

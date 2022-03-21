@@ -1,0 +1,32 @@
+
+.border-shadow{
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.15);
+}
+.border-card{
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.15);
+}
+.search-border{
+    border-top: 1px solid #ced4da;
+    border-bottom: 1px solid #ced4da;
+    padding: 4px 5px;
+}
+.icon-size{
+    font-size: 43px;
+}
+.Statistics .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    color: #495057;
+    background-color: #fff;
+    border-color: #dee2e6 #dee2e6 #fff;
+    border-top:5px solid red;
+
+}
+.Statistics .nav-tabs .nav-link {
+    border-top:5px solid gray;
+    border-left:1px solid gray;
+    border-right:1px solid gray;
+    color: var(--gray-dark)
+}

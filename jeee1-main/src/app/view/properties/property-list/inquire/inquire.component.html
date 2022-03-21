@@ -1,0 +1,35 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">Inquire About the Ad</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form #inquire="ngForm">
+        {{ inquire.value | json}}
+        <div class="mb-3">
+            <label for="message" class="form-label">Your Message</label>
+            <textarea class="form-control" id="message" rows="3" name="message" #message="ngModel" [(ngModel)]="dummyinquire.message" ></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your name" name="name" #name="ngModel" [(ngModel)]="dummyinquire.name"  required>
+            <small  *ngIf="name.invalid && isFormSubmitted" class="text-danger">Field required</small>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" placeholder="name@example.com"  name="email" #email="ngModel" email [(ngModel)]="dummyinquire.email" required>
+            <small  *ngIf="email.invalid && isFormSubmitted" class="text-danger">Field required</small>
+        </div>
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="tel" class="form-control" id="phone" placeholder="Enter yout number" required name="phNo" #phNo="ngModel" [(ngModel)]="dummyinquire.phNo" pattern="[0-9]{10}">
+            <small  *ngIf="phNo.invalid && isFormSubmitted" class="text-danger">Field required</small>
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="sendInquire(inquire.valid)">Submit</button>
+    </form>
+
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">Cancle</button>
+</div>

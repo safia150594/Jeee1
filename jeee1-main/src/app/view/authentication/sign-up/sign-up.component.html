@@ -1,0 +1,41 @@
+<app-jeee-header></app-jeee-header>
+<div class="container-fluid">
+    <div class="signin">
+        <div class="row">
+            <div class="col-4 signup">
+                <div class="sign-in text-center">Create an account</div>
+                {{ signUp.value | json}}
+                <form #signUp="ngForm">
+                    <div class="mb-3">
+                        <label for="exampleInputName" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="exampleInputName" aria-describedby="NameHelp" name="regName" #regName="ngModel" required [(ngModel)]="dummysignUp.regName">
+                        <small  *ngIf="regName.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="regEmail" #regEmail="ngModel" required [(ngModel)]="dummysignUp.regEmail" email>
+                        <small  *ngIf="regEmail.invalid && isFormSubmitted" class="text-danger">Email is Required</small>
+                        <small  *ngIf="regEmail.invalid && regEmail.errors?.email && isFormSubmitted" class="text-danger">required @ </small>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputPassword5" class="form-label">Password</label>
+                        <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" name="regPassword" #regPassword="ngModel" required [(ngModel)]="dummysignUp.regPassword" minlength="6" maxlength="8">
+                        <div>
+                            <small  *ngIf="regPassword.invalid && isFormSubmitted" class="text-danger">Password Length Should 6-8 character</small>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmPSwd" class="form-label">Confirm Password</label>
+                        <input type="password" id="confirmPSwd" class="form-control" aria-describedby="passwordHelpBlock" name="confirmPSwd" #confirmPSwd="ngModel" required [(ngModel)]="dummysignUp.confirmPSwd" minlength="6" maxlength="8">
+                        <div >
+                            <small  *ngIf=" confirmPSwd.invalid && isFormSubmitted" class="text-danger">Password Length Should 6-8 character</small><br>
+                            <small  *ngIf="isFormSubmitted && dummysignUp.regPassword !== dummysignUp.confirmPSwd" class="text-danger ">Pswd Miss Match</small>
+                        </div>
+                    </div>
+                    <a type="submit" class="btn btn-primary"  (click)="signUpUser(signUp.valid)">Sign Up</a>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

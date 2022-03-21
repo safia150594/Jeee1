@@ -1,0 +1,423 @@
+<form #residentialforsale="ngForm" class="sub-tab">
+  {{residentialforsale.value | json}}
+  <div class="px-4 py-3 paddingsubtab">
+    <div class="row w-100">
+      <div class="col-3">
+        <div class="row">
+          <div class="col-6 p-0 m-0">
+            <div class="tab-label">
+              <label>City</label>
+              <div class="dubai">
+                <ng-select [items]="cityList" name="city" appendTo="body" #city="ngModel" required
+                  [(ngModel)]="property.city" placeholder="All City">
+                </ng-select>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="tab-label">
+              <label class="text-white text-start">Location</label>
+              <div class="input-group">
+                <input type="text" aria-label="Last name" class="form-control" name="Location" 
+                  #Location="ngModel" required [(ngModel)]="property.Location" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="tab-label">
+          <label class="text-white text-start">Property Type</label>
+          <ng-select [items]="properyList" name="propertyType" appendTo="body" #propertyType="ngModel" required
+            [(ngModel)]="property.propertyType" placeholder="All Type">
+          </ng-select>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="tab-label">
+          <label class="text-white text-start">Price Range</label>
+        </div>
+        <div ngModelGroup="price-Range" class="price-range">
+          <nav class="navbar navbar-expand-lg navbar-dark p-0">
+            <div class="container-fluid p-0">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item dropdown">
+                    <a class="
+                        nav-link
+                        text-darkdropdown-toggle
+                      " href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                      aria-expanded="false">
+                      Any
+                      <i class="fas fa-caret-down"></i>
+                    </a>
+                    <ul class="
+                        dropdown-menu
+                        dropdown-menu-light
+                      " aria-labelledby="navbarDarkDropdownMenuLink">
+                      <li>
+                        <a class="dropdown-item">
+                          <span>
+                            <div class="row">
+                              <div class="col">
+                                <label>min</label>
+                                <div>
+                                  <input type="number" min="1" max="5" appendTo="body"
+                                    name="minPriceRange" #minPriceRange="ngModel" required
+                                    [(ngModel)]="property.minPriceRange" /> &nbsp; &nbsp;<label>-</label>
+                                </div>
+                              </div>
+                              <div class="col">
+                                <label>max</label>
+                                <div>
+                                  <input type="number" id="quantity" min="1" max="5" name="maxPriceRange"
+                                    #maxPriceRange="ngModel" required [(ngModel)]="property.maxPriceRange" />
+                                </div>
+                              </div>
+                            </div>
+                          </span>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="tab-label">
+          <label class="text-white text-start">Beds</label>
+        </div>
+        <div class="price-range">
+          <nav class="
+              navbar navbar-expand-lg navbar-dark
+              p-0
+            ">
+            <div class="container-fluid p-0">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item dropdown">
+                    <a class="
+                        nav-link
+                        text-darkdropdown-toggle
+                      " href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                      aria-expanded="false">
+                      Any
+                      <i class="fas fa-caret-down"></i>
+                    </a>
+                    <ul class="
+                        dropdown-menu
+                        dropdown-menu-light
+                      " aria-labelledby="navbarDarkDropdownMenuLink">
+                      <li>
+                        <a class="dropdown-item">
+                          <span>
+                            <div class="row">
+                              <div class="col">
+                                <label>min Bedrooms</label>
+                                <ng-select [items]="bedList" name="minbed" appendTo="body" #minbed="ngModel" required
+                                  [(ngModel)]="property.minbed">
+                                </ng-select>
+                              </div>
+
+                              <div class="col">
+                                <label>max Bedrooms</label>
+                                <ng-select [items]="bedList" name="maxbed" appendTo="body" #maxbed="ngModel" required
+                                  [(ngModel)]="property.maxbed">
+                                </ng-select>
+                              </div>
+                            </div>
+                          </span>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="tab-label">
+          <label class="text-white text-start"></label>
+        </div>
+        <div class="more">
+          <nav class="navbar navbar-expand-lg navbar-dark p-0">
+            <div class="container-fluid p-0">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item dropdown">
+                    <a class="
+                        nav-link
+                        text-darkdropdown-toggle
+                      " href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                      aria-expanded="false">
+                      More
+                      <i class="fas fa-caret-down"></i>
+                    </a>
+                    <ul id="more-scroll" class="
+                        dropdown-menu
+                        dropdown-menu-light
+                        p-4
+                      " aria-labelledby="navbarDarkDropdownMenuLink">
+                      <li>
+                        <a class="dropdown-item">
+                          <span>Amenities</span><br />
+                          <div ngModelGroup="Amenities" class="row">
+                            <div class="col-7">
+                              <div>
+                                <input type="checkbox" value="maids-room" name="maidsRoom" appendTo="body"
+                                  #maidsRoom="ngModel" required [(ngModel)]="property.maidsRoom" />&nbsp;
+                                <label for="maids-room">Maids Room</label><br />
+                                <input type="checkbox" id="heating" name="heating" value="heating" #heating="ngModel"
+                                  required [(ngModel)]="property.heating" />
+                                <label for="heating">
+                                  Central A/C &
+                                  Heating</label><br />
+                                <input type="checkbox" id="privategarden " name="privategarden" value="privategarden"
+                                  #privategarden="ngModel" required [(ngModel)]="property.privategarden" />
+                                <label for="private-garden ">
+                                  Private Garden </label><br />
+                                <input type="checkbox" id="privategym" name="privategym" value="privategym"
+                                  #privategym="ngModel" required [(ngModel)]="property.privategym" />
+                                <label for="private-gym">
+                                  Private Gym </label><br />
+                                <input type="checkbox" id="shared-pool" #sharedpool="ngModel" required
+                                  [(ngModel)]="property.sharedpool" name="sharedpool" value="shared-pool" />
+                                <label for="shared-pool">
+                                  Shared Pool</label><br />
+                                <input type="checkbox" id="shared-pool" #sharedgym="ngModel" required
+                                  [(ngModel)]="property.sharedgym" name="sharedgym" value="sharedgym" />
+                                <label for="shared-pool">
+                                  Shared Gym</label><br />
+                                <input type="checkbox" id="concierge-service" #conciergeservice="ngModel" required
+                                  [(ngModel)]="property.conciergeservice" name="conciergeservice"
+                                  value="concierge-service" />
+                                <label for="concierge-service">
+                                  Concierge
+                                  Service</label><br />
+                                <input type="checkbox" id="covered-parking" #coveredparking="ngModel" required
+                                  [(ngModel)]="property.coveredparking" name="coveredparking" value="covered-parking" />
+                                <label for="covered-parking">
+                                  Covered Parking </label><br />
+                                <input type="checkbox" id="Walk-in" #Walkin="ngModel" required
+                                  [(ngModel)]="property.Walkin" name="Walkin" value="Walkin" />
+                                <label for="Walk-in">
+                                  Walk-in
+                                  Closet</label><br />
+                                <input type="checkbox" id="view-Water" #viewWater="ngModel" required
+                                  [(ngModel)]="property.viewWater" name="viewWater" value="view-Water" />
+                                <label for="view-Water">
+                                  View of Water</label><br />
+                                <input type="checkbox" id="pets-allowed" #petsallowed="ngModel" required
+                                  [(ngModel)]="property.petsallowed" name="petsallowed" value="pets-allowed" />
+                                <label for="pets-allowed">
+                                  Pets Allowed</label><br />
+                                <br />
+                              </div>
+                            </div>
+                            <div class="col-5">
+                              <div>
+                                <input type="checkbox" #study="ngModel" required [(ngModel)]="property.study"
+                                  name="study" value="study" />&nbsp;
+                                <label for="study">Study</label><br />
+                                <input type="checkbox" #balcony="ngModel" required [(ngModel)]="property.balcony"
+                                  name="balcony" value="balcony" />
+                                <label for="balcony">
+                                  Balcony</label><br />
+                                <input type="checkbox" #privatepool="ngModel" required
+                                  [(ngModel)]="property.privatepool" name="privatepool " value="privatepool" />
+                                <label for="private-pool ">Private Pool </label><br />
+                                <input type="checkbox" #privatejacuzzi="ngModel" required
+                                  [(ngModel)]="property.privatejacuzzi" name="privatejacuzzi" value="private-jacuzzi" />
+                                <label for="private-jacuzzi">
+                                  Private Jacuzzi </label><br />
+                                <input type="checkbox" #sharedspa="ngModel" required [(ngModel)]="property.sharedspa"
+                                  name="sharedspa" value="shared-spa" />
+                                <label for="shared-spa">
+                                  Shared Spa</label><br />
+                                <input type="checkbox" id="security" #security="ngModel" required
+                                  [(ngModel)]="property.security" name="security" value="security" />
+                                <label for="security">
+                                  Security</label><br />
+                                <input type="checkbox" id="maid-service" #maidservice="ngModel" required
+                                  [(ngModel)]="property.maidservice" name="maidservice" value="maid-service" />
+                                <label for="maid-service">
+                                  Maid Service</label><br />
+                                <input type="checkbox" id="built-in-wardrobes" #builtinwardrobes="ngModel" required
+                                  [(ngModel)]="property.builtinwardrobes" name="builtinwardrobes"
+                                  value="built-in-wardrobes" />
+                                <label for="built-in-wardrobes">
+                                  Built-in Wardrobes </label><br />
+                                <input type="checkbox" id="built-kitchen-appliances" #builtkitchenappliances="ngModel"
+                                  required [(ngModel)]="property.builtkitchenappliances" name="builtkitchenappliances"
+                                  value="builtkitchenappliances" />
+                                <label for="built-kitchen-appliances">
+                                  Built-in Kitchen
+                                  Appliances</label><br />
+                                <input type="checkbox" id="view-of-landmark" #viewoflandmark="ngModel" required
+                                  [(ngModel)]="property.viewoflandmark" name="viewoflandmark"
+                                  value="view-of-landmark" />
+                                <label for="view-of-landmark">
+                                  View of
+                                  Landmark</label><br />
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <div>Keyword Search</div>
+                        <div class="search-bar">
+                          <input class="form-control me-2" type="search" name="keywordsearch" #keywordsearch="ngModel"
+                            placeholder="Eg:Pool,Security,Ref ID Number" aria-label="Search"
+                            [(ngModel)]="property.keywordsearch" />
+                        </div>
+                        <br />
+                      </li>
+                      <li>
+                        <div>Listed By</div>
+                        <a class="dropdown-item" href="#">
+                          <div class="row">
+                            <div class="col-6">
+                              <div >
+                                <input type="checkbox" id="agent" #Agent="ngModel" required [(ngModel)]="property.Agent"
+                                  name="agent" value="agent" />&nbsp;
+                                <label for="agent">Agent</label><br />
+                                <input type="checkbox" id="landlord" #landlord="ngModel" required
+                                  [(ngModel)]="property.landlord" name="landlord" value="landlord" />
+                                <label for="landlord">Landlord</label><br />
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <div >
+                                <input type="checkbox" id="developer" name="developer" #developer="ngModel"
+                                  [(ngModel)]="property.developer" value="developer" />&nbsp;
+                                <label for="developer">Developer</label><br />
+                              </div>
+                            </div>
+                          </div>
+                        </a><br />
+                      </li>
+                      <li>
+                        <div>Bathrooms</div>
+                        <a class="dropdown-item">
+                          <ng-select [items]="bedList" name="bathrooms" appendTo="body" #bathrooms="ngModel" required
+                            [(ngModel)]="property.bathrooms" placeholder=" Any Bathrooms">
+                          </ng-select>
+                          <br />
+                        </a>
+                      </li>
+                      <li>
+                        <div>Size (Sqft)</div>
+                        <a class="dropdown-item">
+                          <span class="size">
+                            <div class="row">
+                              <div class="col">
+                                <label>min Bedrooms</label>
+                                <div >
+                                  <input type="number" name="minbathrooms"  #minbathrooms="ngModel"
+                                    required [(ngModel)]="property.minbathrooms" min="1" max="5" />
+                                  &nbsp; &nbsp; &nbsp;
+                                  &nbsp;<label>-</label>
+                                </div>
+                              </div>
+
+                              <div class="col">
+                                <label>max Bedrooms</label>
+                                <div >
+                                  <input type="number"  name="maxbathrooms" #minbathrooms="ngModel"
+                                    [(ngModel)]="property.maxbathrooms" min="1" max="5" />
+                                </div>
+                              </div>
+                            </div>
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <div>Real Estate Agent</div>
+                        <a class="dropdown-item">
+                          <div class="search-bar">
+                            <input class="form-control me-2" type="search" name="realestateAgent" #realestateAgent="ngModel" [(ngModel)]="property.realestateAgent" placeholder="Eg Property" aria-label="Search" />
+                          </div>
+                          <br />
+                        </a>
+                      </li>
+                      <li>
+                        <div>Verified ads only</div>
+                        <a class="dropdown-item">
+                          <div >
+                            <input type="checkbox" id="verified-ads-only" name="verifiedadsonly" #verifiedadsonly="ngModel" [(ngModel)]="property.verifiedadsonly"
+                              value="verified-ads-only" />&nbsp;
+                            <label for="verified-ads-only">Verified ads
+                              only</label><br />
+                          </div>
+                        </a><br />
+                      </li>
+                      <li>
+                        <div>Ads with video only</div>
+                        <a class="dropdown-item">
+                          <div >
+                            <input type="checkbox" id="ads-with-video-only" name="adswithvideoonly"
+                              value="ads-with-video-only" #adswithvideoonly="ngModel" [(ngModel)]="property.adswithvideoonly" />&nbsp;
+                            <label for="ads-with-video-only">Ads with video
+                              only</label><br />
+                          </div>
+                        </a><br />
+                      </li>
+                      <li>
+                        <div>
+                          Ads with 360 tour only
+                        </div>
+                        <a class="dropdown-item">
+                          <div >
+                            <input type="checkbox" id="ads-with-tour-only" name="adswithtouronly" #adswithtouronly="ngModel" [(ngModel)]="property.adswithtouronly"
+                              value="ads-with-tour-only" />&nbsp;
+                            <label for="ads-with-tour-only">Ads with 360 tour
+                              only</label><br />
+                          </div>
+                        </a><br />
+                      </li>
+                      <li>
+                        <a class="dropdown-item">
+                          <button type="button" class="btn btn-primary" >
+                            Search
+                          </button> </a><br />
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div class="col-1">
+        <div class="tab-label">
+          <label class="text-white text-start"></label>
+          <button type="submit" class="btn btn-primary ">
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

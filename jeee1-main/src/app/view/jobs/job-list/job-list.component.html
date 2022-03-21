@@ -1,0 +1,131 @@
+<div class="py-5">
+  <div class="container">
+    <div class="row">
+      <form #search="ngForm" class="col-3">
+        {{search.value |json}}
+        <div class="job-side-search">
+          <h5>Search</h5>
+          <div class="py-2">
+            <ng-select [items]="LocationList" name="loc" appendTo="body" #loc="ngModel" required
+              [(ngModel)]="quicksearch.loc" placeholder="All City">
+            </ng-select>
+          </div>
+          <div class="py-2">
+            <ng-select [items]="typeList" name="type" appendTo="body" #type="ngModel" required
+              [(ngModel)]="quicksearch.type" placeholder="All of Jeee">
+            </ng-select>
+          </div>
+          <div class="py-2">
+            <ng-select [items]="CategoriesList" appendTo="body" name="Categories" #Categories="ngModel" required
+              [(ngModel)]="quicksearch.Categories" placeholder="All Categories">
+            </ng-select>
+          </div>
+          <div class="w-100% py-2">
+            <h5>Keyword</h5>
+            <div class="input-group flex-nowrap">
+              <input type="text" class="form-control" placeholder="Search" name="keyword" #keyword="ngModel" required
+                [(ngModel)]="quicksearch.keyword" />
+            </div>
+          </div>
+          <div class="d-grid gap-2">
+            <button type="button" class="btn btn-primary my-2">Search</button>
+            <button type="button" class="btn btn-dark">
+              <i class="far fa-bell"></i> Save Search
+            </button>
+          </div>
+          <div class="py-2">
+            <h5 class="py-2">Job Role</h5>
+            <ng-select [items]="JobRoleList" appendTo="body" name="jobRole" #jobRole="ngModel" required
+              [(ngModel)]="quicksearch.jobRole" placeholder="Job Role">
+            </ng-select>
+          </div>
+          <div class="py-2">
+            <h5 class="py-2">Ads Post</h5>
+            <ng-select [items]="adsPost" appendTo="body" name="ads" #ads="ngModel" required
+              [(ngModel)]="quicksearch.ads" placeholder="Any Time">
+            </ng-select>
+          </div>
+          <div class="py-2">
+            <h5 class="py-2">Salary (AED)</h5>
+            <ng-select [items]="salayList" appendTo="body" name="salary" #salary="ngModel" required
+              [(ngModel)]="quicksearch.salary" placeholder="Any Salary">
+            </ng-select>
+          </div>
+          <div class="py-2">
+            <h5 class="py-2">Minimun Experience</h5>
+            <ng-select [items]="minExpList" appendTo="body" name="minExp" #minExp="ngModel" required
+              [(ngModel)]="quicksearch.minExp" placeholder="All Level">
+            </ng-select>
+          </div>
+          <div class="py-2">
+            <h5 class="py-2">Minimun Education</h5>
+            <ng-select [items]="minEduList" appendTo="body" name="minEdu" #minEdu="ngModel" required
+              [(ngModel)]="quicksearch.minEdu" placeholder="Any Education">
+            </ng-select>
+          </div>
+          <div class="py-2">
+            <h5 class="py-2">Employment Type</h5>
+            <ng-select [items]="empTypeList" appendTo="body" name="emptype" #emptype="ngModel" required
+              [(ngModel)]="quicksearch.emptype" placeholder="Any Education">
+            </ng-select>
+
+          </div>
+          <div class="d-grid gap-2">
+            <button type="button" class="btn btn-primary my-2">Search</button>
+          </div>
+        </div>
+      </form>
+      <div class="col-8">
+        <div class="job-list pt-3 pb-2 " *ngFor="let jobList of jobListType">
+          <h3>
+            {{ jobList.role }} Jobs in {{ jobList.place }}, {{ jobList.country }} .9 ads
+          </h3>
+        </div>
+        <div class="py-2">
+          <form #sort="ngForm" class="w-25">
+            <label for="sort" class="fs-6 fw-bold">Sort: &nbsp;</label>
+            <ng-select [items]="sortLists" name="sorting" #sorting="ngModel" required [(ngModel)]="quicksearch.sorting"
+              placeholder="Default">
+            </ng-select>
+          </form>
+        </div>
+        <div class="container-fluid">
+          <div *ngFor="let jobList of jobListType">
+            <p class="fs-5">Browse results in: {{jobList.place}} > Jobs > {{jobList.role}}</p>
+          </div>
+          <div class="row py-2 ">
+            <div class="col-4 py-2"  *ngFor="let result of browserResultCar">
+              <a>{{result.job}} </a>
+            </div>
+          </div>
+          <div class=" mb-3 py-3">  
+            <a type="button" class="btn btn-primary"  [routerLink]="['../../../../../job-profile']">Upload Cv</a>
+          </div>
+          <div class="my-4">
+            <div class="job-list-type ms-4 my-5" [routerLink]="['../job-list-view']"  *ngFor="let jobDetail of jobListDetails;">
+              <div class="row">
+                <div class="col-8">
+                  <h5 class="fw-bold" >
+                    {{jobDetail.role}}
+                  </h5>
+                  <p>
+                    {{jobDetail.jobDesc}}
+                  </p>
+                </div>
+                <div class="col-4">
+                  <small>{{jobDetail.place}}</small><br />
+                  <small>{{jobDetail.date}}</small>
+                </div>
+                <div class="col-12">
+                  <small class="py-2"><i class="fas fa-map-marker-alt"></i> &nbsp;&nbsp;Located
+                    {{jobDetail.place }}</small>
+                </div>
+              </div>
+            </div>
+            <br />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

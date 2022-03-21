@@ -1,0 +1,46 @@
+<div class="modal-header">
+    <div>
+        <small class="modal-title pull-left"><i class="fas fa-video"></i> VIDEOS
+        </small><br>
+    </div>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+<div class="modal-body ">
+    <form method="get" action="">
+        <!-- <div class="container-fluid ">
+<img *ngFor='let url of urls' [src]="url" height="100px">
+<input type="file" (change)="onselect($event)" multiple>
+       </div> -->
+        <div class="row mb-2">
+            <div class="col-4">
+                <label for="exampleFormControlInput1" class="form-label">Video Title: </label>
+            </div>
+            <div class="col-8">
+                <input class="form-control form-control-sm" type="text"  >
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-4">
+                <label for="exampleFormControlInput1" class="form-label">Video Link:</label>
+            </div>
+            <div class="col-8">
+                <input class="form-control form-control-sm" type="text "placeholder="http://">
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-4">
+                <label for="exampleFormControlInput1" class="form-label">Video Host:</label>
+            </div>
+            <div class="col-8">
+                <input class="form-control form-control-sm" type="text"         >
+            </div>
+        </div>
+    </form>
+
+</div>
+<div class="modal-footer d-flex justify-content-between">
+    <button type="button" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Add More Videos</button>
+    <button type="button" class="btn btn-primary">DONE</button>
+</div>

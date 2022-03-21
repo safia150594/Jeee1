@@ -1,0 +1,208 @@
+<div>
+    <div class="container">
+        <div class="row justify-content-center py-5 ">
+            <div class="col-10">
+                <div>
+                    <h4 class="text-center">Job Details</h4>
+                </div>
+                <form #addJobPost="ngForm">
+                    {{ addJobPost.value | json }}
+                    <div class="mb-3 row">
+                        <label for="title" class="col-sm-2 col-form-label">Job title <span
+                                class="required">*</span></label>
+                        <div class="col-sm-10 w-75">
+                            <input type="text" class="form-control" name="title" #title="ngModel" required [(ngModel)]="dummyjobPost.title">
+                            <small  *ngIf="title.invalid && isFormSubmitted" class="text-danger">This Field Is Required</small>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="company" class="col-sm-2 col-form-label">Company <span
+                                class="required">*</span></label>
+                        <div class="col-sm-10 w-75">
+                            <input type="text" class="form-control" name="company" #company="ngModel" required [(ngModel)]="dummyjobPost.company">
+                            <small  *ngIf="company.invalid && isFormSubmitted" class="text-danger">This Field Is Required</small>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="work-policy" class="col-sm-2 col-form-label">Workplace policy <span
+                                class="required">*</span></label>
+                        <div class="col-sm-10 w-75">
+                            <ng-select [items]="workPolicy" name="wrkPolicy" appendTo="body"
+                            #wrkPolicy="ngModel" required [(ngModel)]="dummyjobPost.wrkPolicy">
+                        </ng-select>
+                        <small  *ngIf="wrkPolicy.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="company" class="col-sm-2 col-form-label">Job Description<span
+                                class="required">*</span></label>
+                        <div class="col-sm-10 w-75 ">
+                           <textarea rows="6" cols="90" name="jobDesc" #jobDesc="ngModel" required [(ngModel)]="dummyjobPost.jobDesc"></textarea><br>
+                           <small  *ngIf="jobDesc.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="title" class="col-sm-2 col-form-label">Add Skills <span
+                                class="required">*</span></label>
+                        <div class="col-sm-10 w-75 ">
+                            <ng-select [items]="skillsList"  appendTo="body"
+                            [multiple]="true"  name="skills" #skills="ngModel" required [(ngModel)]="dummyjobPost.skills" >
+                            </ng-select>
+                            <small  *ngIf="skills.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                        </div>
+                     </div>
+                    <div class="mb-3 row">
+                        <label for="title" class="col-sm-2 col-form-label">Employment Type: <span
+                                class="required">*</span></label>
+                        <div class="col-sm-10 w-75">
+                            <ng-select [items]="careerLevel" appendTo="body" name="career" #career="ngModel" required [(ngModel)]="dummyjobPost.career" >
+                            </ng-select>
+                            <small  *ngIf="career.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                        </div>
+                     </div>
+                    <div class="mb-3 row">
+                        <label for="title" class="col-sm-2 col-form-label">Monthly Salary <span
+                                class="required">*</span></label>
+                        <div class="col-sm-10 w-75">
+                            <div class="form-floating d-flex align-items-center">
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control form-control-sm"  name="minMonthlySalary" #minMonthlySalary="ngModel" required [(ngModel)]="dummyjobPost.minMonthlySalary">
+                                    <label for="floatingInput">Min</label>
+                                  </div>                                  
+                                <span class="fs-1 px-2">-</span>
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control form-control-sm" name="maxMonthlySalary" #maxMonthlySalary="ngModel" required [(ngModel)]="dummyjobPost.maxMonthlySalary" >
+                                    <label for="floatingInput">Max</label>
+                                  </div>
+                              </div>
+                              <small  *ngIf="maxMonthlySalary.invalid && isFormSubmitted" class="text-danger">Max is Required</small> <br>
+                              <small  *ngIf="minMonthlySalary.invalid && isFormSubmitted" class="text-danger">Min is Required</small>
+                                  
+                        </div>
+                     </div>
+                    <div class="mb-3 row">
+                        <label for="title" class="col-sm-2 col-form-label">Work Experience <span
+                                class="required">*</span></label>
+                        <div class="col-sm-10 w-75">
+                            <div class="form-floating d-flex align-items-center">
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control form-control-sm" name="minWorkExp" #minWorkExp="ngModel" required [(ngModel)]="dummyjobPost.minWorkExp"   >
+                                    <label for="floatingInput">Min</label>
+                                  </div>
+                                <span class="fs-1 px-2">-</span>
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control form-control-sm" name="maxWorkExp" #maxWorkExp="ngModel" required [(ngModel)]="dummyjobPost.maxWorkExp" >
+                                    <label for="floatingInput"  >Max</label>
+                                  </div>
+                              </div>
+                              <small  *ngIf="minWorkExp.invalid && isFormSubmitted" class="text-danger">Min is Required</small> <br>                              
+                              <small  *ngIf="maxWorkExp.invalid && isFormSubmitted" class="text-danger">Max is Required</small>
+                        </div>
+                     </div>
+                     <div class="mb-3 row">
+                        <label for="title" class="col-sm-2 col-form-label">Education Level <span
+                                class="required">*</span></label>
+                        <div class="col-sm-10 w-75">
+                            <ng-select [items]="educationList" appendTo="body" name="education" #education="ngModel" required [(ngModel)]="dummyjobPost.education" >
+                            </ng-select>
+                            <small  *ngIf="education.invalid && isFormSubmitted" class="text-danger">This Field is Required</small>
+                        </div>
+                     </div>
+                     <div class="mb-3 row">
+                        <label for="company" class="col-sm-2 col-form-label">Receive Cv by<span
+                                class="required">*</span></label>
+                        <div class="col-sm-10 w-75">
+                            <input type="email" class="form-control"  placeholder="email address"  name="receiveCVBy" #receiveCVBy="ngModel" required [(ngModel)]="dummyjobPost.receiveCVBy"  email>
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                            <small  *ngIf="receiveCVBy.invalid && isFormSubmitted" class="text-danger">This Field is Required</small>
+                        </div>
+                    </div>
+                     <div class="mb-3 row">
+                        <label for="company" class="col-sm-2 col-form-label">Company Size<span
+                                class="required">*</span></label>
+                        <div class="col-sm-10 w-75">
+                            <div class="form-floating d-flex align-items-center">
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control form-control-sm" name="minCompanySize" #minCompanySize="ngModel" required [(ngModel)]="dummyjobPost.minCompanySize">
+                                    <label for="floatingInput">Min</label>
+                                  </div>
+                                <span class="fs-1 px-2">-</span>
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control form-control-sm" name="maxCompanySize" #maxCompanySize="ngModel" required [(ngModel)]="dummyjobPost.maxCompanySize"  >
+                                    <label for="floatingInput">Max</label>
+                                  </div>
+                              </div>
+                              <small  *ngIf="minCompanySize.invalid && isFormSubmitted" class="text-danger">Min is Required</small> <br>
+                              <small  *ngIf="maxCompanySize.invalid && isFormSubmitted" class="text-danger">Max is Required</small>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="company" class="col-sm-2 col-form-label">Career Level<span
+                                class="required">*</span></label>
+                        <div class="col-sm-10 w-75">
+                            <ng-select [items]="careerLevel"  appendTo="body" name="careerEmpLevel"
+                              #careerEmpLevel="ngModel" required [(ngModel)]="dummyjobPost.careerEmpLevel" >
+                            </ng-select>
+                            <small  *ngIf="careerEmpLevel.invalid && isFormSubmitted" class="text-danger">This Field is Required</small>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="company" class="col-sm-2 col-form-label">Expires on:<span
+                                class="required">*</span></label>
+                        <div class="col-sm-10 w-75">
+                            <input type="text"
+                            placeholder="Datepicker"
+                            class="form-control"  name="jobExpDate"
+                            #jobExpDate="ngModel" required [(ngModel)]="dummyjobPost.jobExpDate"
+                            bsDatepicker >
+                            <small  *ngIf="jobExpDate.invalid && isFormSubmitted" class="text-danger">This Field is Required</small>
+                        </div>
+                    </div>
+                    <div class="mb-3 d-flex justify-content-end">
+                        <button type="button" class="btn btn-primary" (click)="jobPost(addJobPost.valid)">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="overflow-x: auto;">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th>Title</th>
+            <th>Company</th>
+            <th>Workplace policy </th>
+            <th>Job Description</th>
+            <th>Add Skills</th>
+            <th>Employment Type</th>
+            <th>Monthly Salary</th>
+            <th>Work Experiencey</th>
+            <th>Education Level</th>
+            <th>Receive Cv by</th>
+            <th>Company Size</th>
+            <th>Career Level</th>
+            <th>Expires on</th>            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let x of addjobpost; let i=index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{x.title}}</td>
+            <td>{{x.company}}</td>
+            <td>{{x.wrkPolicy}}</td>
+            <td>{{x.jobDesc}}</td>
+            <td>{{x.skills}}</td>
+            <td>{{x.career}}</td>
+            <td>{{x.minMonthlySalary}}-{{x.maxMonthlySalary}}</td>
+            <td>{{x.minWorkExp}}-{{x.maxWorkExp}}</td>
+            <td>{{x.education}}</td>
+            <td>{{x.receiveCVBy}}</td>
+            <td>{{x.minCompanySize}}-{{x.maxCompanySize}}</td>                     
+            <td>{{x.careerEmpLevel}}</td>                      
+            <td>{{x.jobExpDate}}</td>                      
+          </tr>         
+        </tbody>
+      </table>
+</div>

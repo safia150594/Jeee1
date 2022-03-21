@@ -1,0 +1,184 @@
+<div class="p-5">
+    <div class="company-profile-font">
+        {{ companyProfile.value | json }}
+        <form #companyProfile="ngForm">
+            <div class="row">
+                <div ngModelGroup="BasicInfo" class="col-6 pt-2">
+                    <h5>BASIC INFORMATION</h5>
+                    <div class="row">
+                        <div class="col-3 pt-2">
+                            <label class="d-flex">Company Title: <span class="required">*</span></label>
+                        </div>
+                        <div class="col-9 pt-2">
+                            <input type="company name" class="form-control form-control-sm" 
+                            name="cmpnyTitle" #cmpnyTitle="ngModel" required [(ngModel)]="dummycompanyProfile.cmpnyTitle" >
+                            <small  *ngIf="cmpnyTitle.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 pt-2">
+                            <label class="d-flex">Company Title In Arabic:</label>
+                        </div>
+                        <div class="col-9 pt-2">
+                            <input type="text" class="form-control form-control-sm"  placeholder=""
+                            name="CompanyTitleInArabic" #CompanyTitleInArabic="ngModel" [(ngModel)]="dummycompanyProfile.CompanyTitleInArabic">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 pt-2">
+                            <label class="d-flex">Email: <span class="required">*</span></label>
+                        </div>
+                        <div class="col-9 pt-2">
+                            <input type="email" class="form-control form-control-sm" 
+                                placeholder="exampl@gmail.com" name="cmpnyEmail" #cmpnyEmail="ngModel" required [(ngModel)]="dummycompanyProfile.cmpnyEmail" email>
+                                <small  *ngIf="cmpnyEmail.invalid && isFormSubmitted" class="text-danger">Field is Required</small>                                                           
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 pt-2">
+                            <label class="d-flex">Logo </label>
+                        </div>
+                        <div class="col-9 pt-2">
+                            <div class="form-group">
+                                <input type="file" id="myFile" placeholder="choose image" name="logoFile" #logoFile="ngModel" [(ngModel)]="dummycompanyProfile.logoFile">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 pt-2">
+                            <label class="d-flex">Description:</label>
+                        </div>
+                        <div class="col-9 pt-2">
+                            <quill-editor name="cmpnyDesc" #cmpnyDesc="ngModel" [(ngModel)]="dummycompanyProfile.cmpnyDesc">
+                                
+                            </quill-editor>
+                        </div>
+                    </div>                   
+                </div>
+                <div ngModelGroup="contactInfo" class="col-6 pt-2">
+                    <h5>CONTACT INFORMATION</h5>
+                    <div>
+                        <div class="row">
+                            <div class="col-3 pt-2">
+                                <label class="d-flex">Primary:<i class="fas fa-question-circle"></i> </label>
+                            </div>
+                            <div class="col-9 pt-2">
+                                <div ngModelGroup="primaryPhNo" class="row">
+                                    <div class="col-3">
+                                        <input type="number" class="form-control form-control-sm" 
+                                            placeholder="" name="cmpnyPhcode" #cmpnyPhcode="ngModel" [(ngModel)]="dummycompanyProfile.cmpnyPhcode" >
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="number" class="form-control form-control-sm" 
+                                            placeholder="" name="cmpnyPhprefix" #cmpnyPhprefix="ngModel" [(ngModel)]="dummycompanyProfile.cmpnyPhprefix">
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="number" class="form-control form-control-sm" 
+                                             name="cmpnyPhlast" #cmpnyPhlast="ngModel" [(ngModel)]="dummycompanyProfile.cmpnyPhlast" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 pt-2">
+                                <label class="d-flex">Secondary:<i class="fas fa-question-circle"></i> </label>
+                            </div>
+                            <div ngModelGroup="SecondaryPhNo" class="col-9 pt-2">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <input type="number" class="form-control form-control-sm" 
+                                            placeholder=""  name="cmpnyPhCodeSecondary" #cmpnyPhCodeSecondary="ngModel" [(ngModel)]="dummycompanyProfile.cmpnyPhCodeSecondary">
+                                    </div>
+                                    <div class="col-9">
+                                        <input type="number" class="form-control form-control-sm" 
+                                            placeholder=""  name="cmpnyPhCodeLast" #cmpnyPhCodeLast="ngModel" [(ngModel)]="dummycompanyProfile.cmpnyPhCodeLast">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 pt-2">
+                                <label class="d-flex">Website:</label>
+                            </div>
+                            <div class="col-9 pt-2">
+                                <input type="text" class="form-control form-control-sm" 
+                                    placeholder="" name="cmpnyWebsite" #cmpnyWebsite="ngModel" [(ngModel)]="dummycompanyProfile.cmpnyWebsite">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 pt-2">
+                                <label class="d-flex">Fax:<i class="fas fa-question-circle"></i> </label>
+                            </div>
+                            <div class="col-9 pt-2">
+                                <div ngModelGroup="Fax" class="row">
+                                    <div class="col-3">
+                                        <input type="number" class="form-control form-control-sm" 
+                                            placeholder="" name="faxCode" #faxCode="ngModel" [(ngModel)]="dummycompanyProfile.faxCode">
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="number" class="form-control form-control-sm" 
+                                            placeholder="" name="faxPrefix" #faxPrefix="ngModel" [(ngModel)]="dummycompanyProfile.faxPrefix">
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="number" class="form-control form-control-sm" 
+                                            placeholder="" name="faxlast" #faxlast="ngModel" [(ngModel)]="dummycompanyProfile.faxlast">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       <div ngModelGroup="Address">
+                        <div class="row">
+                            <div class="col-3 pt-2">
+                                <label class="d-flex">Address:</label>
+                            </div>
+                            <div class="col-9 pt-2">
+                                <input type="text" class="form-control form-control-sm" 
+                                    placeholder="" name="address" #address="ngModel" [(ngModel)]="dummycompanyProfile.address">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 pt-2">
+                                <label class="d-flex">Country:<span class="required">*</span></label>
+                            </div>
+                            <div class="col-9 pt-2">
+                                <ng-select [items]="countryList"  placeholder="Select" name="country" appendTo="body" #country="ngModel" required [(ngModel)]="dummycompanyProfile.country">
+                                     </ng-select>
+                                     <small  *ngIf="country.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 pt-2">
+                                <label class="d-flex">State:</label>
+                            </div>
+                            <div class="col-9 pt-2">
+                                <ng-select [items]="stateList"  placeholder="Select" name="state" appendTo="body" #state="ngModel" [(ngModel)]="dummycompanyProfile.state">
+                                </ng-select>
+                            </div>
+                        </div>
+                       </div>
+                        <div class="row">
+                            <div class="col-3 pt-2">
+                                <label class="d-flex">Trade License:</label>
+                            </div>
+                            <div class="col-9 pt-2">
+                                <input type="text" class="form-control form-control-sm"   placeholder="" name="tradeLicense" #tradeLicense="ngModel" [(ngModel)]="dummycompanyProfile.tradeLicense">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 pt-2">
+                                <label class="d-flex">ORN:</label>
+                            </div>
+                            <div class="col-9 pt-2">
+                                <input type="text" class="form-control form-control-sm"   placeholder=""  name="ORN" #ORN="ngModel" [(ngModel)]="dummycompanyProfile.ORN">
+                            </div>
+                        </div>                    
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end py-2">           
+                <button type="button" class="btn btn-sm btn-primary mx-2 px-4 "(click)="cmpnyProfile(companyProfile.valid)"><i class="fas fa-check"></i>
+                    Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

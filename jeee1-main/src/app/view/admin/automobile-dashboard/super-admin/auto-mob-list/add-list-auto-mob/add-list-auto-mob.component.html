@@ -1,0 +1,316 @@
+<div class="">
+    <form #addListAutoMob="ngForm" class="container-fluid bg-white py-3">
+        {{addListAutoMob.value | json }}
+        <div class="row">
+            <div class="col-3">
+                <div class="mb-3 class-form">
+                    <label for="exampleFormControlInput1" class="form-label" >Type <span
+                            class="required">*</span></label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" #type="ngModel" name="type" 
+                            value="buy" [(ngModel)]="dummyAddList.type" required>  
+                        <label class="form-check-label " for="inlineRadio1">Buy</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" #type="ngModel" name="type" 
+                            value="Rent" [(ngModel)]="dummyAddList.type">
+                        <label class="form-check-label" for="inlineRadio2" required>Rent</label>
+                    </div><br>
+                    <small class="text-danger" *ngIf="type.invalid && isFormSubmitted">Field Required</small>
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Car Age Type <span
+                            class="required">*</span></label>
+                    <select class="form-select" aria-label="Default select example" name="carAge" [(ngModel)]="dummyAddList.carAge" #carAge="ngModel" required>
+                        <option>----</option>
+                        <option *ngFor="let categorys of categoryList" [value]="categorys">{{categorys}}</option>                        
+                    </select>        
+                    <small  *ngIf="carAge.invalid && isFormSubmitted" class="text-danger">Field is Required</small>           
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Kilometers</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" name="kilometers" [(ngModel)]="dummyAddList.kilometers" #kilometers="ngModel" required>
+                    <small  *ngIf="kilometers.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Warranty <span
+                            class="required">*</span></label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="warranty" 
+                            value="yes" [(ngModel)]="dummyAddList.warranty" #warranty="ngModel" required>
+                        <label class="form-check-label" for="inlineRadio1">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="warranty" 
+                            value="no" [(ngModel)]="dummyAddList.warranty" #warranty="ngModel">
+                        <label class="form-check-label" for="inlineRadio2">No</label>
+                    </div>
+                    <small  *ngIf="warranty.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Title <span class="required">*</span></label>
+                    <input type="text" class="form-control" name="title" [(ngModel)]="dummyAddList.title" id="formGroupExampleInput" placeholder="Title" #title="ngModel" required>
+                    <small  *ngIf="title.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10 ">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Short Description <span
+                            class="required">*</span></label>
+                    <textarea name="shortDesc" [(ngModel)]="dummyAddList.shortDesc" id="" cols="100" rows="5" #shortDesc="ngModel" required></textarea>
+                    <small  *ngIf="shortDesc.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10">
+                <label for="formGroupExampleInput" class="form-label">Long Description <span
+                        class="required">*</span></label>
+                <textarea name="longDesc" [(ngModel)]="dummyAddList.longDesc" id="" cols="100" rows="5" #longDesc="ngModel" required></textarea>
+                <small  *ngIf="longDesc.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Color</label>
+                    <input type="text" class="form-control" name="color" [(ngModel)]="dummyAddList.color" id="formGroupExampleInput" #color="ngModel" required>
+                    <small  *ngIf="color.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Total Price</label>
+                    <input type="text" class="form-control" name="totalprice" [(ngModel)]="dummyAddList.totalprice" id="formGroupExampleInput" #totalprice="ngModel" required>
+                    <small  *ngIf="totalprice.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Steering Side</label>
+                    <input type="text" class="form-control"  name="steeringSide" [(ngModel)]="dummyAddList.steeringSide" id="formGroupExampleInput" #steeringSide="ngModel" required>
+                    <small  *ngIf="steeringSide.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Doors</label>
+                    <input type="text" class="form-control" name="door" [(ngModel)]="dummyAddList.door" id="formGroupExampleInput" #door="ngModel" required>
+                        <small  *ngIf="door.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput"   class="form-label">Body condition
+                    </label>
+                    <input type="text" class="form-control" name="bodycond" [(ngModel)]="dummyAddList.bodycond" id="formGroupExampleInput" #bodycond="ngModel" required >
+                        <small  *ngIf="bodycond.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Mechanical condition</label>
+                    <input type="text" class="form-control" name="machanicalCond" [(ngModel)]="dummyAddList.machanicalCond" id="formGroupExampleInput" #machanicalCond="ngModel" required>
+                    <small  *ngIf="machanicalCond.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Seller type</label>
+                    <input type="text" class="form-control" name="sellerType" [(ngModel)]="dummyAddList.sellerType" id="formGroupExampleInput" #sellerType="ngModel" required>
+                        <small  *ngIf="sellerType.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Body Type</label>
+                    <input type="text" class="form-control" name="bodyType" [(ngModel)]="dummyAddList.bodyType" id="formGroupExampleInput" #bodyType="ngModel" required
+                        >
+                        <small  *ngIf="bodyType.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">No. of Cylinders</label>
+                    <input type="text" class="form-control" name="cylinder" [(ngModel)]="dummyAddList.cylinder" id="formGroupExampleInput" #cylinder="ngModel" required>
+                        <small  *ngIf="cylinder.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Transmission Type</label>
+                    <input type="text" class="form-control" name="transmissionType" [(ngModel)]="dummyAddList.transmissionType" id="formGroupExampleInput" #transmissionType="ngModel" required>
+                        <small  *ngIf="transmissionType.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Regional Specs</label>
+                    <input type="text" class="form-control" name="regionSpecs" [(ngModel)]="dummyAddList.regionSpecs" id="formGroupExampleInput" #regionSpecs="ngModel" required>
+                        <small  *ngIf="regionSpecs.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Horsepower</label>
+                    <input type="text" class="form-control" name="horsepower" [(ngModel)]="dummyAddList.horsepower" id="formGroupExampleInput" #horsepower="ngModel" required>
+                    <small  *ngIf="horsepower.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Fuel Type</label><br>
+                    <textarea name="fuelType" [(ngModel)]="dummyAddList.fuelType" id="" cols="30"  rows="5" #fuelType="ngModel" required></textarea><br>
+                    <small  *ngIf="fuelType.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Extras</label><br>
+                <textarea name="extras" [(ngModel)]="dummyAddList.extras" id="" cols="30" rows="5" #extras="ngModel" required></textarea><br>
+                <small  *ngIf="extras.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Technical Features</label><br>
+                <textarea name="techFeature" [(ngModel)]="dummyAddList.techFeature" id="" cols="30" rows="5" #techFeature="ngModel" required></textarea><br>
+                <small  *ngIf="techFeature.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">year</label>
+                    <input type="text" class="form-control" name="year" [(ngModel)]="dummyAddList.year" id="formGroupExampleInput" #year="ngModel" required>
+                    <small  *ngIf="year.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                </div>
+            </div>
+            
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Phone <span class="required">*</span></label><br>
+                    <input type="text" class="form-control" name="phone" [(ngModel)]="dummyAddList.phone" id="formGroupExampleInput" #phone="ngModel" required>
+                    <small  *ngIf="phone.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Mobile <span class=required
+                        >*</span></label><br>
+                    <input type="text" class="form-control" name="mobile" [(ngModel)]="dummyAddList.mobile" id="formGroupExampleInput"  #mobile="ngModel" required >
+                    <small  *ngIf="mobile.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Country</label>
+                    <input type="text" class="form-control" name="country" [(ngModel)]="dummyAddList.country" id="formGroupExampleInput" placeholder="Example input placeholder"  #country="ngModel" required>
+                    <small  *ngIf="country.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                  </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">City</label>
+                    <input type="text" class="form-control" name="city" [(ngModel)]="dummyAddList.city" id="formGroupExampleInput" placeholder="Example input placeholder" #city="ngModel" required>
+                    <small  *ngIf="city.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                  </div>
+            </div>
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Location</label>
+                    <input type="text" class="form-control" name="location" [(ngModel)]="dummyAddList.location" id="formGroupExampleInput" placeholder="Example input placeholder" #location="ngModel" required>
+                    <small  *ngIf="location.invalid && isFormSubmitted" class="text-danger">Field is Required</small>
+                  </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-end">
+            <button type="button" class="btn btn-primary"  (click)="addAutoMobList(addListAutoMob.valid)">Next</button>
+        </div>
+    </form>
+</div>
+<div class="automobile" style="overflow-x:auto;">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Type </th>
+            <th scope="col">Car Age Type </th>
+            <th scope="col">Kilometers</th>
+            <th scope="col">Warranty</th>
+            <th scope="col">Title</th>
+            <th scope="col">Short Description </th>
+            <th scope="col">Long Description </th>
+            <th scope="col">Color</th>
+            <th scope="col">Total Price</th>
+            <th scope="col">Steering Side </th>
+            <th scope="col">Doors</th>
+            <th scope="col">Body condition</th>
+            <th scope="col">Mechanical condition</th>
+            <th scope="col">Seller type</th>
+            <th scope="col">Body Type</th>
+            <th scope="col">No. of Cylinders</th>
+            <th scope="col">Transmission Type</th>
+            <th scope="col">Regional Specs</th>
+            <th scope="col">Horsepower</th>
+            <th scope="col">Fuel Type</th>
+            <th scope="col">Extras</th>
+            <th scope="col">Technical Features</th>
+            <th scope="col">year</th>
+            <th scope="col">Phone </th>
+            <th scope="col">Mobile</th>
+            <th scope="col">Country</th>
+            <th scope="col">City</th>
+            <th scope="col">Location</th>
+          </tr>
+        </thead>
+        <tbody>
+         <tr *ngFor="let x of addList; let i=index">
+            <th >{{i+1}}</th>
+            <th >{{x.type}}</th>
+            <td >{{x.carAge}}</td>
+            <td>{{x.kilometers}}</td>
+            <td>{{x.warranty}}</td>
+            <td>{{x.title}}</td>
+            <td>{{x.shortDesc}}</td>
+            <td>{{x.longDesc}}</td>
+            <td>{{x.color}}</td>
+            <td>{{x.totalprice}}</td>
+            <td>{{x.steeringSide}}</td>
+            <td>{{x.door}}</td>
+            <td>{{x.bodycond}}</td>
+            <td>{{x.machanicalCond}}</td>
+            <td>{{x.sellerType}}</td>
+            <td>{{x.bodyType}}</td>
+            <td>{{x.cylinder}}</td>
+            <td>{{x.transmissionType}}</td>
+            <td>{{x.regionSpecs}}</td>
+            <td>{{x.horsepower}}</td>
+            <td>{{x.fuelType}}</td>
+            <td>{{x.extras}}</td>
+            <td>{{x.techFeature}}</td>
+            <td>{{x.year}}</td>
+            <td>{{x.phone}}</td>
+            <td>{{x.mobile}}</td>
+            <td>{{x.country}}</td>
+            <td>{{x.city}}</td>
+            <td>{{x.location}}</td>            
+          </tr>
+        </tbody>
+      </table>
+</div>

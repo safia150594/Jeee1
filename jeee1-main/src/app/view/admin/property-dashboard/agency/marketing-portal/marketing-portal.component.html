@@ -1,0 +1,127 @@
+<div class="p-5">
+    <div class="marketing-portal">
+        <div class="" (click)="toggleAddListMarketingPortal()">
+            <a class="link-dark"> <i class="fas fa-sort-down"></i><u> Advance Search</u></a>
+        </div>
+        <div *ngIf="isShowAddListMarketingPortal">
+           <form #portals="ngForm">
+               {{portals.value | json }}
+            <div class="pt-5">
+                <h5>SEARCH PORTALS</h5>
+                <hr>
+            </div>
+            <div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-2">
+                                <p>Portals:</p>
+                            </div>
+                            <div class="col-9">
+                                <ng-select [items]="portalsList" name="Portals" placeholder="Select"
+                                        appendTo="body" #Portals="ngModel" required
+                                        [(ngModel)]="marketingPortal.Portals">
+                                    </ng-select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 pt-2">
+                                <label class="d-flex">Status:</label>
+                            </div>
+                            <div class="col-10 pt-2">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="status"  value="No" #status="ngModel" required
+                                    [(ngModel)]="marketingPortal.status">
+                                    <label class="form-check-label" for="inlineRadio1">No</label>
+                                  </div>
+                                  <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="status"  value="Yes" #status="ngModel" required
+                                    [(ngModel)]="marketingPortal.status">
+                                    <label class="form-check-label" for="inlineRadio2">Yes</label>
+                                  </div>                              
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-2">
+                                <p>Template:</p>
+                            </div>
+                            <div class="col-9">
+                                <ng-select [items]="TemplateList" name="Template" placeholder="Select"
+                                        appendTo="body" #Template="ngModel" required
+                                        [(ngModel)]="marketingPortal.Template">
+                                    </ng-select>
+                                   
+                            </div>
+                        </div>
+                       <div class="row">
+                           <div class="col-12 my-3">
+                            <div class="d-flex justify-content-end ">
+                                <button type="button" class="btn btn-sm btn-outline-primary mx-2 px-4" (click)=reset()>Reset</button>
+                                <button type="button" class="btn btn-sm btn-primary me-5 px-4">Search</button>
+                            </div>
+                           </div>
+                       </div>
+                    </div>
+                </div>
+            </div> 
+           </form>          
+        </div>
+        <div class="py-5">
+            <div>
+                <h5>LISTINGS BREAKDOWN PORTAL-WISE</h5>
+                <hr>
+            </div>
+            <div class="breakdown-portal">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" >
+                                </div>
+                            </th>
+                            <th scope="col">PORTALS</th>
+                            <th scope="col">LISTINGS(RENT)N</th>
+                            <th scope="col">LISTINGS(SALE) </th>
+                            <th scope="col">LAST XML FEED RUN</th>                      
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let BrokedownPortalWise of listingBrokedownPortalWise">
+                            <th scope="row">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" >
+                                </div>
+                            </th>
+                            <td>
+                               {{BrokedownPortalWise.portal}}
+                            </td>
+                            <td>
+                                {{BrokedownPortalWise.listingRent}}
+                            </td>
+                            <td>
+                                {{BrokedownPortalWise.listingSale}}
+                            </td>
+                            <td>
+                                {{BrokedownPortalWise.lastXMLFeed}}
+                            </td>                      
+                         </tr>                                         
+                    </tbody>
+                </table>  
+                <div class="d-flex justify-content-center">
+                    <nav aria-label="...">
+                        <ul class="pagination pagination-sm">
+                          <li class="page-item active" aria-current="page">
+                            <span class="page-link">1</span>
+                          </li>
+                          <li class="page-item"><a class="page-link" href="#">of</a></li>
+                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        </ul>
+                      </nav>
+                </div>  
+            </div>
+        </div>
+    </div>
+</div>

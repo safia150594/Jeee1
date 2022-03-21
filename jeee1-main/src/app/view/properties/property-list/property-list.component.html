@@ -1,0 +1,217 @@
+<div class="container-fluid ">
+    <div class="row py-4">
+        <div class="col ">
+            <div class="propertycontent">
+                <div class="propertybanner">
+                    <div class="primary-tab">
+                        <div>
+                            <div class="tab-content primarytab" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-sale" role="tabpanel"
+                                    aria-labelledby="pills-home-tab">
+                                    <nav class="primary-sub-tab">
+                                        <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+                                            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
+                                                data-bs-target="#nav-home" type="button" role="tab"
+                                                aria-controls="nav-home" aria-selected="true">Residential for
+                                                Sale</button>
+                                            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
+                                                data-bs-target="#nav-profile" type="button" role="tab"
+                                                aria-controls="nav-profile" aria-selected="false">Commercial for
+                                                Sale</button>
+                                            <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
+                                                data-bs-target="#nav-contact" type="button" role="tab"
+                                                aria-controls="nav-contact" aria-selected="false">Land for Sale</button>
+                                            <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
+                                                data-bs-target="#nav-contact" type="button" role="tab"
+                                                aria-controls="nav-contact" aria-selected="false">Multiple Units for
+                                                Sale</button>
+                                        </div>
+                                    </nav>
+                                    <div class="sub-tab">
+                                        <div class="tab-content" id="nav-tabContent">
+                                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                                                aria-labelledby="nav-home-tab">
+                                                <app-sale-residential-for-sale></app-sale-residential-for-sale>
+                                            </div>
+                                            <div class="tab-pane fade" id="nav-profile" role="tabpanel"
+                                                aria-labelledby="nav-profile-tab">
+                                                <app-sale-commercial-for-sale></app-sale-commercial-for-sale>
+                                            </div>
+                                            <div class="tab-pane fade" id="nav-contact" role="tabpanel"
+                                                aria-labelledby="nav-contact-tab">
+                                                <app-sale-land-for-sale></app-sale-land-for-sale>
+                                            </div>
+                                            <div class="tab-pane fade" id="nav-contact" role="tabpanel"
+                                                aria-labelledby="nav-contact-tab">
+                                                <app-sale-multiple-units-for-sale></app-sale-multiple-units-for-sale>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="pills-rent" role="tabpanel"
+                                    aria-labelledby="pills-rent-tab">
+                                    <nav class="primary-sub-tab">
+                                        <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+                                            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
+                                                data-bs-target="#nav-home" type="button" role="tab"
+                                                aria-controls="nav-home" aria-selected="true">Residential Units for
+                                                Rent</button>
+                                            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
+                                                data-bs-target="#nav-profile" type="button" role="tab"
+                                                aria-controls="nav-profile" aria-selected="false">Commercial for
+                                                Rent</button>
+                                            <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
+                                                data-bs-target="#nav-contact" type="button" role="tab"
+                                                aria-controls="nav-contact" aria-selected="false">Rooms for rent
+                                                (flatmates)</button>
+                                            <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
+                                                data-bs-target="#nav-contact" type="button" role="tab"
+                                                aria-controls="nav-contact" aria-selected="false">Short Term
+                                                (Monthly)</button>
+                                            <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
+                                                data-bs-target="#nav-contact" type="button" role="tab"
+                                                aria-controls="nav-contact" aria-selected="false">Short Term
+                                                (Daily)</button>
+                                        </div>
+                                    </nav>
+                                    <div class="sub-tab">
+                                        <div class="tab-content" id="nav-tabContent">
+                                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                                                aria-labelledby="nav-home-tab">
+                                                <app-rent-residential-unit-for-sale>
+                                                </app-rent-residential-unit-for-sale>
+                                            </div>
+                                            <div class="tab-pane fade" id="nav-profile" role="tabpanel"
+                                                aria-labelledby="nav-profile-tab">
+                                                <app-rent-commercial-for-rent></app-rent-commercial-for-rent>
+                                            </div>
+                                            <div class="tab-pane fade" id="nav-contact" role="tabpanel"
+                                                aria-labelledby="nav-contact-tab">
+                                                <app-rent-rooms-for-rent></app-rent-rooms-for-rent>
+                                            </div>
+                                            <div class="tab-pane fade" id="nav-contact" role="tabpanel"
+                                                aria-labelledby="nav-contact-tab">
+                                                <app-rent-short-terms-monthly></app-rent-short-terms-monthly>
+                                            </div>
+                                            <div class="tab-pane fade" id="nav-contact" role="tabpanel"
+                                                aria-labelledby="nav-contact-tab">
+                                                <app-rent-short-term-daily></app-rent-short-term-daily>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" *ngFor="let title of propertytype ">
+        <div class="py-5 ">
+            <h3>{{title.title}}</h3>
+        </div>
+    </div>
+    <div class="container">
+        <p>UAE</p>
+        <div class="UAE">
+            <div class="row gy-3">
+                <div class="col-4" *ngFor="let ava of AvailableCityList">
+                    <a class="fs-6">{{ava.city}} &nbsp;</a>
+                    <span>({{ava.list}})</span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="row">
+                <div class="col-10 ">
+                    <div class="row gx-3 py-4">
+                        <div class="col-4">
+                            <a>
+                                <div class="featured-img" *ngFor="let propertyListType of propertyList;">
+                                    <carousel [isAnimated]="true">
+                                        <slide *ngFor="let propertyListType of propertyListSlide;">
+                                            <div class="position-relative">
+                                                <img [src]="propertyListType.slideImg" alt="first slide"
+                                                    style="display: block; width: 100%;"
+                                                    [routerLink]="['../property-list-view']">
+                                                <div class="feature-slide-icon">
+                                                    <i class="far fa-heart"></i>
+                                                </div>
+                                            </div>
+                                        </slide>
+                                    </carousel>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-8" *ngFor="let propertyListType of propertyList;">
+                            <div class="property-list-feature py-1">
+                                <a class="featued-header">{{propertyListType.propDesc}}</a>
+                                <a class="btn btn-dark featured" href="#" role="button">{{propertyListType.Feature}}</a>
+                            </div>
+                            <div class="fs-4"><span class="h6">AED</span> {{propertyListType.amount}}</div>
+                            <p class="fs-6 "> {{propertyListType.time}}</p>
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="featured-icon">
+                                        <span><i class="fas fa-bed"></i> {{propertyListType.bed}}bed</span>
+                                        <span><i class="fas fa-bath"></i> {{propertyListType.bath}} Bath</span>
+                                        <span><i class="fas fa-table"></i> {{propertyListType.sqFt}} SqFt</span>
+                                    </div>
+                                    <div class="py-2">
+                                        <i class="fas fa-map-marker-alt">{{propertyListType.Place}}</i>
+                                    </div>
+                                    <div class="featured-btn">
+                                        <button type="button" class="btn btn-outline-primary"
+                                            (click)="openMailModalWithComponent()"><i class="far fa-envelope "></i>
+                                            &nbsp;&nbsp;Email</button>
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#call"><i class="fas fa-phone-alt"></i> &nbsp;Call</button>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <img [src]="propertyListType.logo" class="img.objetfitimg" width="100px"
+                                        height="100px">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                </div>
+            </div>
+            <div>
+                <!-- Modal -->
+                <div class="modal fade" id="call" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content " *ngFor="let p of propertyList">
+                            <div class="modal-header">
+                                <div class="d-flex align-items-center" >
+                                    <div>
+                                        <img [src]="p.logo" width="100px" height="100px">
+                                    </div>
+                                    <div class="px-3">
+                                        <h5>{{p.company}}</h5>
+                                    </div>
+                                </div>
+
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div> 
+                                    <h5 class="text-center">{{p.remainder}}<br>
+                                    {{p.own}}</h5>
+                                    <div class="text-center">
+                                        <button type="button" class="btn btn-lg py-2 px-5 btn-outline-primary">{{p.phno}}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

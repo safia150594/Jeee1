@@ -1,0 +1,333 @@
+<form #rentRoomForRent="ngForm" class="sub-tab">
+  {{rentRoomForRent.value | json }}
+  <div class="px-4 py-3 paddingsubtab">
+      <div class="row w-100">
+        <div class="col-5">
+          <div class="row">
+            <div class="col-6 p-0 m-0">
+              <div class="tab-label">
+                <label>City</label>
+                <div class="dubai">
+                  <ng-select [items]="cityList" name="city" appendTo="body" #city="ngModel" required
+                  [(ngModel)]="rentRoomsForRent.city" placeholder="All City">
+                </ng-select>    
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="tab-label">
+                <label class="text-white text-start">Location</label>
+                <div class="input-group">
+                  <input type="text" name="Location" #Location="ngModel" required [(ngModel)]="rentRoomsForRent.Location" class="form-control" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="tab-label">
+            <label class="text-white text-start">Property Type</label>
+            <ng-select [items]="rentRoomList" name="propertyType" #propertyType="ngModel" required
+            [(ngModel)]="rentRoomsForRent.propertyType" placeholder="All Type">
+          </ng-select>
+          </div>
+        </div>
+        <div ngModelGroup="commercialPriceRange" class="col-2">
+          <div class="tab-label">
+            <label class="text-white text-start">Price Range</label>
+          </div>
+          <div class="price-range">
+            <nav class="
+                navbar navbar-expand-lg navbar-dark
+                p-0
+              ">
+              <div class="container-fluid p-0">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown"
+                  aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                  <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                      <a class="
+                          nav-link
+                          text-darkdropdown-toggle
+                        "  id="navbarDarkDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Any
+                        <i class="fas fa-caret-down"></i>
+                      </a>
+                      <ul class="
+                          dropdown-menu
+                          dropdown-menu-light
+                        " aria-labelledby="navbarDarkDropdownMenuLink">
+                        <li>
+                          <a class="dropdown-item">
+                            <span>
+                              <div class="row">
+                                <div class="col">
+                                  <label>min</label>
+                                  <div >
+                                    <input type="number" id="quantity" min="1"
+                                      max="5" name="mincommercialprice" #mincommercialprice="ngModel" required
+                                      [(ngModel)]="rentRoomsForRent.mincommercialprice"  /> &nbsp; &nbsp;<label>-</label>
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <label>max</label>
+                                  <div >
+                                    <input type="number" id="quantity" name="quantity" min="1"
+                                      max="5" name="maxcommercialprice" #maxcommercialprice="ngModel" required
+                                      [(ngModel)]="rentRoomsForRent.maxcommercialprice"  />
+                                  </div>
+                                </div>
+                              </div>
+                            </span>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="tab-label">
+            <label class="text-white text-start"></label>
+          </div>
+          <div class="more">
+            <nav class="
+                navbar navbar-expand-lg navbar-dark
+                p-0
+              ">
+              <div class="container-fluid p-0">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown"
+                  aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                  <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                      <a class="
+                          nav-link
+                          text-darkdropdown-toggle
+                        " href="#" id="navbarDarkDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        More
+                        <i class="fas fa-caret-down"></i>
+                      </a>
+                      <ul id="more-scroll" class="
+                          dropdown-menu
+                          dropdown-menu-light
+                          p-4
+                        " aria-labelledby="navbarDarkDropdownMenuLink">
+                        <li>
+                          <a class="dropdown-item">
+                            <span>Amenities</span><br />
+                            <div class="row">
+                              <div class="col-6">
+                                <div >
+                                  <input type="checkbox" 
+                                      value="Washer" name="Washer"  #Washer="ngModel"
+                                    required [(ngModel)]="rentRoomsForRent.Washer" />&nbsp;
+                                  <label for="conference-room">
+                                    Washer</label><br />
+                                  <input type="checkbox" 
+                                    name="CableTV" #CableTV="ngModel" [(ngModel)]="rentRoomsForRent.CableTV" value="available-fuenished" />
+                                  <label for="CableTV">
+                                   Cable TV</label><br />
+                                  <input type="checkbox"  name="gym"  #gym="ngModel"
+                                  required [(ngModel)]="rentRoomsForRent.gym"
+                                    value="gym"  />
+                                  <label for="gym"> Gym</label><br />
+                                  <input type="checkbox" 
+                                  name="Sauna"  #Sauna="ngModel"
+                                  required [(ngModel)]="rentRoomsForRent.Sauna" value="Sauna" />
+                                  <label for="Sauna">
+                                    Sauna</label><br />
+                                  <input type="checkbox"  name="freeParking"  #freeParking="ngModel"
+                                  required [(ngModel)]="rentRoomsForRent.freeParking" 
+                                    value="freeParking" />
+                                  <label for="freeParking">
+                                   Free Parking</label><br />
+                                  <input type="checkbox" id="view-of-water" name="CleaningIncluded"  #CleaningIncluded="ngModel"
+                                  required [(ngModel)]="rentRoomsForRent.CleaningIncluded" 
+                                    value="CleaningIncluded" />
+                                  <label for="view-of-water">
+                                   Cleaning Included</label><br />
+                                </div>
+                              </div>
+                              <div class="col-6">
+                                <div >
+                                  <input type="checkbox" 
+                                     value="nearMetro"  name="nearMetro"  #nearMetro="ngModel"
+                                    required [(ngModel)]="rentRoomsForRent.nearMetro"/>&nbsp;
+                                  <label for="covered-parking">Near Metro or Tram</label><br />
+                                  <input type="checkbox" name="Dryer"  #Dryer="ngModel"
+                                  required [(ngModel)]="rentRoomsForRent.Dryer" value="Dryer" />
+                                  <label for="available-networked">
+                                    Dryer</label><br />
+                                  <input type="checkbox" name="WirelessInternet"
+                                    value="shared-spa"  #WirelessInternet="ngModel"
+                                    required [(ngModel)]="rentRoomsForRent.WirelessInternet" />
+                                  <label for="shared-spa">Wireless Internet </label><br />
+                                  <input type="checkbox" name="Jacuzzi" value="retail-in-building"
+                                    #Jacuzzi="ngModel"
+                                    required [(ngModel)]="rentRoomsForRent.Jacuzzi" />
+                                  <label for="retail-in-building">
+                                   Jacuzzi</label><br />
+                                  <input type="checkbox"  name="SwimmingPool" value="retail-in-building"
+                                  #SwimmingPool="ngModel"
+                                  required [(ngModel)]="rentRoomsForRent.SwimmingPool"
+                                    value="shared-spa" />
+                                  <label for="shared-spa">
+                                   Swimming Pool</label><br />
+                                  <input type="checkbox"  name="RecreationCenter" value="retail-in-building"
+                                  #RecreationCenter="ngModel"
+                                  required [(ngModel)]="rentRoomsForRent.RecreationCenter"
+                                    value="shared-spa" />
+                                  <label for="shared-spa">
+                                   Recreation Center</label><br />
+                                </div>
+                              </div>
+                            </div>
+                          </a>
+                        </li>
+                        <li>
+                          <div>Keyword Search</div>
+                          <div class="search-bar">
+                            <input class="form-control me-2" type="search"
+                              placeholder="Eg:Pool,Security,Ref ID Number"
+                              aria-label="Search"  name="keywordSearch" #keywordSearch="ngModel" [(ngModel)]="rentRoomsForRent.keywordSearch"/>
+                          </div>
+                          <br />
+                        </li>
+                        <li>
+                          <div>Room type</div>
+                          <a class="dropdown-item" href="#">
+                            <div class="row">
+                              <div class="col-6">
+                                <div >
+                                  <input type="checkbox" id="agent"name="PrivateRoom"
+                                  value="PrivateRoom" #PrivateRoom="ngModel" [(ngModel)]="rentRoomsForRent.PrivateRoom" />&nbsp;
+                                  <label for="agent">Private Room</label><br />
+                                  <input type="checkbox" name="RoomWithPartition"
+                                  value="RoomWithPartition" #RoomWithPartition="ngModel" [(ngModel)]="rentRoomsForRent.RoomWithPartition" />
+                                  <label for="RoomWithPartition">Room With Partition</label><br />
+                                </div>
+                              </div>
+                              <div class="col-6">
+                                <div >
+                                  <input type="checkbox"  name="BedSpace"
+                                  value="BedSpace" #BedSpace="ngModel"  [(ngModel)]="rentRoomsForRent.BedSpace" />&nbsp;
+                                  <label for="BedSpace">Bed Space</label><br />
+                                </div>
+                              </div>
+                            </div>
+                          </a><br />
+                        </li>
+                        <li>
+                          <div>Room Features</div>
+                          <a class="dropdown-item" href="#">
+                            <div class="row">
+                              <div class="col-6">
+                                <div >
+                                  <input type="checkbox" id="AttachedBathroom"name="AttachedBathroom"
+                                  value="AttachedBathroom" #AttachedBathroom="ngModel" [(ngModel)]="rentRoomsForRent.AttachedBathroom" />&nbsp;
+                                  <label for="agent">Attached Bathroom</label><br />                                  
+                                </div>
+                              </div>
+                              <div class="col-6">
+                                <div >
+                                  <input type="checkbox" id="Balcony" name="Balcony"
+                                  value="Balcony" #Balcony="ngModel" [(ngModel)]="rentRoomsForRent.Balcony" />
+                                  <label for="landlord">Balcony</label><br />
+                                </div>
+                              </div>
+                            </div>
+                          </a><br />
+                        </li>   
+                        <li>
+                          <div>Tenants allowed</div>
+                          <a class="dropdown-item" href="#">
+                            <div class="row">
+                              <div class="col-6">
+                                <div >
+                                  <input type="checkbox" id="Dontmind"name="Dontmind"
+                                  value="Dontmind" #Dontmind="ngModel" [(ngModel)]="rentRoomsForRent.Dontmind" />&nbsp;
+                                  <label for="Dontmind">Dont mind</label><br />
+                                  <input type="checkbox" id="Females" name="Females"
+                                  value="Females" #Females="ngModel" [(ngModel)]="rentRoomsForRent.Females" />
+                                  <label for="Females">Females</label><br />
+                                  <input type="checkbox" id="Males" name="Males"
+                                  value="Males" #Males="ngModel" [(ngModel)]="rentRoomsForRent.Males" />
+                                  <label for="Males">Males</label><br />
+                                </div>
+                              </div>
+                              <div class="col-6">
+                                <div >
+                                  <input type="checkbox"  name="Family"
+                                  value="Family" #Family="ngModel"  [(ngModel)]="rentRoomsForRent.Family" />&nbsp;
+                                  <label for="Family">Family</label><br />
+                                  <input type="checkbox"  name="Couples"
+                                  value="Couples" #Couples="ngModel"  [(ngModel)]="rentRoomsForRent.Couples" />&nbsp;
+                                  <label for="Couples">Couples</label><br />
+                                </div>
+                              </div>
+                            </div>
+                          </a><br />
+                        </li>   
+                        <li>
+                          <div>Ads with video only</div>
+                          <a class="dropdown-item">
+                            <div >
+                              <input type="checkbox" id="ads-with-video-only"
+                                name="adswithvideoonly" #adswithvideoonly="ngModel" [(ngModel)]="rentRoomsForRent.adswithvideoonly" value="ads-with-video-only" />&nbsp;
+                              <label for="ads-with-video-only">Ads with video
+                                only</label><br />
+                            </div>
+                          </a><br />
+                        </li>
+                        <li>
+                          <div>
+                            Ads with 360 tour only
+                          </div>
+                          <a class="dropdown-item">
+                            <div >
+                              <input type="checkbox" id="ads-with-tour-only"
+                                value="ads-with-tour-only"  name="adswithtouronly" #adswithtouronly="ngModel" [(ngModel)]="rentRoomsForRent.adswithtouronly"/>&nbsp;
+                              <label for="ads-with-tour-only">Ads with 360 tour
+                                only</label><br />
+                            </div>
+                          </a><br />
+                        </li>
+                        <li>
+                          <a class="dropdown-item">
+                            <button type="button" class="btn btn-primary">
+                              Search
+                            </button> </a><br />
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+        <div class="col-1">
+          <div class="tab-label">
+            <label class="text-white text-start"></label>
+            <button type="submit" class="btn btn-primary">
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </form>

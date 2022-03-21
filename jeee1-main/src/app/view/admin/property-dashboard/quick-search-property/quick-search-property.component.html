@@ -1,0 +1,27 @@
+<div>
+    {{ quickSearch.value | json }}
+    <form #quickSearch="ngForm" class="row">
+       
+        <div class="col-2 px-0 form-group">
+            <!-- <select class="form-select py-3" name="catogerySelect" #catogerySelect="ngModel" [(ngModel)]="quickSearch.catogerySelect"  placeholder="Category" required>
+                <option value="" selected default>Please select</option>
+                <option *ngFor="let catogeryList of catogery" >{{catogeryList}}</option>
+            </select>    -->
+            <div class="form-floating quicksearch">
+                <ng-select id="floatingInput" aria-label="Floating label select example" [items]="catogery" name="catogerySelect" appendTo="body"
+                #catogerySelect="ngModel" required [(ngModel)]="quickSearch.catogerySelect" placeholder="Categoty">  
+                </ng-select>
+                <label for="floatingInput"></label>
+              </div>
+         </div>
+        <div class="col-8 px-0">
+            <label for="floatingInput" class="visually-hidden "><i class="fas fa-search"></i>Search</label>
+            <input type="text" class="form-control p-2" id="searchInput"
+                placeholder="Search by title and Ref ID's" name="searchInput" #searchInput="ngModel" [(ngModel)]="quickSearch.searchInput" >
+                
+        </div>
+        <div class="col-1 px-0">
+            <button type="submit" class="btn btn-primary mb-3 px-5 p-2">Search</button>
+        </div>
+    </form>    
+</div>

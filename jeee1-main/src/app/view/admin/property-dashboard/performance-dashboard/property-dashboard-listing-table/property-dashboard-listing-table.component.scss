@@ -1,0 +1,9 @@
+::ng-deep .pageStyle .page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color:var(--silver);
+    border-color: var(--silver);
+}
+::ng-deep .pageStyle .page-link {
+    color:var(--black);
+}

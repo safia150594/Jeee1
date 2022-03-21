@@ -1,0 +1,26 @@
+<div class="modal-header">
+    <div>
+        <small class="modal-title pull-left"><i class="fas fa-link"></i> LISTING FEATURES
+        </small><br>
+        <small>Amenities marked with are synced to Dubizzle</small>
+    </div>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+<div class="modal-body ">
+    <form method="get" action="">
+        <!-- <div class="container-fluid ">
+<img *ngFor='let url of urls' [src]="url" height="100px">
+<input type="file" (change)="onselect($event)" multiple>
+       </div> -->
+        <div>
+            <p>Please Select a listing type to select features.</p>
+        </div>
+    </form>
+
+</div>
+<div class="modal-footer d-flex">
+    <button type="button" class="btn btn-primary">RESET</button>
+    <button type="button" class="btn btn-primary">DONE</button>
+</div>
